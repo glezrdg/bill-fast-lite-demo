@@ -3,10 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MainMockupComponent } from './main-mockup/main-mockup.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MainMockupComponent
   ],
   imports: [
     BrowserModule,
