@@ -1,0 +1,18 @@
+.sidebar{
+    transition: ease-in-out 300ms;
+    padding-left: 10px;
+    &.active{
+      width: 120%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      place-items: start;
+    }
+    .NavItems{
+      &.active{
+        display: grid;
+        font-size: small;
+  
+      }
+    }
+  }
+  

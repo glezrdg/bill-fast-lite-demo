@@ -1,0 +1,28 @@
+<div class="m-5 my-5 p-2 px-4 bg-[#fff] shadow-md shadow-[#0EA5E9]/30 rounded-lg">
+    asdasd
+    <table class="w-full my-3" style="text-align:justify;">
+        <thead>
+            <tr class="text-xs">
+                <th>Nombre / Razón social</th>
+                <th>Número de Documento</th>
+                <th>Balance actual</th>
+                <th>Suscripciones</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>     
+        
+        <tbody>
+            <td colspan="5"><div class="bg-[#0EA5E9] w-full h-0.5 rounded-full my-2"></div></td>
+            <tr class="text-xs" *ngFor="let user of users | paginate:{itemsPerPage: 6, currentPage: p, totalItems: total}">
+               
+                <td class="py-1">{{user.id }}</td>
+                <td class="py-1">{{ user.first_name }}</td>
+                <td class="py-1">{{ user.last_name }}</td>
+                <td class="py-1">{{ user.email }}</td>
+                <td class="py-1"><i class="fa-solid fa-ellipsis-vertical hover:scale-105 ease-in-out duration-300 cursor-pointer"></i></td>
+            </tr>
+
+        </tbody>
+    </table>
+    <pagination-controls class="text-xs" (pageChange)="pageChangeEvent($event)"></pagination-controls>
+</div>
