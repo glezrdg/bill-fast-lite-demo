@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule} from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +15,10 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { NgxPaginationModule } from 'ngx-pagination';
 import {HttpClientModule} from '@angular/common/http';
 import { ClientTableComponent } from './components/client-table/client-table.component';
-
+import { AddClientPageComponent } from './pages/add-client-page/add-client-page.component';
+import {ProductPageComponent} from './pages/product-page/product-page.component'
+import { ProductTableComponent } from './components/product-table/product-table.component';
+import { AddProductPageComponent } from './pages/add-product-page/add-product-page.component';
 
 
 
@@ -30,14 +34,19 @@ import { ClientTableComponent } from './components/client-table/client-table.com
     ClientPageComponent,
     SideNavComponent,
     SearchBarComponent,
-    ClientTableComponent
+    ClientTableComponent,
+    AddClientPageComponent,
+    ProductPageComponent,
+    ProductTableComponent,
+    AddProductPageComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgxPaginationModule,
-
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
