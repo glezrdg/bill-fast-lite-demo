@@ -6,6 +6,8 @@ import { ClientPageComponent } from './pages/client-page/client-page.component';
 import { ProductPageComponent } from './pages/product-page/product-page.component';
 import { AddClientPageComponent } from './pages/add-client-page/add-client-page.component';
 import { AddProductPageComponent } from './pages/add-product-page/add-product-page.component';
+import { BillPageComponent } from './pages/bill-page/bill-page.component';
+import { AddBillPageComponent } from './pages/add-bill-page/add-bill-page.component';
 
 
 const routes: Routes = [
@@ -30,6 +32,10 @@ const routes: Routes = [
     component: ProductPageComponent
   },
   {
+    path: 'bill-page',
+    component: BillPageComponent
+  },
+  {
     path: 'add-client-page',
     component: AddClientPageComponent
   },
@@ -37,6 +43,11 @@ const routes: Routes = [
     path: 'add-product-page',
     component: AddProductPageComponent
   },
+  {
+    path: 'add-bill-page',
+    component: AddBillPageComponent
+  },
+ 
 
 
 ]

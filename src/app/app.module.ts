@@ -19,6 +19,9 @@ import { AddClientPageComponent } from './pages/add-client-page/add-client-page.
 import {ProductPageComponent} from './pages/product-page/product-page.component'
 import { ProductTableComponent } from './components/product-table/product-table.component';
 import { AddProductPageComponent } from './pages/add-product-page/add-product-page.component';
+import { BillPageComponent } from './pages/bill-page/bill-page.component';
+import { AddBillPageComponent } from './pages/add-bill-page/add-bill-page.component';
+import { BillTableComponent } from './components/bill-table/bill-table.component';
 
 
 
@@ -38,7 +41,10 @@ import { AddProductPageComponent } from './pages/add-product-page/add-product-pa
     AddClientPageComponent,
     ProductPageComponent,
     ProductTableComponent,
-    AddProductPageComponent
+    AddProductPageComponent,
+    BillPageComponent,
+    AddBillPageComponent,
+    BillTableComponent
     
   ],
   imports: [

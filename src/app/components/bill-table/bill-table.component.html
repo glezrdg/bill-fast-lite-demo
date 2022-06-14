@@ -1,0 +1,29 @@
+<div class="m-5 my-5 p-2 px-4 bg-[#fff] shadow-md shadow-[#0EA5E9]/30 rounded-lg">
+    Datos de las facturas
+    <table class="w-full my-3" style="text-align:justify;">
+        <thead>
+            <tr class="text-xs">
+                <th>ID Fcatura</th>
+                <th>Cliente</th>
+                <th>Fecha</th>
+                <th>Total</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>     
+        
+        <tbody>
+            <td colspan="5"><div class="bg-[#0EA5E9] w-full h-0.5 rounded-full my-2"></div></td>
+            <tr class="text-xs">
+               
+                <td class="py-1">{{idFactura}}</td>
+                <td class="py-1">{{cliente}}</td>
+                <td class="py-1">{{fecha}}</td>
+                <td class="py-1">{{total}}</td>
+                <td class="py-1">{{estado}}</td>
+                <td class="py-1"><i class="fa-solid fa-ellipsis-vertical hover:scale-105 ease-in-out duration-300 cursor-pointer"></i></td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

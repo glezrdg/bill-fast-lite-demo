@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./client-page.component.scss']
 })
 export class ClientPageComponent implements OnInit {
-
+  ruta: string = 'add-client-page';
   constructor() { }
 
   ngOnInit(): void {
