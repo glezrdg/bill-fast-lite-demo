@@ -9,10 +9,10 @@ export class AddClientPageComponent implements OnInit {
 
   nombreORazonSocial: string = '';
   tipoDeDocumento: string = '';
-  numeroDeDocumento: number = 0;
+  numeroDeDocumento?: number;
   correoClientes: string = '';
-  telefono: number = 0;
-  celular: number = 0;
+  telefono?: number;
+  celular?: number;
   direccion: string = '';
   comentarios: string = '';
   

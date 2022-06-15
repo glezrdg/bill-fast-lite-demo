@@ -6,23 +6,31 @@
         </button>
   
       </li>
+      <a routerLink="">
       <li class="flex flex-col items-center rounded-md shadow-sm w-14 p-4 hover:scale-105 ease-in-out duration-300">
-       <a routerLink=""><i class="fa-solid fa-users"></i></a> 
+       <i class="fa-solid fa-users"></i>    
       </li>
+      </a>
+      <a routerLink="../product-page">
       <li class="flex flex-col items-center rounded-md shadow-sm w-14 p-4 hover:scale-105 ease-in-out duration-300">
-        <a routerLink="../product-page"><i class="fa-solid fa-box-open"></i></a>
+        <i class="fa-solid fa-box-open"></i>
       </li>
+      </a>
+      <a routerLink="../bill-page">
       <li class="flex flex-col items-center rounded-md shadow-sm w-14 p-4 hover:scale-105 ease-in-out duration-300">
-        <a routerLink="../bill-page"><i class="fa-solid fa-file-invoice-dollar"></i></a>
-  
+        <i class="fa-solid fa-file-invoice-dollar"></i>
       </li>
+      </a>
+    <a routerLink="../more-opt-page">
       <li class="flex flex-col items-center rounded-md shadow-sm w-14 p-4 hover:scale-105 ease-in-out duration-300">
         <i class="fa-solid fa-ellipsis"></i>
-  
       </li>
+    </a>
+    <a routerLink="../setting-page">
       <li class="flex flex-col items-center rounded-md shadow-sm w-14 p-4 hover:scale-105 ease-in-out duration-300">
         <i class="fa-solid fa-gear"></i>
       </li>
+    </a>
     </ul>
   
     <ul class="grid grid-rows-6 hidden p-2 gap-5 place-items-start text-xl NavItems"  [class.active]="showNavItems">

@@ -9,16 +9,16 @@ export class AddProductPageComponent implements OnInit {
 
   nombreORazonSocial: string = '';
   tipoDeDocumento: string = '';
-  idDelProducto: number = 0;
-  precioDeVenta: number = 0;
-  precioDeCompra: number = 0;
-  Ganancia: number = 0;
+  idDelProducto?: number;
+  precioDeVenta?: number;
+  precioDeCompra?: number;
+  Ganancia?: number;
   DescripcionDelProducto: string = '';
   nombreDelProveedor: string = '';
-  numeroDeDocumento: number = 0;
+  numeroDeDocumento?: number;
   correoClientes: string = '';
-  telefono: number = 0;
-  celular: number = 0;
+  telefono?: number;
+  celular?: number;
   direccion: string = '';
   comentarios: string = '';
   constructor() { }

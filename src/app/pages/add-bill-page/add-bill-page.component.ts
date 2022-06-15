@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-bill-page.component.scss']
 })
 export class AddBillPageComponent implements OnInit {
+  cant: number = 0;
   constructor() { }
 
   ngOnInit(): void {

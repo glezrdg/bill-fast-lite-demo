@@ -8,6 +8,8 @@ import { AddClientPageComponent } from './pages/add-client-page/add-client-page.
 import { AddProductPageComponent } from './pages/add-product-page/add-product-page.component';
 import { BillPageComponent } from './pages/bill-page/bill-page.component';
 import { AddBillPageComponent } from './pages/add-bill-page/add-bill-page.component';
+import { SettingPageComponent } from './pages/setting-page/setting-page.component';
+import { MoreOptPageComponent } from './pages/more-opt-page/more-opt-page.component';
 
 
 const routes: Routes = [
@@ -34,6 +36,14 @@ const routes: Routes = [
   {
     path: 'bill-page',
     component: BillPageComponent
+  },
+  {
+    path: 'more-opt-page',
+    component: MoreOptPageComponent
+  },
+  {
+    path: 'setting-page',
+    component: SettingPageComponent
   },
   {
     path: 'add-client-page',

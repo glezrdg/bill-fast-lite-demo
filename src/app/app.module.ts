@@ -22,6 +22,8 @@ import { AddProductPageComponent } from './pages/add-product-page/add-product-pa
 import { BillPageComponent } from './pages/bill-page/bill-page.component';
 import { AddBillPageComponent } from './pages/add-bill-page/add-bill-page.component';
 import { BillTableComponent } from './components/bill-table/bill-table.component';
+import { SettingPageComponent } from './pages/setting-page/setting-page.component';
+import { MoreOptPageComponent } from './pages/more-opt-page/more-opt-page.component';
 
 
 
@@ -44,7 +46,9 @@ import { BillTableComponent } from './components/bill-table/bill-table.component
     AddProductPageComponent,
     BillPageComponent,
     AddBillPageComponent,
-    BillTableComponent
+    BillTableComponent,
+    SettingPageComponent,
+    MoreOptPageComponent
     
   ],
   imports: [
