@@ -24,6 +24,7 @@ import { AddBillPageComponent } from './pages/add-bill-page/add-bill-page.compon
 import { BillTableComponent } from './components/bill-table/bill-table.component';
 import { SettingPageComponent } from './pages/setting-page/setting-page.component';
 import { MoreOptPageComponent } from './pages/more-opt-page/more-opt-page.component';
+import { addclientService } from './services/addClientService.service';
 
 
 
@@ -58,7 +59,7 @@ import { MoreOptPageComponent } from './pages/more-opt-page/more-opt-page.compon
     NgxPaginationModule,
     FormsModule
   ],
-  providers: [],
+  providers: [addclientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

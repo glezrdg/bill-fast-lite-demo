@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Cliente } from 'src/app/models/cliente.models';
 import { UsersService } from 'src/app/services/users.service';
+import { addclientService } from '../../services/addClientService.service';
 
 @Component({
   selector: 'app-client-table',
@@ -7,25 +9,14 @@ import { UsersService } from 'src/app/services/users.service';
   styleUrls: ['./client-table.component.scss']
 })
 export class ClientTableComponent implements OnInit {
-
-  users:any;
-  p: number = 1;
-  total: number = 0;
-
-  constructor(private service:UsersService) { }
+  
+  clientes: Cliente[] = [];
+  
+  constructor(private addclientService: addclientService) { }
 
   ngOnInit(): void {
-  }
-  getUsers(){
-    this.service.getUsers(this.p)
-      .subscribe((response: any) => {
-        this.users = response.data;
-        this.total = response.total;
-      });
-  } 
-  pageChangeEvent(event: number){
-    this.p = event;
-    this.getUsers();
+    this.clientes = this.addclientService.clientes;
+    console.log(this.clientes)
   }
 
 }
