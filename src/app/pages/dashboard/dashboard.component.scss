@@ -1,10 +1,19 @@
-.fondo{
+.containeres{
     position: relative;
     &::before{
-        background-color: #d6ecd2;
-        background-image:  url("../../../assets/img/pattern-icon-13.jpg");
-        background-size: 1200px 1000px;
-        background-position: 0 0,40px 40px;
+        content: '';
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        background-image: url(../../../assets/img/pattern-icon-13.jpg);
+        background-size: cover;
+        background-position: top-center;
         opacity: 0.2;
     }
+}
+.spacing{
+  justify-content: space-between;
+  
 }
