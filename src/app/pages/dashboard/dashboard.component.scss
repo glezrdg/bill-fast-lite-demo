@@ -1,0 +1,10 @@
+.fondo{
+    position: relative;
+    &::before{
+        background-color: #d6ecd2;
+        background-image:  url("../../../assets/img/pattern-icon-13.jpg");
+        background-size: 1200px 1000px;
+        background-position: 0 0,40px 40px;
+        opacity: 0.2;
+    }
+}

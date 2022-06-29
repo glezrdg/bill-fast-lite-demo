@@ -1,31 +1,44 @@
-<div class=" min-h-screen w-24 bg-gradient-to-b from-cyan-500 to-blue-500 sidebar" [class.active]="showNav">
+<div class=" min-h-screen w-36 bg-teal-50 sidebar">
     <ul class="grid grid-rows-6  p-2 gap-5 place-items-start text-xl " >
       <li class="flex flex-col items-center rounded-md shadow-sm w-14 h-18 p-3 hover:scale-105 ease-in-out duration-300">
-        <button (click)="milocopero">
+        <button>
           <i class="fa-solid fa-bars" ></i>
         </button>
-  
       </li>
+      <!--DashBoard-->
+      <a routerLink="../dashboard">
+        <li class="flex flex-col items-center rounded-md p-4 hover:scale-105 ease-in-out duration-300 w-full">
+          <div class="flex flex-row items-center justify-center border-4">
+          <img class="h-6" src="../../../assets/img/bar-chart.png">
+          <p  class="text-lg px-4"> DashBoard</p>
+        </div>
+        </li>
+        </a>
+      <!--Facturas-->
+      <a routerLink="../bill-page">
+        <li class="flex flex-col items-center rounded-md shadow-sm w-14 p-4 hover:scale-105 ease-in-out duration-300">
+          <i class="fa-solid fa-file-invoice-dollar"></i>
+        </li>
+        </a>
+      <!--Clientes-->
       <a routerLink="">
-      <li class="flex flex-col items-center rounded-md shadow-sm w-14 p-4 hover:scale-105 ease-in-out duration-300">
-       <i class="fa-solid fa-users"></i>    
-      </li>
-      </a>
+        <li class="flex flex-col items-center rounded-md shadow-sm w-14 p-4 hover:scale-105 ease-in-out duration-300">
+         <i class="fa-solid fa-users"></i>    
+        </li>
+        </a>
+      <!--Productos-->
       <a routerLink="../product-page">
       <li class="flex flex-col items-center rounded-md shadow-sm w-14 p-4 hover:scale-105 ease-in-out duration-300">
         <i class="fa-solid fa-box-open"></i>
       </li>
       </a>
-      <a routerLink="../bill-page">
-      <li class="flex flex-col items-center rounded-md shadow-sm w-14 p-4 hover:scale-105 ease-in-out duration-300">
-        <i class="fa-solid fa-file-invoice-dollar"></i>
-      </li>
-      </a>
+      <!--More options-->
     <a routerLink="../more-opt-page">
       <li class="flex flex-col items-center rounded-md shadow-sm w-14 p-4 hover:scale-105 ease-in-out duration-300">
         <i class="fa-solid fa-ellipsis"></i>
       </li>
     </a>
+     <!--Settings-->
     <a routerLink="../setting-page">
       <li class="flex flex-col items-center rounded-md shadow-sm w-14 p-4 hover:scale-105 ease-in-out duration-300">
         <i class="fa-solid fa-gear"></i>

@@ -10,6 +10,7 @@ import { BillPageComponent } from './pages/bill-page/bill-page.component';
 import { AddBillPageComponent } from './pages/add-bill-page/add-bill-page.component';
 import { SettingPageComponent } from './pages/setting-page/setting-page.component';
 import { MoreOptPageComponent } from './pages/more-opt-page/more-opt-page.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
   path: 'sign-up',
   component: SignUpComponent
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent
   },
   {
     path: 'client-page',

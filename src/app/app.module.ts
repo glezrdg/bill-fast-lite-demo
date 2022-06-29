@@ -25,6 +25,7 @@ import { BillTableComponent } from './components/bill-table/bill-table.component
 import { SettingPageComponent } from './pages/setting-page/setting-page.component';
 import { MoreOptPageComponent } from './pages/more-opt-page/more-opt-page.component';
 import { addclientService } from './services/addClientService.service';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 
 
@@ -49,7 +50,8 @@ import { addclientService } from './services/addClientService.service';
     AddBillPageComponent,
     BillTableComponent,
     SettingPageComponent,
-    MoreOptPageComponent
+    MoreOptPageComponent,
+    DashboardComponent
     
   ],
   imports: [
