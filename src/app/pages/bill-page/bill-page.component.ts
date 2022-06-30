@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bill-page.component.scss']
 })
 export class BillPageComponent implements OnInit {
-  ruta: string = '../add-bill-page'
+  ruta: string = '../bill-page/add-bill-page' 
   constructor() { }
 
   ngOnInit(): void {

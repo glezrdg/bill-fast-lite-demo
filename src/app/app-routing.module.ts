@@ -31,12 +31,24 @@ const routes: Routes = [
     component: ClientPageComponent
   },
   {
+    path: 'client-page/:add-client-page',
+    component: AddClientPageComponent
+  },
+  {
     path: 'product-page',
     component: ProductPageComponent
   },
   {
+    path: 'product-page/:add-product-page',
+    component: AddProductPageComponent
+  },
+  {
     path: 'bill-page',
     component: BillPageComponent
+  },
+  {
+    path: 'bill-page/:add-bill-page',
+    component: AddBillPageComponent
   },
   {
     path: 'more-opt-page',
@@ -45,22 +57,7 @@ const routes: Routes = [
   {
     path: 'setting-page',
     component: SettingPageComponent
-  },
-  {
-    path: 'add-client-page',
-    component: AddClientPageComponent
-  },
-  {
-    path: 'add-product-page',
-    component: AddProductPageComponent
-  },
-  {
-    path: 'add-bill-page',
-    component: AddBillPageComponent
-  },
- 
-
-
+  }
 ]
 
 @NgModule({
