@@ -17,7 +17,6 @@ import {HttpClientModule} from '@angular/common/http';
 import { ClientTableComponent } from './components/client-table/client-table.component';
 import { AddClientPageComponent } from './pages/add-client-page/add-client-page.component';
 import {ProductPageComponent} from './pages/product-page/product-page.component'
-import { ProductTableComponent } from './components/product-table/product-table.component';
 import { AddProductPageComponent } from './pages/add-product-page/add-product-page.component';
 import { BillPageComponent } from './pages/bill-page/bill-page.component';
 import { AddBillPageComponent } from './pages/add-bill-page/add-bill-page.component';
@@ -29,7 +28,6 @@ import { DashBoardComponent } from './pages/dashboard/dashboard.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ProductComponent } from './components/product/product.component';
 import { ImgComponent } from './components/img/img.component';
-import { AuthoService } from './services/autoservice.service';
 
 @NgModule({
   declarations: [
@@ -45,7 +43,6 @@ import { AuthoService } from './services/autoservice.service';
     ClientTableComponent,
     AddClientPageComponent,
     ProductPageComponent,
-    ProductTableComponent,
     AddProductPageComponent,
     BillPageComponent,
     AddBillPageComponent,
@@ -62,7 +59,7 @@ import { AuthoService } from './services/autoservice.service';
     AppRoutingModule,
     HttpClientModule,
     NgxPaginationModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [addclientService],
   bootstrap: [AppComponent]

@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
-import { Category } from '../../models/product.model';
 
 @Component({
   selector: 'app-product-page',
@@ -8,12 +7,10 @@ import { Category } from '../../models/product.model';
 })
 export class ProductPageComponent implements OnInit {
   ruta: string = '../product-page/add-product-page';
-  productText: string = '';
-  Category: string = "Categoria";
-  @ViewChild("modal") modal!: ElementRef;
-  openModal(){
-    this.modal.nativeElement.showModal()
-    // console.log(this.modale);
+  info: string = '';
+  buscarProducto(info: string){
+    this.info = info;
+     console.log(info);
   }
   constructor() { }
   areOptionsEditable: boolean = true;

@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, Output, EventEmitter } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
 
@@ -8,24 +8,22 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./search-bar.component.scss']
 })
 export class SearchBarComponent implements OnInit{
+  productText: string = '';
   @Input() direccion?: string;
+  @Output() enviarProductoABuscar  =  new EventEmitter<string>();
+
+  
   selected = "Filtrar por"
   opciones = ["fecha", "id", "otra cosa"]
-  ruta?: {};
-  constructor(private rutaActiva: ActivatedRoute) { }
 
-  ngOnInit(): void {
-    this.ruta = this.rutaActiva.snapshot.params
-    this.rutaActiva.params.subscribe(
-      (params: Params) => {
-        this.ruta = params
-        console.log(this.ruta)
-      }
-    );
 
+  constructor() { }
+  ngOnInit(): void {}
+  ngOnDestroy(): void {}
+  onPropagarMensaje(){
+    this.enviarProductoABuscar.emit(this.productText);
   }
-  ngOnDestroy(): void {
-      
-  }
+
+
 
 }
