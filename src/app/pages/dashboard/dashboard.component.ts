@@ -68,7 +68,7 @@ export class DashBoardComponent implements OnInit {
     
           })
           
-          this.chart.canvas.parentNode.style.width = '420px';
+          this.chart.canvas.parentNode.style.width = '220px';
 
         });
 
@@ -121,7 +121,7 @@ export class DashBoardComponent implements OnInit {
     
           })
           
-          this.chart.canvas.parentNode.style.width = '420px';
+          this.chart.canvas.parentNode.style.width = '320px';
 
         })
         
