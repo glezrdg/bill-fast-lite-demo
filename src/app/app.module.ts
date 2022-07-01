@@ -28,8 +28,6 @@ import { addclientService } from './services/addClientService.service';
 import { DashBoardComponent } from './pages/dashboard/dashboard.component';
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,

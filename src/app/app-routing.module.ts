@@ -14,50 +14,17 @@ import { DashBoardComponent } from './pages/dashboard/dashboard.component';
 
 
 const routes: Routes = [
-  {
-    path: '',
-    component: DashBoardComponent
-  },
-  {
-    path: 'log-in',
-    component: LogInComponent
-  },
-  {
-  path: 'sign-up',
-  component: SignUpComponent
-  },
-  {
-    path: 'client-page',
-    component: ClientPageComponent
-  },
-  {
-    path: 'client-page/:add-client-page',
-    component: AddClientPageComponent
-  },
-  {
-    path: 'product-page',
-    component: ProductPageComponent
-  },
-  {
-    path: 'product-page/:add-product-page',
-    component: AddProductPageComponent
-  },
-  {
-    path: 'bill-page',
-    component: BillPageComponent
-  },
-  {
-    path: 'bill-page/:add-bill-page',
-    component: AddBillPageComponent
-  },
-  {
-    path: 'more-opt-page',
-    component: MoreOptPageComponent
-  },
-  {
-    path: 'setting-page',
-    component: SettingPageComponent
-  }
+  {path: '', component: DashBoardComponent},
+  {path: 'log-in', component: LogInComponent},
+  {path: 'sign-up', component: SignUpComponent},
+  {path: 'client-page', component: ClientPageComponent},
+  {path: 'client-page/:add-client-page', component: AddClientPageComponent},
+  {path: 'product-page', component: ProductPageComponent},
+  {path: 'product-page/:add-product-page', component: AddProductPageComponent},
+  {path: 'bill-page', component: BillPageComponent},
+  {path: 'bill-page/:add-bill-page', component: AddBillPageComponent},
+  {path: 'more-opt-page', component: MoreOptPageComponent},
+  {path: 'setting-page', component: SettingPageComponent}
 ]
 
 @NgModule({

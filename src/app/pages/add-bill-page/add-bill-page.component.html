@@ -1,9 +1,9 @@
 <div class="flex containeres">
     <app-side-nav></app-side-nav>
-    <div class="flex flex-col w-full text-xs relative">
-        <p class="m-2 ml-5 text-lg font-bold">Facturas <span> > </span> Agregar</p>
+    <div class="flex flex-col place-items-center w-3/4 text-xs relative">
+        <p class="m-2 ml-5 text-3xl my-6 font-medium drop-shadow-lg justify-start">Add <span> > </span> New Bill</p>
     
-        <div class="m-5 my-5 p-2 px-4 bg-[#fff] shadow-md shadow-lime-600/30 rounded-lg">
+        <div class="mx-5 p-2 px-4 bg-[#fff] shadow-md shadow-lime-500/30 rounded-lg">
             
             <div class="flex justify-between">
                 <div class="mt-3">
@@ -24,38 +24,43 @@
                         <option value="NPI">NPI</option>
                     </select>
                 </div>
-                <div class="mt-3">
-                    <label class="font-bold mb-2" for="terminoDePago">Termino de pago </label>
-                    <br>
-                    <select id="terminoDePago" name="terminoDePago"  class="w-52 shadow-md focus:outline-none focus:ring-1 focus:ring-sky-500 caret-sky-500 p-2 py-2 m-1 ... rounded-lg">
-                        <option selected>Seleccione el termino de pago</option>
-                        <option value="Al contado">Al contado</option>
-                        <option value="Credito">Credito</option>
-                    </select>
-                </div>
-                <div class="mt-3">
-                    <label class="font-bold mb-2" for="estadoDePago">Estado de pago </label>
-                    <br>
-                    <select id="estadoDePago"  class="w-52 shadow-md focus:outline-none focus:ring-1 focus:ring-sky-500 caret-sky-500 p-2 py-2 m-1 ... rounded-lg">
-                        <option selected>Seleccione el estado de pago</option>
-                        <option value="Saldado">Saldado</option>
-                        <option value="Sin saldar">Sin saldar</option>
-                    </select>
-                </div>
-                <div class="mt-3">
-                    <label class="font-bold mb-2" for="tipoDocumento">Tipo de documento </label>
-                    <br>
-                    <select id="tipoDocumento"  class="w-56 shadow-md focus:outline-none focus:ring-1 focus:ring-sky-500 caret-sky-500 p-2 py-2 m-1 ... rounded-lg">
-                        <option selected>Seleccione el tipo de documento</option>
-                        <option value="Comprobante fiscal">Comprobante fiscal</option>
-                        <option value="NPI">NPI</option>
-                    </select>
-                </div>
+
+                    <div class="mt-3">
+                        <label class="font-bold mb-2" for="terminoDePago">Termino de pago </label>
+                        <br>
+                        <select id="terminoDePago" name="terminoDePago"  class="w-52 shadow-md focus:outline-none focus:ring-1 focus:ring-sky-500 caret-sky-500 p-2 py-2 m-1 ... rounded-lg">
+                            <option selected>Seleccione el termino de pago</option>
+                            <option value="Al contado">Al contado</option>
+                            <option value="Credito">Credito</option>
+                        </select>
+                    </div>
             </div>
-            <div class="flex">
-                <div class="bg-[#0EA5E9] w-full h-0.5 rounded-full my-2"></div>
-                
+
+                <div class="flex justify-evenly">
+
+                    <div class="mt-3">
+                        <label class="font-bold mb-2" for="estadoDePago">Estado de pago </label>
+                        <br>
+                        <select id="estadoDePago"  class="w-52 shadow-md focus:outline-none focus:ring-1 focus:ring-sky-500 caret-sky-500 p-2 py-2 m-1 ... rounded-lg">
+                            <option selected>Seleccione el estado de pago</option>
+                            <option value="Saldado">Saldado</option>
+                            <option value="Sin saldar">Sin saldar</option>
+                        </select>
+                    </div>
+                    <div class="mt-3">
+                        <label class="font-bold mb-2" for="tipoDocumento">Tipo de documento </label>
+                        <br>
+                        <select id="tipoDocumento"  class="w-56 shadow-md focus:outline-none focus:ring-1 focus:ring-sky-500 caret-sky-500 p-2 py-2 m-1 ... rounded-lg">
+                            <option selected>Seleccione el tipo de documento</option>
+                            <option value="Comprobante fiscal">Comprobante fiscal</option>
+                            <option value="NPI">NPI</option>
+                        </select>
+                    </div>
                 </div>
+                <div class="flex">
+                    <div class="bg-lime-500 w-full h-0.5 rounded-full my-2"></div>
+                    
+                    </div>
             <div class="flex">
                 <div class="mt-3">
                     <label class="font-bold mb-2" for="productSelect">Producto</label>
@@ -79,7 +84,7 @@
                 </div>
             </div>
             <div class="flex">
-                <div class="bg-[#0EA5E9] w-full h-0.5 rounded-full my-2"></div>
+                <div class="bg-lime-500 w-full h-0.5 rounded-full my-2"></div>
             </div>
             <div class="flex">
                     <table class="w-full my-3" style="text-align:justify;">
@@ -104,7 +109,7 @@
                     </table>
             </div>
             <div class="flex">
-                <div class="bg-[#0EA5E9] w-full h-0.5 rounded-full my-2"></div>
+                <div class="bg-lime-500 w-full h-0.5 rounded-full my-2"></div>
             </div>
             <div class="flex">
                     <table class="w-full my-3" style="text-align:justify;">

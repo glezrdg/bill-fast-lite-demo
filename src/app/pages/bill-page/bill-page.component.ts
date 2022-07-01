@@ -11,5 +11,4 @@ export class BillPageComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
