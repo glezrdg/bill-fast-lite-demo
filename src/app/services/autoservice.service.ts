@@ -30,4 +30,13 @@ export class AuthoService {
       
     })
   }
+  cryptoDato(){
+    const url = `${this.proxyUrl}${this.baseUrl}`
+
+    return this.http.get(url,httpOptions).toPromise().then((data) =>{
+      return data
+      console.log();
+      
+    })
+  }
 }

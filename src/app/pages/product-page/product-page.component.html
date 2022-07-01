@@ -1,10 +1,70 @@
-<div class="flex containeres">
+<div class="flex ">
     <app-side-nav></app-side-nav>
-    <div class="flex flex-col w-full ml-10">
-        <p class="m-2 ml-0 text-3xl my-6 font-medium drop-shadow-lg">Inventory</p>
-        <app-search-bar
-        [direccion]="ruta"
-        ></app-search-bar>
-        <app-product-table></app-product-table>
+    <div class="containeres relative w-full min-h-screen p-8 text-slate-700 snap-none">
+      <div class="flex-col  w-full">
+        <div class="titles flex spacing relative justify-center px-12">
+          <h1 class="text-4xl font-medium drop-shadow-lg">Product</h1>
+          <div class="w-10 h-10 rounded-full shadow-md bg-gray-200 p-2">
+            <img src="../../../assets/user.png" alt="" />
+          </div>
+        </div>
+        <div class="search-bar flex items-center spacing w-5/6 h-16 px-8 relative mx-12 drop-shadow-lg bg-gray-100 rounded-lg shadow-sm mt-6 mb-6">
+            <p class="text-lg font-medium">Buscar:</p>
+            <input type="text"  [(ngModel)]="productText" class="w-4/6 h-8 px-4 py-5 rounded-xl shadow-md focus:outline-none focus:ring-1 focus:ring-lime-600 caret-lime-600 	...">
+            <select class="flex items-center justify-center   p-3 rounded-xl shadow-lg hover:scale-105 ease-in-out duration-300" name="cars" id="cars">
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="opel">Opel</option>
+                <option value="audi">Audi</option>
+                <option value="opel">lol</option>
+                <option value="audi">hola</option>
+              </select>
+            <button class="bg-lime-600 text-white  font flex items-center justify-center h-8  p-5 rounded-xl shadow-lg   hover:scale-105 ease-in-out duration-300"  (click)="openModal()"> Agregar</button>
+        </div>
+        <dialog #modal id="modal" class="h-96 w-2/5 bg-gray-100 open:flex relative flex-col items-center justify-between rounded-xl shadow-xl">
+          <p class="text-xl text-center">Agregar Producto</p>
+          <form action="" class="grid grid-cols-2 grid-rows-4 gap-14 h-4/6 ">
+            <div class="flex flex-col ">
+              <label for="">Nombre: </label>
+              <input type="text" class="rounded-lg bg-stone-200 shadow-sm">
+            </div>
+            <div class="flex flex-col ">
+              <label for="">Nombre: </label>
+              <input type="text" class="rounded-lg bg-stone-200 shadow-sm">
+            </div>
+            <div class="flex flex-col ">
+              <label for="">Nombre: </label>
+              <input type="text" class="rounded-lg bg-stone-200 shadow-sm">
+            </div>
+            <div class="flex flex-col ">
+              <label for="">Nombre: </label>
+              <input type="text" class="rounded-lg bg-stone-200 shadow-sm">
+            </div>
+            <div class="flex flex-col ">
+              <label for="">Nombre: </label>
+              <input type="text" class="rounded-lg bg-stone-200 shadow-sm">
+            </div>
+            <div class="flex flex-col ">
+              <label for="">Nombre: </label>
+              <input type="text" class="rounded-lg bg-stone-200 shadow-sm">
+            </div>
+            <div class="flex flex-col ">
+              <label for="">Nombre: </label>
+              <input type="text" class="rounded-lg bg-stone-200 shadow-sm">
+            </div>
+            <div class="flex flex-col ">
+              <label for="">Nombre: </label>
+              <input type="text" class="rounded-lg bg-stone-200 shadow-sm">
+            </div>
+          </form>
+          <div class="mt-10 w-full flex ">
+            <button  class="">Submit</button>
+            <button class="">Close</button>
+          </div>
+        </dialog>
+        <div>
+            <app-products [productFilter]="productText"></app-products>
+        </div>
+      </div>  
     </div>
-</div>
+</div>  

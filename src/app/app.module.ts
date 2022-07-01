@@ -26,7 +26,10 @@ import { SettingPageComponent } from './pages/setting-page/setting-page.componen
 import { MoreOptPageComponent } from './pages/more-opt-page/more-opt-page.component';
 import { addclientService } from './services/addClientService.service';
 import { DashBoardComponent } from './pages/dashboard/dashboard.component';
-
+import { ProductsComponent } from './components/products/products.component';
+import { ProductComponent } from './components/product/product.component';
+import { ImgComponent } from './components/img/img.component';
+import { AuthoService } from './services/autoservice.service';
 
 @NgModule({
   declarations: [
@@ -49,8 +52,10 @@ import { DashBoardComponent } from './pages/dashboard/dashboard.component';
     BillTableComponent,
     SettingPageComponent,
     MoreOptPageComponent,
-    DashBoardComponent
-    
+    DashBoardComponent,
+    ProductsComponent,
+    ProductComponent,
+    ImgComponent,
   ],
   imports: [
     BrowserModule,

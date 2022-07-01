@@ -1,0 +1,20 @@
+<div
+  class="bg-gray-100 rounded-md drop-shadow-sm shadow-lg hover:scale-105 ease-in-out duration-300"
+>
+  <app-img
+    *ngIf="product.images.length > 0"
+    [img]="product.images[0]"
+  ></app-img>
+  <div class="p-2 flex flex-col  items-end">
+    <div class="flex justify-between w-[100%]  ">
+      <p >{{ product.title }}</p>
+      <h2>{{ product.price | currency: "" }}</h2>
+    </div>
+    <button
+      class="linea bg-gray-200 font px-3 rounded-xl shadow-md hover:scale-105 ease-in-out duration-300 mt-1 pt-1"
+      (click)="onAddToCart()"
+    >
+      Add cart
+    </button>
+  </div>
+</div>
