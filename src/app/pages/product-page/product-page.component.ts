@@ -17,6 +17,7 @@ export class ProductPageComponent implements OnInit {
   
   @ViewChild("modal") modal!: ElementRef;
   ngOnInit(): void {
+    this.openModal = this.openModal.bind(this)
   }
 
   openModal(){

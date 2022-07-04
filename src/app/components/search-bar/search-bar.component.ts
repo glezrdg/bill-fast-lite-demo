@@ -7,7 +7,7 @@ import { ActivatedRoute, Params } from '@angular/router';
   templateUrl: './search-bar.component.html',
   styleUrls: ['./search-bar.component.scss']
 })
-export class SearchBarComponent implements OnInit{
+export class SearchBarComponent{
   productText: string = '';
   @Input() direccion?: string;
   @Input() funcionModal?: () => void;
@@ -16,10 +16,6 @@ export class SearchBarComponent implements OnInit{
   selected = "Filtrar por"
   opciones = ["fecha", "id", "otra cosa"]
 
-
-  constructor() { }
-  ngOnInit(): void {}
-  ngOnDestroy(): void {}
   onPropagarMensaje(){
     this.enviarProductoABuscar.emit(this.productText);
   }

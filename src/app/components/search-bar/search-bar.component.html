@@ -20,7 +20,7 @@
      
     <!--Boton agregar-->
     <a [routerLink]="direccion">
-        <button class="bg-white shadow-md rounded-lg p-5 m-3 h-8 w-28 hover:scale-105 ease-in-out duration-300 flex items-center justify-center" (click)="[funcionModal]">
+        <button class="bg-white shadow-md rounded-lg p-5 m-3 h-8 w-28 hover:scale-105 ease-in-out duration-300 flex items-center justify-center" (click)="funcionModal?.()">
             <p class="font-bold text-md text-lime-500"> Add</p> 
         </button>
     </a>
