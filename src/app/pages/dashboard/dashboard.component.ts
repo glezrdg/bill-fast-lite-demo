@@ -9,7 +9,7 @@ import { AuthoService } from 'src/app/services/autoservice.service';
 })
 export class DashBoardComponent implements OnInit {
 
-    result: any;
+  result: any;
   coinPrice: any;
   coinName: any;
   chart: any = [];
@@ -45,17 +45,17 @@ export class DashBoardComponent implements OnInit {
                 borderWidth: 3,
                 
                 backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)',
-                  'rgba(54, 162, 235, 0.2)',
-                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(132, 204, 22, 0.2)',
+                  'rgba(239, 68, 68, 0.2)',
+                  
                   'rgba(75, 192, 192, 0.2)',
                   'rgba(153, 102, 255, 0.2)',
                   'rgba(255, 159, 64, 0.2)'
               ],
               borderColor: [
-                  'rgba(255, 99, 132, 1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
+                'rgba(132, 204, 22,1)',
+                'rgba(239, 68, 68, 1)',
+                  'rgba(251, 191, 36, 1)',
                   'rgba(75, 192, 192, 1)',
                   'rgba(153, 102, 255, 1)',
                   'rgba(255, 159, 64, 1)'
@@ -68,7 +68,7 @@ export class DashBoardComponent implements OnInit {
     
           })
           
-          this.chart.canvas.parentNode.style.width = '220px';
+          this.chart.canvas.parentNode.style.width = '420px';
 
         });
 
@@ -98,15 +98,15 @@ export class DashBoardComponent implements OnInit {
                 borderWidth: 3,
                 
                 backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)',
-                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(106, 220, 238, 0.2)',
+                  'rgba(239, 68, 68, 0.2)',
                   'rgba(255, 206, 86, 0.2)',
                   'rgba(75, 192, 192, 0.2)',
                   'rgba(153, 102, 255, 0.2)',
                   'rgba(255, 159, 64, 0.2)'
               ],
               borderColor: [
-                  'rgba(255, 99, 132, 1)',
+                  'rgba(106, 220, 238, 1)',
                   'rgba(54, 162, 235, 1)',
                   'rgba(255, 206, 86, 1)',
                   'rgba(75, 192, 192, 1)',
@@ -121,7 +121,7 @@ export class DashBoardComponent implements OnInit {
     
           })
           
-          this.chart.canvas.parentNode.style.width = '320px';
+          this.chart.canvas.parentNode.style.width = '420px';
 
         })
         

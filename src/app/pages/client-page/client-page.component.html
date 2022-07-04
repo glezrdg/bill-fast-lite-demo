@@ -3,8 +3,50 @@
     <div class="flex flex-col w-full ml-10">
         <p class="m-2 ml-0 text-3xl font-medium drop-shadow-lg my-6 ">Clients</p>
         <app-search-bar
-        [direccion]="ruta"
+        [funcionModal]="openModal"
         ></app-search-bar>
         <app-client-table></app-client-table>
+          <!--Modal agregar productos-->
+      <dialog #modal id="modal" class="modal h-96 w-2/5 bg-gray-100 open:flex relative flex-col items-center justify-between rounded-xl ">
+        <p class="text-xl text-center">Agregar Producto</p>
+        <form action="" method="dialog" class=" grid grid-cols-2 grid-rows-4 gap-14 h-4/6 ">
+          <div class="flex flex-col ">
+            <label for="">Id: </label>
+            <input type="number" class="rounded-lg bg-stone-200 shadow-sm" [disabled]="true">
+          </div>
+          <div class="flex flex-col ">
+            <label for="">Imagen: </label>
+            <input type="URL" class="rounded-lg bg-stone-200 shadow-sm">
+          </div>
+          <div class="flex flex-col ">
+            <label for="">Nombre del cliente: </label>
+            <input type="text" class="rounded-lg bg-stone-200 shadow-sm">
+          </div>
+          <div class="flex flex-col ">
+            <label for="">Categoria: </label>
+            <input type="text" class="rounded-lg bg-stone-200 shadow-sm">
+          </div>
+          <div class="flex flex-col ">
+            <label for="">Precio de compra: </label>
+            <input type="text" class="rounded-lg bg-stone-200 shadow-sm">
+          </div>
+          <div class="flex flex-col ">
+            <label for="">Precio de venta: </label>
+            <input type="text" class="rounded-lg bg-stone-200 shadow-sm">
+          </div>
+          <div class="flex flex-col ">
+            <label for="">Descripcion producto: </label>
+            <input type="text" class="rounded-lg bg-stone-200 shadow-sm">
+          </div>
+          <div class="flex flex-col ">
+            <label for="">Ganancia: </label>
+            <input type="text" class="rounded-lg bg-stone-200 shadow-sm">
+          </div>
+          <button type="submit" class="mt-3 bg-lime-600 flex items-center justify-center h-8  p-4 rounded-xl shadow-lg ">Submit</button>
+          <button (click)="closeModal()" class="mt-3 bg-red-500 flex items-center justify-center h-8  p-4 rounded-xl shadow-lg ">Close</button>
+        </form>
+        <div class="mt-10 w-full flex justify-between px-16">
+        </div>
+      </dialog>
     </div>
 </div>
