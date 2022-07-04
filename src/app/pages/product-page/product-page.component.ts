@@ -6,7 +6,7 @@ import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
   styleUrls: ['./product-page.component.scss']
 })
 export class ProductPageComponent implements OnInit {
-  ruta: string = '../product-page/add-product-page';
+  direccion: string = '../product-page/add-product-page';
   info: string = '';
   buscarProducto(info: string){
     this.info = info;
@@ -15,8 +15,17 @@ export class ProductPageComponent implements OnInit {
   constructor() { }
   areOptionsEditable: boolean = true;
   
-
+  @ViewChild("modal") modal!: ElementRef;
   ngOnInit(): void {
+  }
+
+  openModal(){
+    this.modal.nativeElement.showModal()
+    console.log(this.modal);
+  }
+  closeModal(){
+    this.modal.nativeElement.close()
+    // console.log(this.modale);
   }
 
 }
