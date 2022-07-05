@@ -1,3 +1,4 @@
+import {HttpClientModule, HttpClient, HttpRequest, HttpResponse, HttpEventType} from '@angular/common/http';
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
@@ -8,12 +9,15 @@ import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 export class ProductPageComponent implements OnInit {
   direccion: string = '../product-page/add-product-page';
   info: string = '';
+  percentDone: number | undefined;
+  uploadSuccess: boolean | undefined;
+  areOptionsEditable: boolean = true;
+  
+  constructor(private http: HttpClient) {}
   buscarProducto(info: string){
     this.info = info;
      console.log(info);
   }
-  constructor() { }
-  areOptionsEditable: boolean = true;
   
   @ViewChild("modal") modal!: ElementRef;
   ngOnInit(): void {
@@ -28,5 +32,4 @@ export class ProductPageComponent implements OnInit {
     this.modal.nativeElement.close()
     // console.log(this.modale);
   }
-
 }
