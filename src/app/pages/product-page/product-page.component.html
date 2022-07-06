@@ -82,9 +82,12 @@
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name xl:text-sm">
                       Seleccione una imagen
                     </label>
-                    
+                    <form #formulario="ngForm">
+                      <input type="file" (change)="fileEvent($event)"/>
+                      <button (click)="subirArchivo($event)">Subir archivo</button>
+                    </form>
+                        
                   </div>
-                  
                   
                   <div class="w-full 2xl:mb-2 xl:mb-0 px-3 rounded">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
