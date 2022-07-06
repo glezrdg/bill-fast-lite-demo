@@ -2,6 +2,8 @@ import {HttpClientModule, HttpClient, HttpRequest, HttpResponse, HttpEventType} 
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { ApiService } from 'src/app/services/upload.service';
 import { ProductoApi } from 'src/app/models/ProductoApi.models';
+import { DomSanitizer } from '@angular/platform-browser';
+
 @Component({
   selector: 'app-product-page',
   templateUrl: './product-page.component.html',
@@ -11,17 +13,13 @@ import { ProductoApi } from 'src/app/models/ProductoApi.models';
 export class ProductPageComponent implements OnInit {
   direccion: string = '../product-page/add-product-page';
   info: string = '';
-  percentDone: number | undefined;
-  uploadSuccess: boolean | undefined;
-  areOptionsEditable: boolean = true;
-  public archivo?: ProductoApi;
-  public archivoServer?: ProductoApi;
-  public lastPK?: number;
-
+  public archivos: any =[];
+  public previsualizacion?: string;
   
   constructor(
     private http: HttpClient,
-    private _service: ApiService
+    private _service: ApiService,
+    private sanitizer: DomSanitizer
     ) {}
 
   buscarProducto(info: string){
@@ -42,22 +40,43 @@ export class ProductPageComponent implements OnInit {
     this.modal.nativeElement.close()
     // console.log(this.modale);
   }
-  subirArchivo(archivo: ProductoApi){
-    this._service.uploadFile(this.archivo).subscribe(Response => {});
+  capturarFile(event: any){
+    const archivoCapturado = event.target.files[0];
+    this.extraerBase64(archivoCapturado).then((imagen: any) =>{
+      this.previsualizacion = imagen.base;
+      console.log(imagen);
+    })
+    // this.archivos.push(archivoCapturado)
+    //   console.log(event.target.files)
   }
-  fileEvent(fileInput: Event){
-    let file = (<HTMLInputElement>fileInput.target).files[0];
-    if(file.type == "image/jpeg" || file.type == "image/png"){
-      this.archivo = new ProductoApi(this.lastPK + 1, file.name, file.type);
+  subirArchivo(): any{
+    
+
+  }
+  extraerBase64 = async ($event: any) => new Promise((resolve)=>{
+    try {
+      const unsafeImg = window.URL.createObjectURL($event);
+      const image = this.sanitizer.bypassSecurityTrustUrl(unsafeImg);
+      const reader = new FileReader();
+      reader.readAsDataURL($event);
+      reader.onload = () => {
+        resolve({
+          base: reader.result
+        });
+      };
+      reader.onerror = error => {
+        resolve({
+          blob: $event,
+          image,
+          base: null
+        });
+      };
+
+      
+    } catch (error) {
+      return error;
     }
-  }
-  ngOninit(): void{
-    this._service.getUploads().subscribe(Response =>{
-      this.archivoServer = Response;
-      this.lastPK = this.archivoServer[Response.length -1].id;
-    });
 
-  }
-
+  })
 
 }
