@@ -3,6 +3,7 @@ import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { ApiService } from 'src/app/services/upload.service';
 import { ProductoApi } from 'src/app/models/ProductoApi.models';
 import { DomSanitizer } from '@angular/platform-browser';
+import { RestService } from 'src/app/services/rest.service';
 
 @Component({
   selector: 'app-product-page',
@@ -15,11 +16,14 @@ export class ProductPageComponent implements OnInit {
   info: string = '';
   public archivos: any =[];
   public previsualizacion?: string;
+  public loading?: boolean;
+  public tooltip?: boolean;
   
   constructor(
     private http: HttpClient,
     private _service: ApiService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private rest: RestService
     ) {}
 
   buscarProducto(info: string){
@@ -46,11 +50,27 @@ export class ProductPageComponent implements OnInit {
       this.previsualizacion = imagen.base;
       console.log(imagen);
     })
-    // this.archivos.push(archivoCapturado)
+    this.archivos.push(archivoCapturado)
     //   console.log(event.target.files)
   }
   subirArchivo(): any{
-    
+    this.loading = true;
+    try {
+      const formularioDeDatos = new FormData();
+      this.archivos.forEach((archivo: string | Blob) =>{
+        formularioDeDatos.append('imagenProducto', archivo);
+      })
+      this.rest.post(`https://localhost:44392/api/productos`, formularioDeDatos)
+      .subscribe((res: any) =>{
+        this.loading = false;
+        console.log('Respuesta del servidor', res);
+      })
+      
+    } catch (error) {
+      this.loading = false;
+      console.log('ERROR', error);
+      
+    }
 
   }
   extraerBase64 = async ($event: any) => new Promise((resolve)=>{
@@ -78,5 +98,5 @@ export class ProductPageComponent implements OnInit {
     }
 
   })
-
 }
+
