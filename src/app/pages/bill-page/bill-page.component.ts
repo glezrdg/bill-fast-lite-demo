@@ -8,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class BillPageComponent implements OnInit {
   ruta: string = '../bill-page/add-bill-page' 
   info: string = '';
+  textboxes: string =' ';
   buscarProducto(info: string){
     this.info = info;
      console.log(info);
   }
+  
   constructor() { }
 
   ngOnInit(): void {

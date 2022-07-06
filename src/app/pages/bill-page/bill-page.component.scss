@@ -40,7 +40,7 @@
 }
 
 .toggler-wrapper .toggler-slider {
-  background-color: #ccc;
+  background-color: #e7e5e4;
   position: absolute;
   border-radius: 100px;
   top: 0;
@@ -76,4 +76,27 @@
   left: 3px;
   top: 3px;
   background-color: #fff;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 2px;
+  
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #84cc16; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+.textboxes{
+  opacity: 0;
+  &.invalid{
+    opacity: 1;
+  }
+
 }
