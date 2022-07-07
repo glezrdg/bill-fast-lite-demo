@@ -7,67 +7,74 @@
         ></app-search-bar>
         <app-client-table></app-client-table>
           <!--Modal agregar productos-->
-      <dialog #modal id="modal" class="modal 2xl:w-3/5 bg-gray-100 open:flex relative flex-col items-center justify-between rounded-xl pt-0">
+      <dialog #modal id="modal" class="modal 2xl:w-3/5 xl:w-4/5 bg-gray-100 open:flex relative flex-col items-center justify-between rounded-xl pt-0">
         <p class="xl:text-xl 2xl:text-2xl font-bold text-center 2xl:m-9 xl:m-6">Agregar cliente</p>
         <form action="" method="dialog" class="w-5/6">
-            <div  class=" flex flex-col w-full 2xl:gap-6 xl:gap-2 h-1/2">
+            <div  class=" flex flex-col w-full 2xl:gap-6 xl:gap-2 h-5/6">
 
-              <div class="flex"> 
-                <div class="w-1/3 2xl:mb-2 px-3 xl:mb-0">
+              <div class="flex items-end"> 
+                <div class="w-1/3 2xl:mb-0 px-3 xl:mb-0">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 w-full" for="grid-first-name">
-                      ID
+                      ID:
                     </label> 
-                    <input class="xl:text-sm xl:h-9 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="text" placeholder="CLI-8761" disabled>
+                    <input class="xl:text-sm xl:h-10 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="text" placeholder="CLI-8761" disabled>
                     
                   </div>
-
-                  <div class="w-full 2xl:mb-2 xl:mb-0 px-3 mb-2 rounded">
+                  
+                  <div class="w-full 2xl:mb-0 xl:mb-0 px-3 mb-2 rounded">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name xl:text-sm">
-                      Nombre o razon social
+                      Nombre o razon social:
                     </label>
-                    <input class="xl:text-sm xl:h-9 xl:mb-2 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="text" placeholder="Jane">
+                    <input class="xl:text-sm xl:h-10 xl:mb-2 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="text" placeholder="Jane">
                     <!-- <p class="text-red-500 text-xs italic">Por favor complete este campo.</p> -->
                   </div>
 
                 </div>
                 <div class="flex items-end">
+                  <div class="w-full px-3 xl:mb-0 2xl:mb-2 rounded">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="tipoComprobante">Tipo de comprobante: </label>
+                    <select #AsTipoComprobante name="tipoComprobante" id="tipoComprobante" class="xl:text-sm pt-1.5 xl:h-10 cursor-pointer w-full bg-gray-200 text-black border rounded py-3 px-4 mb-3 focus:outline-none focus:bg-white" (change)="obtenerValue()">
+                      <option class="text-sm" selected disabled value="">Seleccione un tipo de comprobante</option>
+                      <option class="text-sm" value="Factura de Crédito Fiscal (Tipo 01)">Factura de Crédito Fiscal (Tipo 01)</option>
+                      <option class="text-sm" value="Factura de Consumo (Tipo 02)" >Factura de Consumo (Tipo 02)</option>
+                      <option class="text-sm" value="Notas de Débito (Tipo 03)" >Notas de Débito (Tipo 03)</option>
+                      <option class="text-sm" value="Notas de Crédito (Tipo 04)" >Notas de Crédito (Tipo 04)</option>
+                      <option class="text-sm" value="Comprobante de Compras (Tipo 11)" >Comprobante de Compras (Tipo 11)</option>
+                      <option class="text-sm" value="Registro Único de Ingresos (Tipo 12): " >Registro Único de Ingresos (Tipo 12)</option>
+                      <option class="text-sm" value="Comprobante para Gastos Menores (Tipo 13)" >Comprobante para Gastos Menores (Tipo 13)</option>
+                      <option class="text-sm" value="Comprobante de Regímenes Especiales (Tipo 14)" >Comprobante de Regímenes Especiales (Tipo 14)</option>
+                      <option class="text-sm" value="Comprobante Gubernamental (Tipo 15)" >Comprobante Gubernamental (Tipo 15)</option>
+                      <option class="text-sm" value="Comprobante para exportaciones (16)" >Comprobante para exportaciones (16)</option>
+                      <option class="text-sm" value="Comprobante para Pagos al Exterior (17)" >Comprobante para Pagos al Exterior (17)</option>
+                      <option class="text-sm" value="Comprobante Fiscal Electrónico (e-CF)">Comprobante Fiscal Electrónico (e-CF)</option>
+                    </select>
+                    </div>
+
                   <div class="w-full  px-3 xl:mb-0 2xl:mb-2  rounded">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="tipoDocumento">Tipo de documento: </label>
-                    <select name="tipoDocumento" id="tipoDocumento" class="xl:text-sm pt-1.5 xl:h-9 cursor-pointer w-full bg-gray-200 text-black border rounded py-3 px-4 mb-3 focus:outline-none focus:bg-white">
-                      <option class="text-sm" selected value="Cedula">Cedula</option>
+                    <select name="tipoDocumento" id="tipoDocumento" class="xl:text-sm pt-1.5 xl:h-10 cursor-pointer w-full bg-gray-200 text-black border rounded py-3 px-4 mb-3 focus:outline-none focus:bg-white">
+                      <option #AsTipoDocumento class="text-sm" selected disabled value="Seleccione tipo de documento">Seleccione tipo de documento</option>
+                      <option class="text-sm" value="Cedula">Cedula</option>
+                      <option class="text-sm" value="RNC" >RNC</option>
                       <option class="text-sm" value="Pasaporte" >Pasaporte</option>
-                      <option class="text-sm" value="Licencia" >Licencia</option>
                     </select>
                   </div>
                   <div class="w-full 2xl:mb-2 xl:mb-0 px-3 rounded">
                       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                         Numero de documento:
                       </label>
-                      <input class="xl:text-sm xl:h-9 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="number" placeholder="402-4778895-6">
+                      <input #AsInputNumDoc id="inputNumDoc" class="xl:text-sm xl:h-10 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="number" placeholder="402-4778895-6">
                      
                   </div>
                
-                  <div class="flex flex-col xl:mb-0w-full">
-
-                    <div class="flex items-center 2xl:mb-2 pl-3">
-                      <input id="default-checkbox" type="checkbox" value="" class="xl:text-sm xl:h-9 w-4  h-4 bg-lime-500  rounded border-lime-300 focus:border-lime-500 dark:focus:to-lime-300 dark:border-b-lime-500 dark:border-lime-600">
-                      <label for="default-checkbox" class="ml-2 block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Comprobante fiscal</label>
-                    </div>
-  
-  
-                      <div class="w-full 2xl:mb-2 px-3 rounded">
-                          
-                          <input class="xl:text-sm xl:h-9 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="text" placeholder="B-0987654321-2">
-                    
-                        </div>
                   </div>
-                </div>
+
                 <div class="flex">
                   <div class="w-full 2xl:mb-2 xl:mb-0 px-3 mb-6 rounded">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                       Correo:
                     </label>
-                    <input class="xl:text-sm xl:h-9 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="text" placeholder="correo@email.com">
+                    <input class="xl:text-sm xl:h-10 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="text" placeholder="correo@email.com">
                     
                   </div>
                   
@@ -75,7 +82,7 @@
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                       Telefono:
                     </label>
-                    <input class="xl:text-sm xl:h-9 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="tel" placeholder="809-457-8978">
+                    <input class="xl:text-sm xl:h-10 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="tel" placeholder="809-457-8978">
                 
                   </div>
   
@@ -83,32 +90,32 @@
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                       Celular:
                     </label>
-                    <input class="xl:text-sm xl:h-9 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="tel" placeholder="829-805-8311">
+                    <input class="xl:text-sm xl:h-10 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="tel" placeholder="829-805-8311">
                  
                   </div>
                 </div>
-                <div class="flex gap-6">
+                <div class="flex h-full gap-6">
 
-                  <div class="w-full 2xl:mb-2 xl:mb-0 px-3 rounded">
+                  <div class="w-full 2xl:mb-0 xl:mb-0 px-3 rounded">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                       Direccion:
                     </label>
-                    <textarea class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="tel" placeholder=""></textarea>
+                    <textarea class="mb-0 h-full appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="tel" placeholder=""></textarea>
             
                   </div>
-                  <div class="w-full  px-3 2xl:mb-2 xl:mb-0 mrounded">
+                  <div class="w-full  px-3 2xl:mb-0 xl:mb-0 mrounded">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                       Comentario:
                     </label>
-                    <textarea class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="text" placeholder=""></textarea>
+                    <textarea class="mb-0 h-full appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="text" placeholder=""></textarea>
             
                   </div>
                 </div>
               
             </div>
             <div class="flex justify-center gap-16">
-                <button type="submit" class="mt-5 bg-lime-600 flex items-center justify-center 2xl:h-12 xl:h-10 w-1/4 p-4 rounded-xl shadow-lg hover:bg-lime-700  text-white font-bold py-2 px-4 hover:scale-105 ease-in-out duration-300">Submit</button>
-                <button (click)="closeModal()" class="mt-5 bg-red-500 flex items-center justify-center 2xl:h-12 xl:h-10 w-1/4  p-4 rounded-xl shadow-lg hover:bg-red-600  text-white font-bold py-2 px-4 hover:scale-105 ease-in-out duration-300 ">Close</button>
+                <button type="submit" class="mt-10 bg-lime-600 flex items-center justify-center 2xl:h-12 xl:h-10 w-1/6 p-4 rounded-xl shadow-lg hover:bg-lime-700  text-white font-bold py-2 px-4 hover:scale-105 ease-in-out duration-300">Submit</button>
+                <button (click)="closeModal()" class="mt-10 bg-red-500 flex items-center justify-center 2xl:h-12 xl:h-10 w-1/6  p-4 rounded-xl shadow-lg hover:bg-red-600  text-white font-bold py-2 px-4 hover:scale-105 ease-in-out duration-300 ">Close</button>
             </div>
         </form>
        
