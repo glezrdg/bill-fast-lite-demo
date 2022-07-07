@@ -39,7 +39,7 @@ export class ProductsComponent implements OnInit {
   }
 
   onAddToShoppingCart(product: Product) {
-    this.storeService.addProduct(product);
+    this.storeService.addListProduct(product);
     this.total = this.storeService.getTotal();
   }
 
@@ -47,5 +47,13 @@ export class ProductsComponent implements OnInit {
     if(this.filterProducts.length > 0) return this.filterProducts
     else return this.products
   }
+
+  onShowDetail(id: string) {
+    this.productsService.getProduct(id)
+    .subscribe(data => {
+      console.log('product', data);
+    })
+  }
+
 
 }

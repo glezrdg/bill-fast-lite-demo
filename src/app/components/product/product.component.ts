@@ -20,12 +20,15 @@ export class ProductComponent {
     },
     description: ''
   };
-  @Output() addedProduct = new EventEmitter<Product>();
+
+  @Output() addedListProduct = new EventEmitter<string>();
 
   constructor() { }
 
   onAddToCart() {
-    this.addedProduct.emit(this.product);
+    this.addedListProduct.emit(this.product.id);
+    console.log(this.product.id);
+    
   }
 
 }

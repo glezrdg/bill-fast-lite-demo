@@ -94,9 +94,8 @@
   background: #555; 
 }
 .textboxes{
-  opacity: 0;
+  display: flex;
   &.invalid{
-    opacity: 1;
+    display: none;
   }
-
 }

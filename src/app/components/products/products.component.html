@@ -1,8 +1,8 @@
-<div class="relative  grid grid-cols-5 gap-4 p-10 overflow-y-scroll   max-h-[70vh] ">
+<div class="relative  grid grid-cols-4 gap-4 p-10 overflow-y-scroll   max-h-[70vh] ">
     <app-product
       [product]="product"
       *ngFor="let product of chooseProducts()"
-      (addedProduct)="onAddToShoppingCart($event)"
+      (addedListProduct)="onShowDetail($event)"
     ></app-product>
   </div>
   

@@ -15,9 +15,11 @@ export class StoreService {
 
   constructor() { }
 
-  addProduct(product: Product) {
+  addListProduct(product: Product) {
     this.myShoppingCart.push(product);
     this.myCart.next(this.myShoppingCart);
+    console.log(this.myShoppingCart);
+    
   }
 
   getShoppingCart() {
