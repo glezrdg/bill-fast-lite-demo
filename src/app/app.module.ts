@@ -26,6 +26,7 @@ import { DashBoardComponent } from './pages/dashboard/dashboard.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ProductComponent } from './components/product/product.component';
 import { ImgComponent } from './components/img/img.component';
+import { UserIconComponent } from './components/user-icon/user-icon.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +48,8 @@ import { ImgComponent } from './components/img/img.component';
     DashBoardComponent,
     ProductsComponent,
     ProductComponent,
-    ImgComponent
+    ImgComponent,
+    UserIconComponent
   ],
   imports: [
     BrowserModule,

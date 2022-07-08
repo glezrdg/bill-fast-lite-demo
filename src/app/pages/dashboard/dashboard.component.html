@@ -1,18 +1,15 @@
-<div class="flex">
+<div class="flex containeres">
   <app-side-nav></app-side-nav>
-  <div class="containeres relative w-full min-h-screen p-8 text-slate-700">
-    <div class="flex-col w-full">
-      <div class="titles flex spacing relative justify-center px-12">
-        <h1 class="text-4xl font-medium drop-shadow-lg">Dashboard</h1>
-        <div class="w-10 h-10 rounded-full shadow-md bg-slate-200 p-2">
-          <img src="../../../assets/img/user.png" alt="" />
+  <div class="flex flex-col w-full ml-10">
+      <div class="titles flex spacing relative justify-center items-center pr-6">
+        <p class="justify-start  m-2 ml-0 text-3xl my-6 font-medium drop-shadow-lg">Tablero
+        </p>
+        <app-user-icon></app-user-icon>   
         </div>
-      </div>
-
-      <div class="flex flex-auto justify-evenly ... w-full h-[75vh]">
-        <div class="pt-8 w-2/5 h-full flex flex-col justify-around">
+      <div class="flex flex-row justify-start w-full">
+        <div class="w-2/5 h-full flex flex-col justify-between m-2">
           <div
-            class="card w-full h-[30vh] bg-slate-100 shadow-md relative rounded-lg p-6"
+            class="card w-full h-[38vh] bg-slate-100 shadow-md relative rounded-lg"
           >
             <p class="text-2xl font-semibold drop-shadow-lg">Overview</p>
             <div class="mt-1">
@@ -28,7 +25,7 @@
               <div class="w-3/5 bg-cyan-400 h-2 rounded-lg"></div>
             </div>
           </div>
-          <div class="card w-full  bg-slate-100 shadow-md relative rounded-lg p-6 h-[30vh]">
+          <div class="card w-full  bg-slate-100 shadow-md relative rounded-lg h-[38vh]">
             <div class="relative">
               <canvas id="canvas" >
                 {{chart}}
@@ -36,9 +33,9 @@
             </div>
           </div>
         </div>
-        <div class="pt-8 w-2/5 flex flex-col justify-around">
+        <div class="w-2/5 h-full flex flex-col justify-between m-2">
           <div
-            class="card  h-[30vh] bg-slate-100 shadow-md relative rounded-lg p-6"
+            class="card  h-[38vh] bg-slate-100 shadow-md relative rounded-lg"
           >
             <p class="text-2xl font-semibold drop-shadow-lg">Facturas</p>
             <div class="flex space-x-20 mt-4">
@@ -65,7 +62,7 @@
               Ultima actualizacion hace 5s...
             </p>
           </div>
-          <div class="card w-full  bg-slate-100 shadow-md relative rounded-lg p-6 h-[30vh]">
+          <div class="card w-full  bg-slate-100 shadow-md relative rounded-lg h-[38vh]">
             <div class="relative">
               <canvas id="canvasito" >
                 {{chart}}
@@ -76,4 +73,3 @@
       </div>
     </div>
   </div>
-</div>
