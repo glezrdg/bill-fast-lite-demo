@@ -4,8 +4,6 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { LogInComponent } from './pages/log-in/log-in.component';
 import { ClientPageComponent } from './pages/client-page/client-page.component';
 import { ProductPageComponent } from './pages/product-page/product-page.component';
-import { AddClientPageComponent } from './pages/add-client-page/add-client-page.component';
-import { AddProductPageComponent } from './pages/add-product-page/add-product-page.component';
 import { BillPageComponent } from './pages/bill-page/bill-page.component';
 import { ConsultBillPageComponent } from './pages/consult-bill-page/consult-bill-page.component';
 import { SettingPageComponent } from './pages/setting-page/setting-page.component';
@@ -18,9 +16,7 @@ const routes: Routes = [
   {path: 'log-in', component: LogInComponent},
   {path: 'sign-up', component: SignUpComponent},
   {path: 'client-page', component: ClientPageComponent},
-  {path: 'client-page/:add-client-page', component: AddClientPageComponent},
   {path: 'product-page', component: ProductPageComponent},
-  {path: 'product-page/:add-product-page', component: AddProductPageComponent},
   {path: 'bill-page', component: BillPageComponent},
   {path: 'bill-page/:consult-bill-page', component: ConsultBillPageComponent},
   {path: 'more-opt-page', component: MoreOptPageComponent},

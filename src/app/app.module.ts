@@ -15,9 +15,7 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { NgxPaginationModule } from 'ngx-pagination';
 import {HttpClientModule} from '@angular/common/http';
 import { ClientTableComponent } from './components/client-table/client-table.component';
-import { AddClientPageComponent } from './pages/add-client-page/add-client-page.component';
 import {ProductPageComponent} from './pages/product-page/product-page.component'
-import { AddProductPageComponent } from './pages/add-product-page/add-product-page.component';
 import { BillPageComponent } from './pages/bill-page/bill-page.component';
 import { ConsultBillPageComponent } from './pages/consult-bill-page/consult-bill-page.component';
 import { BillTableComponent } from './components/bill-table/bill-table.component';
@@ -40,9 +38,7 @@ import { ImgComponent } from './components/img/img.component';
     SideNavComponent,
     SearchBarComponent,
     ClientTableComponent,
-    AddClientPageComponent,
     ProductPageComponent,
-    AddProductPageComponent,
     BillPageComponent,
     ConsultBillPageComponent,
     BillTableComponent,
