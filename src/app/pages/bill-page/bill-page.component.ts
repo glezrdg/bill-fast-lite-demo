@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from '../../models/product.model';
 import { StoreService } from '../../services/store.service';
-
+import { ProductsService } from 'src/app/services/products.service';
 @Component({
   selector: 'app-bill-page',
   templateUrl: './bill-page.component.html',
@@ -10,7 +10,8 @@ import { StoreService } from '../../services/store.service';
 export class BillPageComponent implements OnInit {
 
   constructor(
-    private storeService: StoreService
+    private storeService: StoreService,
+    private productsService: ProductsService
   ) { }
 
 
@@ -50,5 +51,11 @@ export class BillPageComponent implements OnInit {
   }
   
 
+  onShowDetail(id: string) {
+    this.productsService.getProduct(id)
+    .subscribe(data => {
+      
+    })
+  }
   
 }

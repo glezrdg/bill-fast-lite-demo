@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { Product } from '../../models/product.model';
 
@@ -18,6 +18,8 @@ export class ProductsComponent implements OnInit {
   products: Product[] = [];
   filterProducts: Product[] = []
 
+  @Output() addedListProduct = new EventEmitter<Product>();
+  
   constructor(
     private storeService: StoreService,
     private productsService: ProductsService
@@ -51,9 +53,14 @@ export class ProductsComponent implements OnInit {
   onShowDetail(id: string) {
     this.productsService.getProduct(id)
     .subscribe(data => {
-      console.log('product', data);
+      console.log(data);
+      this.myShoppingCart.push(data);
+      console.log(this.myShoppingCart);
+      
     })
   }
 
+
+  
 
 }

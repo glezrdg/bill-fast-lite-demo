@@ -5,7 +5,8 @@
     <app-search-bar
       (enviarProductoABuscar)="buscarProducto($event)"
     ></app-search-bar>
-    <app-products [productFilter]="info" (addedListProduct)="onShowDetail($event)"></app-products>
+    <app-products [productFilter]="info" ></app-products>
+    <!-- (addedListProduct)="onShowDetail($event)" -->
   </div>
   <div
     class="w-2/5 min-h-screen relative flex flex-col bg-white text-gray-700 drop-shadow-lg"
@@ -78,10 +79,12 @@
             <p class="text-base font-semibold mt-2 ml-2">Lista de productos:</p>
            
             <ul class="w-full h-[35vh] flex flex-col p-5 overflow-y-scroll text-sm">
-              <li *ngFor="let products of product">
+              <!-- <li *ngFor="let products of product"> -->
                 {{ product.title }}
+
+                {{  (product.title) }}
                 {{ product.price}}
-              </li>
+              <!-- </li> -->
 
               <li class="flex justify-between m-2">
                 <img src="../../../assets/img/bin.png" class="w-4 h-4 hover:scale-110 ease-in-out duration-300" alt="" />
