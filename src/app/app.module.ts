@@ -19,7 +19,7 @@ import { AddClientPageComponent } from './pages/add-client-page/add-client-page.
 import {ProductPageComponent} from './pages/product-page/product-page.component'
 import { AddProductPageComponent } from './pages/add-product-page/add-product-page.component';
 import { BillPageComponent } from './pages/bill-page/bill-page.component';
-import { AddBillPageComponent } from './pages/add-bill-page/add-bill-page.component';
+import { ConsultBillPageComponent } from './pages/consult-bill-page/consult-bill-page.component';
 import { BillTableComponent } from './components/bill-table/bill-table.component';
 import { SettingPageComponent } from './pages/setting-page/setting-page.component';
 import { MoreOptPageComponent } from './pages/more-opt-page/more-opt-page.component';
@@ -44,7 +44,7 @@ import { ImgComponent } from './components/img/img.component';
     ProductPageComponent,
     AddProductPageComponent,
     BillPageComponent,
-    AddBillPageComponent,
+    ConsultBillPageComponent,
     BillTableComponent,
     SettingPageComponent,
     MoreOptPageComponent,

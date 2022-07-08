@@ -23,8 +23,7 @@ export class ClientPageComponent implements OnInit {
     if(AsTipoComprobante.value === "Factura de Crédito Fiscal (Tipo 01)"){
       AsTipoDocumento.innerHTML = `<option class="text-sm" selected disabled value="RNC">RNC</option>`
       AsInputNumDoc.placeholder = "B0100000005"
-
-
+      
     }else if(AsTipoComprobante.value === "Factura de Consumo (Tipo 02)"){
       AsTipoDocumento.innerHTML = `<option class="text-sm" selected disabled value="Cedula">Cedula</option>`
       AsInputNumDoc.placeholder = "40247755893"
