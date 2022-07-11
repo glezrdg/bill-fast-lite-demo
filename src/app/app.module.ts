@@ -4,9 +4,6 @@ import { FormsModule} from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EntryBgComponent } from './components/entry-bg/entry-bg.component';
-import { CLoginComponent } from './components/c-login/c-login.component';
-import { CSignupComponent } from './components/c-signup/c-signup.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { LogInComponent } from './pages/log-in/log-in.component';
 import { ClientPageComponent } from './pages/client-page/client-page.component';
@@ -30,9 +27,6 @@ import { UserIconComponent } from './components/user-icon/user-icon.component';
 @NgModule({
   declarations: [
     AppComponent,
-    EntryBgComponent,
-    CLoginComponent,
-    CSignupComponent,
     SignUpComponent,
     LogInComponent,
     ClientPageComponent,
