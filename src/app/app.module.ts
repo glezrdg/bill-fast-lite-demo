@@ -24,6 +24,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { ProductComponent } from './components/product/product.component';
 import { ImgComponent } from './components/img/img.component';
 import { UserIconComponent } from './components/user-icon/user-icon.component';
+import { ForgotpasswordComponent } from './pages/forgotpassword/forgotpassword.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,8 @@ import { UserIconComponent } from './components/user-icon/user-icon.component';
     ProductsComponent,
     ProductComponent,
     ImgComponent,
-    UserIconComponent
+    UserIconComponent,
+    ForgotpasswordComponent
   ],
   imports: [
     BrowserModule,

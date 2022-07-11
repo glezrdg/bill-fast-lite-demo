@@ -9,6 +9,7 @@ import { ConsultBillPageComponent } from './pages/consult-bill-page/consult-bill
 import { SettingPageComponent } from './pages/setting-page/setting-page.component';
 import { MoreOptPageComponent } from './pages/more-opt-page/more-opt-page.component';
 import { DashBoardComponent } from './pages/dashboard/dashboard.component';
+import { ForgotpasswordComponent } from './pages/forgotpassword/forgotpassword.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path: 'bill-page', component: BillPageComponent},
   {path: 'bill-page/:consult-bill-page', component: ConsultBillPageComponent},
   {path: 'more-opt-page', component: MoreOptPageComponent},
-  {path: 'setting-page', component: SettingPageComponent}
+  {path: 'setting-page', component: SettingPageComponent},
+  {path: 'forgotpassword', component: ForgotpasswordComponent}
 ]
 
 @NgModule({
