@@ -18,14 +18,7 @@ export class ClientPageComponent implements OnInit {
 
   tipoDeComprobanteFiscalList:  Observable<any[]>;
 
-  
-
-
   constructor(private renderer2: Renderer2, private service: billFastLiteApiUrl) { }
-
-
-  
-  
 
   obtenerValue(): void{
     const AsTipoComprobante = this.tipoComprobante.nativeElement;

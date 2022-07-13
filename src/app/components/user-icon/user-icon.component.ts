@@ -10,6 +10,7 @@ export class UserIconComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }
