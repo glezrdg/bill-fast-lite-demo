@@ -40,18 +40,7 @@
                       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="tipoComprobante">Tipo de comprobante: </label>
                       <select #AsTipoComprobante name="tipoComprobante" id="tipoComprobante" class="xl:text-sm pt-1.5 xl:h-10 cursor-pointer w-full bg-gray-200 text-black border rounded py-3 px-4 mb-3 focus:outline-none focus:bg-white" (change)="obtenerValue()">
                         <option class="text-sm" selected disabled value="">Seleccione un tipo de comprobante</option>
-                        <option class="text-sm" value="Factura de Crédito Fiscal (Tipo 01)">Factura de Crédito Fiscal (Tipo 01)</option>
-                        <option class="text-sm" value="Factura de Consumo (Tipo 02)" >Factura de Consumo (Tipo 02)</option>
-                        <option class="text-sm" value="Notas de Débito (Tipo 03)" >Notas de Débito (Tipo 03)</option>
-                        <option class="text-sm" value="Notas de Crédito (Tipo 04)" >Notas de Crédito (Tipo 04)</option>
-                        <option class="text-sm" value="Comprobante de Compras (Tipo 11)" >Comprobante de Compras (Tipo 11)</option>
-                        <option class="text-sm" value="Registro Único de Ingresos (Tipo 12): " >Registro Único de Ingresos (Tipo 12)</option>
-                        <option class="text-sm" value="Comprobante para Gastos Menores (Tipo 13)" >Comprobante para Gastos Menores (Tipo 13)</option>
-                        <option class="text-sm" value="Comprobante de Regímenes Especiales (Tipo 14)" >Comprobante de Regímenes Especiales (Tipo 14)</option>
-                        <option class="text-sm" value="Comprobante Gubernamental (Tipo 15)" >Comprobante Gubernamental (Tipo 15)</option>
-                        <option class="text-sm" value="Comprobante para exportaciones (16)" >Comprobante para exportaciones (16)</option>
-                        <option class="text-sm" value="Comprobante para Pagos al Exterior (17)" >Comprobante para Pagos al Exterior (17)</option>
-                        <option class="text-sm" value="Comprobante Fiscal Electrónico (e-CF)">Comprobante Fiscal Electrónico (e-CF)</option>
+                        <option class="text-sm" *ngFor="let comprobante of tipoDeComprobanteFiscalList|async" [value]="comprobante.nombreTipoDeComprobanteFiscal">{{comprobante.nombreTipoDeComprobanteFiscal}}</option>
                       </select>
                       </div>
   

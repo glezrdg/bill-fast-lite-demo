@@ -13,12 +13,12 @@
         
         <tbody>
             <td colspan="5"><div class="bg-lime-500 w-full h-0.5 rounded-full my-2"></div></td>
-            <tr class="text-xs" *ngFor="let cliente of clientes">
+            <tr class="text-xs text-black" *ngFor="let cliente of clientList|async">
                
-                <td class="py-1">{{ cliente.nombreORazonSocial }}</td>
-                <td class="py-1">{{ cliente.numeroDeDocumento }}</td>
-                <td class="py-1">{{ cliente.celular }}</td>
-                <td class="py-1">{{ cliente.telefono }}</td>
+                <td class="py-1">{{ cliente.nombreORazonSocialCliente }}</td>
+                <td class="py-1">{{ cliente.numeroDeDocumentoCliente }}</td>
+                <td class="py-1">{{ cliente.celularCliente }}</td>
+                <td class="py-1">{{ cliente.celularCliente }}</td>
                 <td class="py-3"><i class="fa-solid fa-ellipsis-vertical hover:scale-105 ease-in-out duration-300 cursor-pointer"></i></td>
             </tr>
 

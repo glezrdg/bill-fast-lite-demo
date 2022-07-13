@@ -22,25 +22,25 @@ export class LogInComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  validarLogin(){
-    const AsInputUsuario = this.InputUsuario.nativeElement.value;
-    const AsInputContrasena = this.InputContrasena.nativeElement.value;
-    for(let usuario of this.usuarios){
-      if(AsInputUsuario == '' && AsInputContrasena == ''){
-        alert("Debe llenar los campos")
-        this.ruta = '/log-in';
-      }else if(AsInputUsuario == usuario.emailUser && AsInputContrasena != usuario.passwordUser){
-        alert("Contraseña incorrecta")
-        this.ruta = '/log-in';
-      }else if(AsInputUsuario == usuario.emailUser && AsInputContrasena == ''){
-        alert("Debe ingresar su contraseña")
-        this.ruta = '/log-in';
-      }else if(AsInputUsuario == '' && AsInputContrasena == usuario.passwordUser){
-        alert("Debe ingresar el usuario")
-        this.ruta = '/log-in';
-      }else{
-        this.ruta = '';
-      }
-    }
-  }
+  // validarLogin(){
+  //   const AsInputUsuario = this.InputUsuario.nativeElement.value;
+  //   const AsInputContrasena = this.InputContrasena.nativeElement.value;
+  //   for(let usuario of this.usuarios){
+  //     if(AsInputUsuario == '' && AsInputContrasena == ''){
+  //       alert("Debe llenar los campos")
+  //       this.ruta = '/log-in';
+  //     }else if(AsInputUsuario == usuario.emailUser && AsInputContrasena != usuario.passwordUser){
+  //       alert("Contraseña incorrecta")
+  //       this.ruta = '/log-in';
+  //     }else if(AsInputUsuario == usuario.emailUser && AsInputContrasena == ''){
+  //       alert("Debe ingresar su contraseña")
+  //       this.ruta = '/log-in';
+  //     }else if(AsInputUsuario == '' && AsInputContrasena == usuario.passwordUser){
+  //       alert("Debe ingresar el usuario")
+  //       this.ruta = '/log-in';
+  //     }else{
+  //       this.ruta = '';
+  //     }
+  //   }
+  // }
 }

@@ -1,5 +1,7 @@
 import { style } from '@angular/animations';
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { observable, Observable } from 'rxjs';
+import{billFastLiteApiUrl} from '../../../app/services/billfastlite-api.service'
 
 @Component({
   selector: 'app-client-page',
@@ -8,12 +10,22 @@ import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/co
 })
 export class ClientPageComponent implements OnInit {
   ruta: string = '../client-page/add-client-page';
-  constructor(private renderer2: Renderer2) { }
   @ViewChild("checkbox") checkbox!: ElementRef;
   @ViewChild("modal") modal: ElementRef;
   @ViewChild("AsTipoComprobante") tipoComprobante: ElementRef;
   @ViewChild("AsTipoDocumento") tipoDocumento: ElementRef;
   @ViewChild("AsInputNumDoc") inputNumDoc: ElementRef;
+
+  tipoDeComprobanteFiscalList:  Observable<any[]>;
+
+  
+
+
+  constructor(private renderer2: Renderer2, private service: billFastLiteApiUrl) { }
+
+
+  
+  
 
   obtenerValue(): void{
     const AsTipoComprobante = this.tipoComprobante.nativeElement;
@@ -32,9 +44,9 @@ export class ClientPageComponent implements OnInit {
   }
   ngOnInit(): void {
     this.openModal = this.openModal.bind(this)
+    this.tipoDeComprobanteFiscalList  = this.service.getTaxReceiptType();
   }
   
-
   openModal(){
     this.modal.nativeElement.showModal()
     console.log(this.modal);

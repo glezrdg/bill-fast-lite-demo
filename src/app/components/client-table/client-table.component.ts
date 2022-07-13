@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Cliente } from 'src/app/models/cliente.models';
 import { UsersService } from 'src/app/services/users.service';
 import { addclientService } from '../../services/addClientService.service';
+import { billFastLiteApiUrl } from '../../services/billfastlite-api.service';
 
 @Component({
   selector: 'app-client-table',
@@ -10,13 +12,12 @@ import { addclientService } from '../../services/addClientService.service';
 })
 export class ClientTableComponent implements OnInit {
   
-  clientes: Cliente[] = [];
+  clientList:  Observable<any[]>;
   
-  constructor(private addclientService: addclientService) { }
+  constructor(private service: billFastLiteApiUrl) { }
 
   ngOnInit(): void {
-    this.clientes = this.addclientService.clientes;
-    console.log(this.clientes)
+    this.clientList = this.service.getClient();
   }
 
 }
