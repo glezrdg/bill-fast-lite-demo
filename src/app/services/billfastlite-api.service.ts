@@ -49,7 +49,6 @@ export class billFastLiteApiUrl {
     deleteProduct(id:number|string){
         return this.http.delete(this.billFastLiteApiUrl + `/productos/${id}`);
     }
-
     // Facturas
     getBills():Observable<any[]>{
         return this.http.get<any>(this.billFastLiteApiUrl + '/facturas');
