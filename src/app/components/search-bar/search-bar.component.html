@@ -9,8 +9,8 @@
     </div>
     <!--Select de filtros-->
     <div>
-        <select id="countries" class="text-gray-900 text-sm p-2.5 ml-0 dark:border-gray-200 focus:border-white-500 dark:text-black cursor-pointer w-32 outline-none m-3 flex items-center justify-center rounded-xl shadow-lg hover:scale-105 ease-in-out duration-300">
-          <option selected disabled>{{selected? selected : "Categoria"}}</option>
+        <select id="countries" class="text-gray-900 text-sm p-2.5 ml-0 dark:border-gray-200 focus:border-white-500 dark:text-black cursor-pointer w-32 outline-none m-3 flex items-center justify-center rounded-xl shadow-lg hover:scale-105 ease-in-out duration-300 2xl:text-md">
+          <option selected disabled >{{selected? selected : "Categoria"}}</option>
           <option value="US" *ngFor="let opcion of opciones">{{opcion}}</option>
         </select>
     </div>
@@ -23,7 +23,7 @@
         <button class="bg-white shadow-md rounded-lg p-5 m-3 h-8 w-28 hover:scale-105 ease-in-out duration-300 flex items-center justify-center" (click)="funcionModal?.()">
             <!--Aqui le digo que si la direccion es "/bill-page" que el nombre del boton del search-bar sea "consult" de lo contrario que sea add -->
             <p class="font-bold text-md text-lime-500" *ngIf="isDirectionBill(); else isOtherDirection">Consultar</p> 
-            <ng-template #isOtherDirection> <p class="font-bold text-md text-lime-500">Agregar</p></ng-template>
+            <ng-template #isOtherDirection> <p class="font-bold text-md text-lime-500 ">Agregar</p></ng-template>
            
         </button>
     </a>  

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SettingPageComponent } from './setting-page.component';
+import { SideNavSettingsComponent } from './side-nav-settings.component';
 
-describe('SettingPageComponent', () => {
-  let component: SettingPageComponent;
-  let fixture: ComponentFixture<SettingPageComponent>;
+describe('SideNavSettingsComponent', () => {
+  let component: SideNavSettingsComponent;
+  let fixture: ComponentFixture<SideNavSettingsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SettingPageComponent ]
+      declarations: [ SideNavSettingsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SettingPageComponent);
+    fixture = TestBed.createComponent(SideNavSettingsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

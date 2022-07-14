@@ -1,19 +1,96 @@
-<div class="flex">
-    <app-side-nav></app-side-nav>
-    <div class="flex flex-col w-1/2 ml-10">
-        <p class="m-2 ml-5 text-xl font-bold">Configuración</p>
-        <div class="m-5 my-5 p-2 px-4 bg-[#fff] shadow-md shadow-[#0EA5E9]/30 rounded-lg">
-            <button class="bg-black hover:bg-neutral-500 shadow-md rounded-lg py-2 px-6 m-3 h-8 hover:scale-105 ease-in-out duration-300 flex items-center justify-between w-34">
-                <a routerLink="../log-in">
-                <p class="font-bold text-sm text-white"> Editar perfil</p>
-                </a>
-            </button>
-
-            <button class="bg-red-600 hover:bg-red-500 shadow-md rounded-lg py-2 px-6 m-3 h-8 hover:scale-105 ease-in-out duration-300 flex items-center justify-between w-34">
-            <a routerLink="../log-in">
-            <p class="font-bold text-sm text-white"> Log out</p>
-            </a>
-            </button>
-         </div>
+<div class="flex containeres">
+    <app-side-nav-settings></app-side-nav-settings>
+    <div class="flex flex-col w-full ml-10">
+        <div class="titles flex spacing relative justify-center items-center pr-6">
+            <p class="justify-center  m-2 ml-0 text-3xl my-6 font-medium drop-shadow-lg">Configuración de la cuenta</p>
+        <app-user-icon></app-user-icon>   
+        </div>
+        <div class="w-5/5 h-5/6 bg-white relative rounded-xl mr-10">
+            <p class="xl:text-xl 2xl:text-2xl font-bold text-center 2xl:m-9 xl:m-6">
+                Información general
+            </p>
+            <!--PRIMERA FILA DE BLOQUES-->
+            <div class="flex justify-center">
+                <!--Bloque de arriba a la izquierda-->
+                <div class="flex justify-center w-1/2 m-5 h-36">
+                    <div class="w-5/6 mt-5 px-5">
+                        <label
+                          class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 w-full"
+                          for="grid-first-name"
+                        >
+                          Primer nombre
+                        </label>
+                        <input
+                          class="xl:text-sm xl:h-9 2xl:h-12 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500"
+                          id="grid-first-name"
+                          type="text"
+                          placeholder="Nasser Emil"
+                          disabled
+                        />
+                    </div>
+                </div>
+                <!--Bloque de arriba a la derecha-->
+                <div class="flex justify-center w-1/2 m-5 h-36">
+                    <div class="w-5/6 mt-5 px-5">
+                        <label
+                          class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 w-full"
+                          for="grid-first-name"
+                        >
+                          Segundo nombre
+                        </label>
+                        <input
+                          class="xl:text-sm xl:h-9 2xl:h-12 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500"
+                          id="grid-first-name"
+                          type="text"
+                          placeholder="Issa Tavares"
+                          disabled
+                        />
+                    </div>
+                </div>  
+            </div>
+            <!--SEGUNDA FILA DE BLOQUES-->
+            <div class="flex justify-center">
+                <!--Bloque de abajo a la izquierda-->
+                <div class="flex justify-center w-1/2 m-5 h-36">
+                    <div class="w-5/6 mt-5 px-5">
+                        <label
+                          class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 w-full"
+                          for="grid-first-name"
+                        >
+                          Correo
+                        </label>
+                        <input
+                          class="xl:text-sm xl:h-9 2xl:h-12 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500"
+                          id="grid-first-name"
+                          type="email"
+                          placeholder="nissa@transnegrd.com"
+                          disabled
+                        />
+                    </div>
+                </div>
+                <!--Bloque de arriba a la derecha-->
+                <div class="flex justify-center w-1/2 m-5 h-36">
+                    <div class="w-5/6 mt-5 px-5">
+                        <label
+                          class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 w-full"
+                          for="grid-first-name"
+                        >
+                          Usuario
+                        </label>
+                        <input
+                          class="xl:text-sm xl:h-9 2xl:h-12 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500"
+                          id="grid-first-name"
+                          type="text"
+                          placeholder="nissa2552"
+                          disabled
+                        />
+                    </div>
+                </div>
+            </div>
+            <!--TERCER BLOQUE (BOTON DE EDITAR)-->
+            <div class=" flex justify-center items-center w-full h-36">
+                <button class=" flex justify-center items-center w-32 h-2/6 bg-lime-500 rounded-lg text-md text-white font-bold shadow-lg hover:bg-yellow-400 py-2 px-4 hover:scale-105 ease-in-out duration-300">Editar</button>
+            </div>
+        </div>
     </div>
 </div>

@@ -1,0 +1,20 @@
+.containeres{
+    position: relative;
+    &::before{
+        content: '';
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        background-image: url(../../../assets/img/pattern-icon-13.jpg);
+        filter: brightness(0.7);
+        background-size: cover;
+        background-position: top-center;
+        opacity: 0.2;
+    }
+}
+.spacing{
+  justify-content: space-between;
+  
+}

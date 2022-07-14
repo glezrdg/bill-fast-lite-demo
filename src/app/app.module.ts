@@ -25,6 +25,7 @@ import { ProductComponent } from './components/product/product.component';
 import { ImgComponent } from './components/img/img.component';
 import { UserIconComponent } from './components/user-icon/user-icon.component';
 import { ForgotpasswordComponent } from './pages/forgotpassword/forgotpassword.component';
+import { SideNavSettingsComponent } from './components/side-nav-settings/side-nav-settings.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +46,8 @@ import { ForgotpasswordComponent } from './pages/forgotpassword/forgotpassword.c
     ProductComponent,
     ImgComponent,
     UserIconComponent,
-    ForgotpasswordComponent
+    ForgotpasswordComponent,
+    SideNavSettingsComponent,
   ],
   imports: [
     BrowserModule,

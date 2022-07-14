@@ -15,6 +15,8 @@ export class UserIconComponent implements OnInit {
     const AsDropdown = this.dropdown.nativeElement;
     AsDropdown.classList.toggle('hidden');
     AsDropdown.classList.toggle('flex');
+
+    // Intento fallido de cerrar el submenu haciendo click afuera del mismo
     // if(AsDropdown.classList.contains('hidden')){
     //   document.body.addEventListener(
     //     'click',()=>{
