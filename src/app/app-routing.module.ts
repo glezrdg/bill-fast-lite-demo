@@ -7,9 +7,11 @@ import { ProductPageComponent } from './pages/product-page/product-page.componen
 import { BillPageComponent } from './pages/bill-page/bill-page.component';
 import { ConsultBillPageComponent } from './pages/consult-bill-page/consult-bill-page.component';
 import { SettingPageComponent } from './pages/setting-page/setting-page.component';
-import { MoreOptPageComponent } from './pages/more-opt-page/more-opt-page.component';
 import { DashBoardComponent } from './pages/dashboard/dashboard.component';
 import { ForgotpasswordComponent } from './pages/forgotpassword/forgotpassword.component';
+import { PasswordPageComponent } from './pages/password-page/password-page.component';
+import { NotificationsPageComponent } from './pages/notifications-page/notifications-page.component';
+import { HelpPageComponent } from './pages/help-page/help-page.component';
 
 
 const routes: Routes = [
@@ -20,9 +22,11 @@ const routes: Routes = [
   {path: 'product-page', component: ProductPageComponent},
   {path: 'bill-page', component: BillPageComponent},
   {path: 'bill-page/:consult-bill-page', component: ConsultBillPageComponent},
-  {path: 'more-opt-page', component: MoreOptPageComponent},
   {path: 'setting-page', component: SettingPageComponent},
-  {path: 'forgotpassword', component: ForgotpasswordComponent}
+  {path: 'forgotpassword', component: ForgotpasswordComponent},
+  {path: 'password-page', component: PasswordPageComponent},
+  {path: 'notifications-page', component: NotificationsPageComponent},
+  {path: 'help-page', component: HelpPageComponent}
 ]
 
 @NgModule({
