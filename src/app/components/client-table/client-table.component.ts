@@ -19,5 +19,4 @@ export class ClientTableComponent implements OnInit {
   ngOnInit(): void {
     this.clientList = this.service.getClient();
   }
-
 }
