@@ -2,28 +2,28 @@ import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular
 @Component({
   selector: 'app-user-icon',
   templateUrl: './user-icon.component.html',
-  styleUrls: ['./user-icon.component.scss']
+  styleUrls: ['./user-icon.component.scss'],
+  host: {
+    "(document:click)": "onClickOutside($event)",
+  },
 })
 export class UserIconComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _eref: ElementRef) { }
   @ViewChild("AsDropdown") dropdown: ElementRef;
 
   ngOnInit(): void {
   }
-  onClick(){
+  onClickMenu(){
     const AsDropdown = this.dropdown.nativeElement;
     AsDropdown.classList.toggle('hidden');
     AsDropdown.classList.toggle('flex');
-
-    // Intento fallido de cerrar el submenu haciendo click afuera del mismo
-    // if(AsDropdown.classList.contains('hidden')){
-    //   document.body.addEventListener(
-    //     'click',()=>{
-    //       AsDropdown.classList.remove('flex');
-    //       AsDropdown.classList.add('hidden');
-    //     })
-    // }
+  }
+  onClickOutside(event: { target: any; }) {
+    const AsDropdown = this.dropdown.nativeElement;
+    if (!this._eref.nativeElement.contains(event.target))
+      // ...
+      AsDropdown.classList.add('hidden');
   }
 }
 

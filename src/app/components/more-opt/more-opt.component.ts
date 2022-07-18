@@ -5,7 +5,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
   templateUrl: './more-opt.component.html',
   styleUrls: ['./more-opt.component.scss'],
   host: {
-    "(document:click)": "onClick($event)",
+    "(document:click)": "onClickOutside($event)",
   },
 })
 export class MoreOptComponent implements OnInit {
@@ -19,12 +19,12 @@ export class MoreOptComponent implements OnInit {
   }
   ngOnInit(): void {
   }
-  onClick1(){
+  onClickMenu(){
     const AsDropdown = this.dropdown.nativeElement;
     AsDropdown.classList.toggle('hidden');
     AsDropdown.classList.toggle('flex');
   }
-  onClick(event: { target: any; }) {
+  onClickOutside(event: { target: any; }) {
     const AsDropdown = this.dropdown.nativeElement;
     if (!this._eref.nativeElement.contains(event.target))
       // ...
