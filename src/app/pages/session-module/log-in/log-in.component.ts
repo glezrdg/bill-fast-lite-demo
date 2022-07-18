@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { User } from '../../models/usuario.models';
+import { User } from '../../../models/usuario.models';
 
 @Component({
   selector: 'app-log-in',

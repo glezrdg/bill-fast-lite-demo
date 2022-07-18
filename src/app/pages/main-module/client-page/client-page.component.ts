@@ -1,7 +1,7 @@
 import { style } from '@angular/animations';
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { observable, Observable } from 'rxjs';
-import{billFastLiteApiUrl} from '../../../app/services/billfastlite-api.service'
+import{billFastLiteApiUrl} from '../../../services/billfastlite-api.service'
 
 @Component({
   selector: 'app-client-page',
@@ -17,8 +17,12 @@ export class ClientPageComponent implements OnInit {
   @ViewChild("AsInputNumDoc") inputNumDoc: ElementRef;
 
   tipoDeComprobanteFiscalList:  Observable<any[]>;
+  clientList:  Observable<any[]>;
 
-  constructor(private renderer2: Renderer2, private service: billFastLiteApiUrl) { }
+  constructor(
+    private renderer2: Renderer2,
+    private service: billFastLiteApiUrl
+     ) { }
 
   obtenerValue(): void{
     const AsTipoComprobante = this.tipoComprobante.nativeElement;
@@ -38,6 +42,7 @@ export class ClientPageComponent implements OnInit {
   ngOnInit(): void {
     this.openModal = this.openModal.bind(this)
     this.tipoDeComprobanteFiscalList  = this.service.getTaxReceiptType();
+    this.clientList = this.service.getClient();
   }
   
   openModal(){

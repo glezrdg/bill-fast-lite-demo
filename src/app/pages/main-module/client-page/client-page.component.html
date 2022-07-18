@@ -10,7 +10,34 @@
           <app-search-bar
           [funcionModal]="openModal"
           ></app-search-bar>
-          <app-client-table></app-client-table>
+          <!--Tabla del cliente-->
+          <div class="m-5 my-5 ml-0 p-2 px-4 bg-[#fff] shadow-md shadow-lime-500/30 rounded-lg relative 2xl:text-md">
+            Datos de los clientes
+            <table class="w-full my-3 table-auto" style="text-align:justify;">
+                <thead>
+                    <tr class="text-xs 2xl:text-sm">
+                        <th>Nombre / Razón social</th>
+                        <th>Número de Documento</th>
+                        <th>Balance actual</th>
+                        <th>Suscripciones</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+        
+                <tbody>
+                    <td colspan="5"><div class="bg-lime-500 w-full h-0.5 rounded-full my-2"></div></td>
+                    <tr class="text-xs text-black" *ngFor="let cliente of clientList|async">
+                       
+                        <td class="py-1">{{ cliente.nombreORazonSocialCliente }}</td>
+                        <td class="py-1">{{ cliente.numeroDeDocumentoCliente }}</td>
+                        <td class="py-1">{{ cliente.celularCliente }}</td>
+                        <td class="py-1">{{ cliente.celularCliente }}</td>
+                        <td class="py-3"><app-more-opt></app-more-opt></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+          
             <!--Modal agregar productos-->
         <dialog #modal id="modal" class="modal 2xl:w-3/5 xl:w-4/5 bg-gray-100 open:flex relative flex-col items-center justify-between rounded-xl pt-0">
           <p class="xl:text-xl 2xl:text-2xl font-bold text-center 2xl:m-9 xl:m-6">Agregar cliente</p>

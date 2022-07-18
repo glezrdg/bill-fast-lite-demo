@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SignUpComponent } from './pages/sign-up/sign-up.component';
-import { LogInComponent } from './pages/log-in/log-in.component';
-import { ClientPageComponent } from './pages/client-page/client-page.component';
-import { ProductPageComponent } from './pages/product-page/product-page.component';
-import { BillPageComponent } from './pages/bill-page/bill-page.component';
-import { ConsultBillPageComponent } from './pages/consult-bill-page/consult-bill-page.component';
-import { SettingPageComponent } from './pages/setting-page/setting-page.component';
-import { DashBoardComponent } from './pages/dashboard/dashboard.component';
-import { ForgotpasswordComponent } from './pages/forgotpassword/forgotpassword.component';
-import { PasswordPageComponent } from './pages/password-page/password-page.component';
-import { NotificationsPageComponent } from './pages/notifications-page/notifications-page.component';
-import { HelpPageComponent } from './pages/help-page/help-page.component';
+import { SignUpComponent } from './pages/session-module/sign-up/sign-up.component';
+import { LogInComponent } from './pages/session-module/log-in/log-in.component';
+import { ClientPageComponent } from './pages/main-module/client-page/client-page.component';
+import { ProductPageComponent } from './pages/main-module/product-page/product-page.component';
+import { BillPageComponent } from './pages/main-module/bill-page/bill-page.component';
+import { ConsultBillPageComponent } from './pages/main-module/consult-bill-page/consult-bill-page.component';
+import { SettingPageComponent } from './pages/setting-module/setting-page/setting-page.component';
+import { DashBoardComponent } from './pages/main-module/dashboard/dashboard.component';
+import { ForgotpasswordComponent } from './pages/session-module/forgotpassword/forgotpassword.component';
+import { PasswordPageComponent } from './pages/setting-module/password-page/password-page.component';
+import { NotificationsPageComponent } from './pages/setting-module/notifications-page/notifications-page.component';
+import { HelpPageComponent } from './pages/setting-module/help-page/help-page.component';
 
 
 const routes: Routes = [
