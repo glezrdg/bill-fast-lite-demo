@@ -28,6 +28,7 @@ import { SideNavSettingsComponent } from './components/side-nav-settings/side-na
 import { PasswordPageComponent } from './pages/password-page/password-page.component';
 import { NotificationsPageComponent } from './pages/notifications-page/notifications-page.component';
 import { HelpPageComponent } from './pages/help-page/help-page.component';
+import { MoreOptComponent } from './components/more-opt/more-opt.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,6 +53,7 @@ import { HelpPageComponent } from './pages/help-page/help-page.component';
     PasswordPageComponent,
     NotificationsPageComponent,
     HelpPageComponent,
+    MoreOptComponent,
   ],
   imports: [
     BrowserModule,
