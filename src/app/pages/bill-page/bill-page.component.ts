@@ -11,10 +11,24 @@ export class BillPageComponent implements OnInit {
 
   constructor(
     private storeService: StoreService,
-    private productsService: ProductsService
-  ) { }
+    
+  ) {
+    this.myShoppingCart = this.storeService.getShoppingCart();
+   }
+  myShoppingCart: Product[] = [];
 
+  get sum() { return this.myShoppingCart.reduce((accumulator, object) => {
+      return accumulator + object.price;
+    }, 0);
+  }
+  
+  itbis: number = 0.18;
+  
+  
 
+  
+  
+  
   @Input() product: Product = {
     id: '',
     price: 0,
@@ -27,12 +41,15 @@ export class BillPageComponent implements OnInit {
     description: ''
   };
 
+  
   counter: Product[] = [];
 
   ngOnInit(): void {
     this.storeService.myCart$.subscribe(products => {
       this.counter = products;
     });
+    
+   
   }
 
   ruta: string = '../bill-page/add-bill-page' 
@@ -43,19 +60,14 @@ export class BillPageComponent implements OnInit {
     two: '',
     three: '',
   }
+ 
 
 
   buscarProducto(info: string){
     this.info = info;
      console.log(info);
+     
   }
   
-
-  onShowDetail(id: string) {
-    this.productsService.getProduct(id)
-    .subscribe(data => {
-      
-    })
-  }
-  
+ 
 }

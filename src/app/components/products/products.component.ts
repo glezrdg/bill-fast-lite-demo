@@ -37,7 +37,7 @@ export class ProductsComponent implements OnInit {
 
   ngOnChanges(): void {
     this.filterProducts = this.products.filter(p => p.title.toLowerCase().includes(this.productFilter.toLowerCase()))
-    console.log(this.filterProducts)
+   
   }
 
   onAddToShoppingCart(product: Product) {
@@ -53,14 +53,7 @@ export class ProductsComponent implements OnInit {
   onShowDetail(id: string) {
     this.productsService.getProduct(id)
     .subscribe(data => {
-      console.log(data);
-      this.myShoppingCart.push(data);
-      console.log(this.myShoppingCart);
-      
+      this.myShoppingCart.push(data);   
     })
   }
-
-
-  
-
 }

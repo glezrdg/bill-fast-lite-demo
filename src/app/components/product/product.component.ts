@@ -21,14 +21,13 @@ export class ProductComponent {
     description: ''
   };
 
-  @Output() showProduct = new EventEmitter<string>();
+  @Output() showProduct = new EventEmitter<Product>();
 
   constructor() { }
 
   
   onShowDetail(){
-    this.showProduct.emit(this.product.id);
-    
+    this.showProduct.emit(this.product);
   }
 
 }
