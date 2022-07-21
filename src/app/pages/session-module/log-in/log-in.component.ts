@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { User } from '../../../models/usuario.models';
 
 @Component({
@@ -16,13 +17,35 @@ export class LogInComponent implements OnInit {
     {emailUser: "nasser@correo.com", passwordUser: "123"},
     {emailUser: "fulano@correo.com", passwordUser: "456"},
     {emailUser: "pepe@correo.com", passwordUser: "789"},
+    
   ];
 
-  constructor() { }
+  form: FormGroup
+  constructor(private fb: FormBuilder) {
+    this.form = this.fb.group({
+      inputUser: [''],
+      inputPassword: ['']
+    })
+   }
 
   ngOnInit(): void {
   }
-  // validarLogin(){
+  
+  IniciarSesion(){
+    console.log(this.form)
+    this.usuarios.forEach(usuario => {
+      if(this.form.get("inputUser")?.value == usuario.emailUser && this.form.get("inputPassword")?.value == usuario.passwordUser){
+        const datos: User = {
+          emailUser: this.form.get("inputUser")?.value,
+          passwordUser: this.form.get("inputPassword")?.value
+        }
+        console.log(datos)
+      }else{
+        console.log('user and password are not correct')
+      }
+    });
+  }
+  // validarLogin(){ 
   //   const AsInputUsuario = this.InputUsuario.nativeElement.value;
   //   const AsInputContrasena = this.InputContrasena.nativeElement.value;
   //   for(let usuario of this.usuarios){
