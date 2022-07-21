@@ -99,3 +99,13 @@
     display: none;
   }
 }
+
+// Items li
+
+.grid-items-class {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: auto 1fr auto auto;
+  place-items: center;
+  margin-bottom: 8px
+}

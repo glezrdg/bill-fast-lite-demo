@@ -12,6 +12,12 @@ export interface Product {
   category: Category;
 }
 
-export interface CreateProductDTO extends Omit<Product, 'id' | 'category'> {
-  categoryId: number;
+export interface ProductItem {
+  id: string,
+  title: string,
+  price: number,
+  qty: number
 }
+
+export interface AddProductDTO extends Partial<Product> {}
+

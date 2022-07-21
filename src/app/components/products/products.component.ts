@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
-import { Product } from '../../models/product.model';
+import { Product, ProductItem } from '../../models/product.model';
 
 import { StoreService } from '../../services/store.service';
 import { ProductsService } from '../../services/products.service';
@@ -8,18 +8,17 @@ import { ProductsService } from '../../services/products.service';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss']
+  styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit {
-
-  @Input() productFilter: string = ''
-  myShoppingCart: Product[] = [];
+  @Input() productFilter: string = '';
+  myShoppingCart: ProductItem[] = [];
   total = 0;
   products: Product[] = [];
-  filterProducts: Product[] = []
+  filterProducts: Product[] = [];
 
-  @Output() addedListProduct = new EventEmitter<Product>();
-  
+
+
   constructor(
     private storeService: StoreService,
     private productsService: ProductsService
@@ -28,32 +27,25 @@ export class ProductsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.productsService.getAllProducts()
-    .subscribe(data => {
-      this.products = data;  
+    this.productsService.getAllProducts().subscribe((data) => {
+      this.products = data;
     });
-    
   }
 
   ngOnChanges(): void {
-    this.filterProducts = this.products.filter(p => p.title.toLowerCase().includes(this.productFilter.toLowerCase()))
-   
-  }
-
-  onAddToShoppingCart(product: Product) {
-    this.storeService.addListProduct(product);
-    this.total = this.storeService.getTotal();
+    this.filterProducts = this.products.filter((p) =>
+      p.title.toLowerCase().includes(this.productFilter.toLowerCase())
+    );
   }
 
   chooseProducts(): Product[] {
-    if(this.filterProducts.length > 0) return this.filterProducts
-    else return this.products
+    if (this.filterProducts.length > 0) return this.filterProducts;
+    else return this.products;
   }
 
-  onShowDetail(id: string) {
-    this.productsService.getProduct(id)
-    .subscribe(data => {
-      this.myShoppingCart.push(data);   
-    })
+  addProduct(product: Product){
+    this.storeService.addProduct(product)
   }
+
+  
 }
