@@ -1,70 +1,71 @@
-<div class="min-h-screen min-w-[13vw]  space-y-20 bg-white text-gray-700 drop-shadow-lg  flex flex-col  " >
 
-    <a routerLink="">
-    <div class="logo w-full h-1/4 mt-5 p-3 flex space-x-4 drop-shadow-xl">
-      <img src="../../../assets/img/invoice.png" class="w-12 h-12" alt="">  
-      <div class="flex flex-col text-3xl  font-light  h-full">     
-        <span class="border-l-2  border-solid border-gray-700 px-1 ">
-          BillFast
-        </span>
-        <span class="border-l-2  spanes border-solid border-gray-700 px-1 mb-0 align-text-bottom pb-0">
-          Lite
-        </span>
-      </div>
-    </div>
-    </a>
-
-  <div class="menu w-full justify-self-auto self-center ">
-    <ul class=" p-2 space-y-10 items-center">
-      
-        <a routerLink="" routerLinkActive="text-lime-600" [routerLinkActiveOptions]="{exact: true}">
-          <li class="">
-          <div class="flex items-center space-x-4 align-text-bottom p-2 hover:text-lime-600 hover:bg-gray-100 
-          rounded-lg">
-            
-            <img src="../../../assets/img/bar-chart.png" class="w-6 h-6">
-            <span class="text-lg text-end mt-2">Dashboard</span>
-          </div>
-          </li>
-        </a>
-      
-      <li class="">
-        <a routerLink="/bill-page" routerLinkActive="text-lime-600">
-          <div class="flex items-bottom space-x-4 align-text-bottom p-2 hover:text-lime-600 hover:bg-gray-100 
-          rounded-lg ">
-            <img src="../../../assets/img/money.png" class="w-6 h-6">
-            <span class="text-lg text-end mt-1">Bills</span>
-          </div>
-        </a>
-      </li>
-      <li class="">
-        <a routerLink="/product-page" routerLinkActive="text-lime-600">
-          <div class="flex items-bottom space-x-4 align-text-bottom p-2 hover:text-lime-600 hover:bg-gray-100 
-          rounded-lg ">
-          <img src="../../../assets/img/box.png" class="w-6 h-6">
-          <span class="text-lg text-end mt-1">Inventory</span>
-          </div>
-        </a>
-      </li>
-      <li class="">
-        <a routerLink="/client-page" routerLinkActive="" routerLinkActive="text-lime-600">
-          <div class="flex items-bottom space-x-4 align-text-bottom p-2 hover:text-lime-600 hover:bg-gray-100 
-          rounded-lg ">
-          <img src="../../../assets/img/target.png" class="w-6 h-6">
-          <span class="text-lg text-end ">Clients</span>
-          </div>
-        </a>
-      </li>
-      <li class="">
-        <a routerLink="/." routerLinkActive="text-lime-600">
-          <div class="flex items-bottom space-x-4 align-text-bottom p-2 hover:text-lime-600 hover:bg-gray-100 
-          rounded-lg ">
-          <img src="../../../assets/img/cashier-machine.png" class="w-6 h-6">
-          <span class="text-lg text-end ">Cashier</span>
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-</div>
+<div class="cursor-pointer min-h-screen w-48 object-contain space-y-12 xl:space-y-9 2xl:space-y-14 bg-white flex flex-col text-gray-700 drop-shadow-lg " >
   
+      <a routerLink="">
+      <div class="logo w-full h-1/4 mt-5 p-3 flex space-x-4 drop-shadow-xl">
+        <img src="../../../assets/img/invoice.png" class="w-12 h-12" alt="">  
+        <div class="flex flex-col text-3xl  font-light  h-full">     
+          <span class="border-l-2  border-solid border-gray-700 px-1 ">
+            BillFast
+          </span>
+          <span class="border-l-2  spanes border-solid border-gray-700 px-1 mb-0 align-text-bottom pb-0">
+            Lite
+          </span>
+        </div>
+      </div>
+      </a>
+  
+    <div class="menu w-full justify-start items-center">
+      <ul class="p-2 space-y-12 xl:space-y-7 2xl:space-y-14 items-center">
+        
+          <a routerLink="" routerLinkActive="text-lime-600" [routerLinkActiveOptions]="{exact: true}">
+            <li class="">
+            <div class="flex items-center space-x-4 align-text-bottom p-2 hover:text-lime-600 hover:bg-gray-100 
+            rounded-lg">
+              
+              <img src="../../../assets/img/bar-chart.png" class="w-6 h-6">
+              <span class="text-lg text-end">Tablero</span>
+            </div>
+            </li>
+          </a>
+        
+        <li class="">
+          <a routerLink="/bill-page" routerLinkActive="text-lime-600">
+            <div class="flex items-bottom space-x-4 align-text-bottom p-2 hover:text-lime-600 hover:bg-gray-100 
+            rounded-lg ">
+              <img src="../../../assets/img/money.png" class="w-6 h-6">
+              <span class="text-lg text-end">Facturas</span>
+            </div>
+          </a>
+        </li>
+        <li class="">
+          <a routerLink="/product-page" routerLinkActive="text-lime-600">
+            <div class="flex items-bottom space-x-4 align-text-bottom p-2 hover:text-lime-600 hover:bg-gray-100 
+            rounded-lg ">
+            <img src="../../../assets/img/box.png" class="w-6 h-6">
+            <span class="text-lg text-end">Inventario</span>
+            </div>
+          </a>
+        </li>
+        <li class="">
+          <a routerLink="/client-page" routerLinkActive="" routerLinkActive="text-lime-600">
+            <div class="flex items-bottom space-x-4 align-text-bottom p-2 hover:text-lime-600 hover:bg-gray-100 
+            rounded-lg ">
+            <img src="../../../assets/img/target.png" class="w-6 h-6">
+            <span class="text-lg text-end">Clientes</span>
+            </div>
+          </a>
+        </li>
+        <li class="">
+          <a routerLink="/." routerLinkActive="text-lime-600">
+            <div class="flex items-bottom space-x-4 align-text-bottom p-2 hover:text-lime-600 hover:bg-gray-100 w-full
+            rounded-lg ">
+            <img src="../../../assets/img/cashier-machine.png" class="w-6 h-6">
+            <span class="text-lg text-end ">Caja</span>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+</div>
+

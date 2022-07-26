@@ -1,58 +1,55 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule} from '@angular/forms'
+import { FormsModule, ReactiveFormsModule} from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EntryBgComponent } from './components/entry-bg/entry-bg.component';
-import { CLoginComponent } from './components/c-login/c-login.component';
-import { CSignupComponent } from './components/c-signup/c-signup.component';
-import { SignUpComponent } from './pages/sign-up/sign-up.component';
-import { LogInComponent } from './pages/log-in/log-in.component';
-import { ClientPageComponent } from './pages/client-page/client-page.component';
+import { SignUpComponent } from './pages/session-module/sign-up/sign-up.component';
+import { LogInComponent } from './pages/session-module/log-in/log-in.component';
+import { ClientPageComponent } from './pages/main-module/client-page/client-page.component';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import {HttpClientModule} from '@angular/common/http';
-import { ClientTableComponent } from './components/client-table/client-table.component';
-import { AddClientPageComponent } from './pages/add-client-page/add-client-page.component';
-import {ProductPageComponent} from './pages/product-page/product-page.component'
-import { AddProductPageComponent } from './pages/add-product-page/add-product-page.component';
-import { BillPageComponent } from './pages/bill-page/bill-page.component';
-import { AddBillPageComponent } from './pages/add-bill-page/add-bill-page.component';
-import { BillTableComponent } from './components/bill-table/bill-table.component';
-import { SettingPageComponent } from './pages/setting-page/setting-page.component';
-import { MoreOptPageComponent } from './pages/more-opt-page/more-opt-page.component';
+import {ProductPageComponent} from './pages/main-module/product-page/product-page.component'
+import { BillPageComponent } from './pages/main-module/bill-page/bill-page.component';
+import { ConsultBillPageComponent } from './pages/main-module/consult-bill-page/consult-bill-page.component';
+import { SettingPageComponent } from './pages/setting-module/setting-page/setting-page.component';
 import { addclientService } from './services/addClientService.service';
-import { DashBoardComponent } from './pages/dashboard/dashboard.component';
+import { DashBoardComponent } from './pages/main-module/dashboard/dashboard.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ProductComponent } from './components/product/product.component';
 import { ImgComponent } from './components/img/img.component';
-
+import { UserIconComponent } from './components/user-icon/user-icon.component';
+import { ForgotpasswordComponent } from './pages/session-module/forgotpassword/forgotpassword.component';
+import { SideNavSettingsComponent } from './components/side-nav-settings/side-nav-settings.component';
+import { PasswordPageComponent } from './pages/setting-module/password-page/password-page.component';
+import { NotificationsPageComponent } from './pages/setting-module/notifications-page/notifications-page.component';
+import { HelpPageComponent } from './pages/setting-module/help-page/help-page.component';
+import { MoreOptComponent } from './components/more-opt/more-opt.component';
 @NgModule({
   declarations: [
     AppComponent,
-    EntryBgComponent,
-    CLoginComponent,
-    CSignupComponent,
     SignUpComponent,
     LogInComponent,
     ClientPageComponent,
     SideNavComponent,
     SearchBarComponent,
-    ClientTableComponent,
-    AddClientPageComponent,
     ProductPageComponent,
-    AddProductPageComponent,
     BillPageComponent,
-    AddBillPageComponent,
-    BillTableComponent,
+    ConsultBillPageComponent,
     SettingPageComponent,
-    MoreOptPageComponent,
     DashBoardComponent,
     ProductsComponent,
     ProductComponent,
     ImgComponent,
+    UserIconComponent,
+    ForgotpasswordComponent,
+    SideNavSettingsComponent,
+    PasswordPageComponent,
+    NotificationsPageComponent,
+    HelpPageComponent,
+    MoreOptComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +57,7 @@ import { ImgComponent } from './components/img/img.component';
     HttpClientModule,
     NgxPaginationModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [addclientService],
   bootstrap: [AppComponent]

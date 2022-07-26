@@ -1,0 +1,209 @@
+<div class="flex containeres">
+  <app-side-nav></app-side-nav>
+  <div class="flex flex-col w-full ml-10">
+    <div class="titles flex spacing relative justify-center items-center pr-6">
+      <p class="justify-start  m-2 ml-0 text-3xl my-6 font-medium drop-shadow-lg ">Inventario
+      </p>
+      <app-user-icon></app-user-icon>   
+      </div>
+    <app-search-bar
+      (enviarProductoABuscar)="buscarProducto($event)"
+      [funcionModal]="openModal"
+    ></app-search-bar>
+    <app-products [productFilter]="info"></app-products>
+  </div>
+  <!--Modal agregar productos-->
+  <dialog
+    #modal
+    id="modal"
+    class="modal 2xl:w-3/5 bg-gray-100 open:flex relative flex-col items-center justify-between rounded-xl pt-0"
+  >
+    <p class="xl:text-xl 2xl:text-2xl font-bold text-center 2xl:m-9 xl:m-6">
+      Agregar producto
+    </p>
+    <form action="" method="dialog">
+      <div class="flex flex-col 2xl:gap-6 xl:gap-2 h-1/2">
+        <div class="flex">
+          <div class="w-1/3 2xl:mb-2 px-3 xl:mb-0">
+            <label
+              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 w-full"
+              for="grid-first-name"
+            >
+              ID
+            </label>
+            <input
+              class="xl:text-sm xl:h-9 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500"
+              id="grid-first-name"
+              type="text"
+              placeholder="PDT-8761"
+              disabled
+            />
+          </div>
+          <div class="w-full 2xl:mb-2 xl:mb-0 px-3 mb-6 rounded">
+            <label
+              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              for="grid-first-name"
+            >
+              Nombre del producto:
+            </label>
+            <input
+              class="xl:text-sm xl:h-9 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500"
+              id="grid-first-name"
+              type="text"
+              placeholder="Producto A"
+            />
+          </div>
+
+          <div class="w-full px-3 xl:mb-0 2xl:mb-2 rounded">
+            <label
+              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              for="tipoDocumento"
+              >Categoria:
+            </label>
+            <select
+              name="tipoDocumento"
+              id="tipoDocumento"
+              class="xl:text-sm pt-1.5 xl:h-9 cursor-pointer w-full bg-gray-200 text-black border rounded py-3 px-4 mb-3 focus:outline-none focus:bg-white"
+            >
+              <option class="text-sm" selected disabled value="Seleccione una categoria">
+                Seleccione una categoria
+              </option>
+              <option class="text-sm" value="Productos del hogar">
+                Productos del hogar
+              </option>
+              <option class="text-sm" value="Productos de salud">
+                Productos de salud
+              </option>
+              <option class="text-sm" value="Productos de belleza">
+                Productos de belleza
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="flex items-end">
+          <div class="w-full 2xl:mb-2 xl:mb-0 px-3 rounded">
+            <label
+              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              for="grid-first-name"
+            >
+              Cantidad:
+                <i
+                title="Inserte la cantidad que desea añadir al inventario"
+                class="fa-solid fa-circle-info relative cursor-help"
+                style="color: orange"
+              ></i>
+            </label>
+            <input
+              class="xl:text-sm xl:h-9 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight outline-none focus:bg-white focus:border-lime-500"
+              id="grid-first-name"
+              type="number"
+              placeholder="1"
+            />
+          </div>
+          <div class="w-full 2xl:mb-2 xl:mb-0 px-3 rounded">
+            <label
+              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              for="grid-first-name"
+            >
+              Precio de compra:
+            </label>
+            <input
+              class="xl:text-sm xl:h-9 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight outline-none focus:bg-white focus:border-lime-500"
+              id="grid-first-name"
+              type="number"
+              placeholder="400"
+            />
+          </div>
+          <div class="w-full 2xl:mb-2 xl:mb-0 px-3 rounded">
+            <label
+              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              for="grid-first-name"
+            >
+              Precio de venta:
+            </label>
+            <input
+              class="xl:text-sm xl:h-9 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight outline-none focus:bg-white focus:border-lime-500"
+              id="grid-first-name"
+              type="number"
+              placeholder="875"
+            />
+          </div>
+          <div class="w-full 2xl:mb-2 xl:mb-0 px-3 rounded">
+            <label
+              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              for="grid-first-name"
+            >
+              Ganancia:
+            </label>
+            <input
+              class="xl:text-sm xl:h-9 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight outline-none focus:bg-white focus:border-lime-500"
+              id="grid-first-name"
+              type="number"
+              placeholder="475"
+            />
+          </div>
+        </div>
+        <div class="flex items-center">
+          <div class="w-1/3 2xl:mb-2 xl:mb-0 px-3 mb-2 rounded">
+            <form #formulario="ngForm">
+              <label
+              class="justify-center block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              for="grid-first-name xl:text-sm"
+            >
+              Seleccione una imagen
+            </label>
+            <div class="flex w-full justify-center">
+              
+              <label for="dropzone-file" class="flex flex-col justify-center items-center w-full h-32 rounded-lg border border-gray-300 cursor-pointer dark:hover:bg-bray-800 dark:bg-gray-200 hover:bg-gray-100 dark:border-gray-200 dark:hover:border-lime-500 dark:hover:bg-gray-50">
+                  <div class="flex flex-col justify-center items-center w-full h-full pt-6 pb-6 position: relative">
+                      <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Click to upload</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">JPG or JPEG just permited</p>
+                      <img [src]="previsualizacion" alt="" class="position: absolute max-h-full max-w-full">
+                      <div class="flex position: absolute h-full w-full items-start justify-end">
+                        <i class="fa-solid fa-circle-xmark text-lg cursor-pointer hover:scale-105 ease-in-out duration-300 fill-orange-50"></i>
+                      </div>
+                  </div>
+                  <input id="dropzone-file" type="file" class="hidden" (change)="capturarFile($event)"/>
+              </label>
+             
+             
+          </div> 
+          
+            </form>
+          </div>
+
+          <div class="w-full 2xl:mb-2 xl:mb-0 px-3 rounded">
+            <label
+              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              for="grid-first-name"
+            >
+              Descripcion del producto:
+            </label>
+            <textarea
+              class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-0 h-32 leading-tight focus:outline-none focus:bg-white focus:border-lime-500"
+              id="grid-first-name"
+              type="tel"
+              placeholder=""
+            ></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-center gap-16">
+        <button
+          type="submit"
+          class="mt-5 bg-lime-600 flex items-center justify-center 2xl:h-12 xl:h-10 w-1/6 p-4 rounded-xl shadow-lg hover:bg-lime-700 text-white font-bold py-2 px-4 hover:scale-105 ease-in-out duration-300"
+          (click)="subirArchivo()" [disabled]="loading"
+        >
+          {{(loading) ? 'Loading...' : 'Submit'}}
+        </button>
+        <button
+          (click)="closeModal()"
+          class="mt-5 bg-red-500 flex items-center justify-center 2xl:h-12 xl:h-10 w-1/6 p-4 rounded-xl shadow-lg hover:bg-red-600 text-white font-bold py-2 px-4 hover:scale-105 ease-in-out duration-300"
+        >
+          Close
+        </button>
+      </div>
+    </form>
+  </dialog>
+</div>

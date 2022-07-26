@@ -1,0 +1,47 @@
+.containeres{
+    position: relative;
+    &::before{
+        content: '';
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        background-image: url(../../../../assets/img/pattern-icon-13.jpg);
+        filter: brightness(0.7);
+        background-size: cover;
+        background-position: top-center;
+        opacity: 0.2;
+    }
+}
+.spacing{
+  justify-content: space-between;
+}
+.canvas{
+  width: 150px;
+  height: 100px;
+}
+.modal::backdrop{
+  // backdrop-filter: blur(200px);
+  // background: linear-gradient(45deg, black,#365314);
+  // opacity: .6;
+
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  
+}
+// .modal::backdrop{
+//    backdrop-filter: blur(200px);
+//   background-color: black;
+//   opacity: .6;
+
+// }
+
+.modal{
+  -webkit-box-shadow: 5px 5px 22px 3px rgba(0,0,0,0.63); 
+box-shadow: 5px 5px 22px 3px rgba(0,0,0,0.63);
+}
+#cover {
+  height: 100%;
+  width: 100%;
+}

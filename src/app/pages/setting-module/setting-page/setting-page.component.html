@@ -1,0 +1,100 @@
+<div class="flex containeres">
+    <app-side-nav-settings></app-side-nav-settings>
+    <div class="flex flex-col w-full ml-10">
+        <div class="titles flex spacing relative justify-center items-center pr-6">
+            <p class="justify-center  m-2 ml-0 text-3xl my-6 font-medium drop-shadow-lg">Configuración de la cuenta</p>
+        <app-user-icon></app-user-icon>   
+        </div>
+        <div class="flex flex-col justify center w-5/5 h-2/3 bg-white relative rounded-xl mr-10">
+          <div class="flex flex-col h-full w-full justify-center items-center">
+
+            <p class="xl:text-xl 2xl:text-2xl font-bold text-center 2xl:m-9 xl:m-6">
+                Información general
+            </p>
+            <!--PRIMERA FILA DE BLOQUES-->
+            <div class="flex justify-center w-full">
+                <!--Bloque de arriba a la izquierda-->
+                <div class="flex justify-end w-1/2 m-2.5 h-26">
+                    <div class="w-5/6 mt-5 px-5">
+                        <label
+                          class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 w-full"
+                          for="grid-first-name"
+                        >
+                          Primer nombre
+                        </label>
+                        <input
+                          class="xl:text-sm xl:h-9 2xl:h-12 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500"
+                          id="grid-first-name"
+                          type="text"
+                          placeholder="Nasser Emil"
+                          disabled
+                        />
+                    </div>
+                </div>
+                <!--Bloque de arriba a la derecha-->
+                <div class="flex justify-start w-1/2 m-2.5 h-26">
+                    <div class="w-5/6 mt-5 px-5">
+                        <label
+                          class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 w-full"
+                          for="grid-first-name"
+                        >
+                          Segundo nombre
+                        </label>
+                        <input
+                          class="xl:text-sm xl:h-9 2xl:h-12 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500"
+                          id="grid-first-name"
+                          type="text"
+                          placeholder="Issa Tavares"
+                          disabled
+                        />
+                    </div>
+                </div>  
+            </div>
+            <!--SEGUNDA FILA DE BLOQUES-->
+            <div class="flex justify-center w-full">
+                <!--Bloque de abajo a la izquierda-->
+                <div class="flex justify-end w-1/2 m-2.5 h-26">
+                    <div class="w-5/6 mt-5 px-5">
+                        <label
+                          class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 w-full"
+                          for="grid-first-name"
+                        >
+                          Correo
+                        </label>
+                        <input
+                          class="xl:text-sm xl:h-9 2xl:h-12 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500"
+                          id="grid-first-name"
+                          type="email"
+                          placeholder="nissa@transnegrd.com"
+                          disabled
+                        />
+                    </div>
+                </div>
+                <!--Bloque de arriba a la derecha-->
+                <div class="flex justify-start w-1/2 m-2.5 h-26">
+                    <div class="w-5/6 mt-5 px-5">
+                        <label
+                          class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 w-full"
+                          for="grid-first-name"
+                        >
+                          Usuario
+                        </label>
+                        <input
+                          class="xl:text-sm xl:h-9 2xl:h-12 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500"
+                          id="grid-first-name"
+                          type="text"
+                          placeholder="nissa2552"
+                          disabled
+                        />
+                    </div>
+                </div>
+            </div>
+            <!--TERCER BLOQUE (BOTON DE EDITAR)-->
+            <div class=" flex justify-center items-center w-full h-12">
+                <button class=" flex justify-center items-center 2xl:w-32 2xl:h-12 xl:w-28 xl:h-9 bg-lime-500 rounded-lg 2xl:text-md xl:text-sm text-white font-bold shadow-lg hover:bg-gray-500 py-2 2xl:px-4 xl:px-2 hover:scale-105 ease-in-out duration-300">Editar</button>
+            </div>
+          </div>
+            
+        </div>
+    </div>
+</div>
