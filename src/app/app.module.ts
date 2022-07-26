@@ -11,8 +11,7 @@ import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import {HttpClientModule} from '@angular/common/http';
-import {ProductPageComponent} from './pages/main-module/product-page/product-page.component'
-import { BillPageComponent } from './pages/main-module/bill-page/bill-page.component';
+import {ProductPageComponent} from './pages/main-module/product-page/product-page.component';
 import { ConsultBillPageComponent } from './pages/main-module/consult-bill-page/consult-bill-page.component';
 import { SettingPageComponent } from './pages/setting-module/setting-page/setting-page.component';
 import { addclientService } from './services/addClientService.service';
@@ -27,6 +26,9 @@ import { PasswordPageComponent } from './pages/setting-module/password-page/pass
 import { NotificationsPageComponent } from './pages/setting-module/notifications-page/notifications-page.component';
 import { HelpPageComponent } from './pages/setting-module/help-page/help-page.component';
 import { MoreOptComponent } from './components/more-opt/more-opt.component';
+import { BillPageComponent } from './pages/main-module/bill-page/bill-page.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,8 +38,8 @@ import { MoreOptComponent } from './components/more-opt/more-opt.component';
     SideNavComponent,
     SearchBarComponent,
     ProductPageComponent,
-    BillPageComponent,
     ConsultBillPageComponent,
+    BillPageComponent,
     SettingPageComponent,
     DashBoardComponent,
     ProductsComponent,

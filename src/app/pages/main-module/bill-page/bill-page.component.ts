@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Product, ProductItem } from '../../models/product.model';
-import { StoreService } from '../../services/store.service';
+import { Product, ProductItem } from '../../../models/product.model';
+import { StoreService } from '../../../services/store.service';
 import { ProductsService } from 'src/app/services/products.service';
 @Component({
   selector: 'app-bill-page',

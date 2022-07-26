@@ -1,14 +1,162 @@
 <div class="flex containeres">
-    <app-side-nav></app-side-nav>
-    <div class="flex flex-col w-full ml-10">
-        <div class="titles flex spacing justify-center relative items-center pr-6">
-        <p class="justify-start  m-2 ml-0 text-3xl my-6 font-medium drop-shadow-lg">Facturas
-        </p>
-        <app-user-icon></app-user-icon>   
+  <app-side-nav></app-side-nav>
+  <div class="flex flex-col w-full ml-10">
+    <p class="m-2 ml-0 text-3xl my-6 font-medium drop-shadow-lg">Bills</p>
+    <app-search-bar
+      (enviarProductoABuscar)="buscarProducto($event)"
+    ></app-search-bar>
+    <app-products [productFilter]="info"></app-products>
+  </div>
+  <div
+    class="w-2/5 min-h-screen relative flex flex-col bg-white text-gray-700 drop-shadow-lg"
+  >
+    <div class="w-full h-1/4 pt-2">
+      <div class="w-full h-auto flex justify-evenly">
+        <div class="flex flex-col items-center">
+          <label class="toggler-wrapper style-1">
+            <input
+              type="checkbox"
+              required
+              #nameInput="ngModel"
+              [(ngModel)]="option.one"
+            />
+
+            <div class="toggler-slider">
+              <div class="toggler-knob"></div>
+            </div>
+          </label>
+          <label for="" class="font-semibold leading-tight">Cliente</label>
         </div>
-        <app-search-bar
-        [direccion]="ruta"
-        ></app-search-bar>
-        <div class="flex m-34 text-3xl justify-center item-center content-center h-full "><p>Aqui va tu integracion german</p></div>
+        <div class="flex flex-col items-center">
+          <label class="toggler-wrapper style-1">
+            <input
+              type="checkbox"
+              required
+              #nameInput2="ngModel"
+              [(ngModel)]="option.two"
+            />
+            <div class="toggler-slider">
+              <div class="toggler-knob"></div>
+            </div>
+          </label>
+          <label for="" class="font-semibold leading-tight">Credito</label>
+        </div>
+
+        <div class="flex flex-col items-center">
+          <label class="toggler-wrapper style-1">
+            <input
+              type="checkbox"
+              required
+              #nameInput3="ngModel"
+              [(ngModel)]="option.three"
+            />
+            <div class="toggler-slider">
+              <div class="toggler-knob"></div>
+            </div>
+          </label>
+          <label for="" class="font-semibold leading-tight">Descuento</label>
+        </div>
+      </div>
+      <div class="w-full flex flex-col h-auto pr-5">
+        <div
+          class="flex items-center justify-end h-full textboxes mb-2"
+          [class.invalid]="nameInput.invalid"
+        >
+          <label for="">RNC: </label>
+          <input
+            type="text"
+            name=""
+            id=""
+            class="ml-3 mt-1 shadow-md rounded-sm bg-stone-200"
+          />
+        </div>
+        <div
+          class="flex items-center justify-end h-full textboxes mb-2"
+          [class.invalid]="nameInput2.invalid"
+        >
+          <label for="">Credito: </label>
+          <input
+            type="text"
+            name=""
+            id=""
+            class="ml-3 shadow-md rounded-sm bg-stone-200"
+          />
+        </div>
+        <div
+          class="flex items-center justify-end h-full textboxes mb-2"
+          [class.invalid]="nameInput3.invalid"
+        >
+          <label for="">Descuento: </label>
+          <input
+            type="text"
+            name=""
+            id=""
+            class="ml-3 shadow-md rounded-sm bg-stone-200"
+          />
+        </div>
+      </div>
     </div>
+    <div class="w-full h-4/5 flex flex-col justify-between">
+      <div>
+        <p class="text-base font-semibold mt-2 ml-2">Lista de productos:</p>
+
+        <ul class="w-full h-[35vh] flex flex-col p-5 overflow-y-scroll text-sm">
+          <li
+            *ngFor="let product of myShoppingCart"
+            class="w-full grid-items-class"
+          >
+            <p>{{ product.qty }}</p>
+            <p class="mr-auto">{{ product.title }}</p>
+            <p>${{ product.price }}</p>
+            <i
+              (click)="removeProduct(product.id)"
+              class="fa-solid fa-trash-can hover:scale-105 ease-in-out duration-100"
+            ></i>
+          </li>
+        </ul>
+      </div>
+      <div class="w-full bg-stone-200">
+        <div
+          class="flex w-full justify-between border-t border-slate-900 px-2 py-1"
+        >
+          <p>subtotal:</p>
+          <p>${{ sum.toFixed(2) }}</p>
+        </div>
+        <div
+          class="flex w-full justify-between border-t border-slate-900 px-2 py-1"
+        >
+          <p>itbis:</p>
+          <p>${{ (sum * itbis).toFixed(2) }}</p>
+        </div>
+        <div
+          class="bg-lime-600 text-white flex w-full text-2xl justify-between border-t border-slate-900 p-2"
+        >
+          <p>total:</p>
+          <p>${{ (sum + sum * itbis).toFixed(2) }}</p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="w-full h-1/6 p-2 flex items-center justify-evenly font-semibold"
+    >
+      <button
+        type="submit"
+        class="bg-lime-600 font-semibold flex items-center justify-center px-[1.2vw] py-[1.5vh] rounded-sm shadow-xl hover:scale-105 ease-in-out duration-300"
+      >
+        Efectivo
+      </button>
+      <button
+        type="submit"
+        class="bg-amber-400 font-semibold flex items-center justify-center px-[1.4vw] py-[1.5vh] rounded-sm shadow-xl hover:scale-105 ease-in-out duration-300"
+      >
+        Tarjeta
+      </button>
+      <button
+        type="submit"
+        class="bg-cyan-400 font-semibold flex items-center justify-center px-[1vw] py-[1.5vh] rounded-sm shadow-lg tr hover:scale-105 ease-in-out duration-300"
+      >
+        Transferencia
+      </button>
+    </div>
+  </div>
 </div>
