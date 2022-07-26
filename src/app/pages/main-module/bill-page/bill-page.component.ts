@@ -43,7 +43,7 @@ export class BillPageComponent implements OnInit {
   removeProduct(id: string){
     this.storeService.removeProduct(id)
   }
-  ruta: string = '../bill-page/add-bill-page';
+  ruta: string = '../bill-page/consult-bill-page';
   info: string = '';
 
   option = {

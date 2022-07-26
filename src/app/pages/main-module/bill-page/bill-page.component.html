@@ -4,6 +4,7 @@
     <p class="m-2 ml-0 text-3xl my-6 font-medium drop-shadow-lg">Bills</p>
     <app-search-bar
       (enviarProductoABuscar)="buscarProducto($event)"
+      [direccion]="ruta"
     ></app-search-bar>
     <app-products [productFilter]="info"></app-products>
   </div>
