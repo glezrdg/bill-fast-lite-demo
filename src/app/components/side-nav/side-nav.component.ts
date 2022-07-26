@@ -14,15 +14,6 @@ export class SideNavComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  public get milocopero() {
-    console.log('funciona');
-    this.showNav = !this.showNav;
-    setTimeout(() => {
-      this.showNavItems = !this.showNavItems;
-    }, 100);
-
-    return null;
-  }
-
+ 
 
 }

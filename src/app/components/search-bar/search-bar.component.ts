@@ -1,6 +1,4 @@
-import { Component, Input, OnDestroy, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Component, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-search-bar',
@@ -14,7 +12,9 @@ export class SearchBarComponent{
   @Output() enviarProductoABuscar  =  new EventEmitter<string>();
   
   selected = "Filtrar por"
-  opciones = ["fecha", "id", "otra cosa"]
+  options = ["fecha", "id", "otra cosa"]
+  
+  
 
   onPropagarMensaje(){
     this.enviarProductoABuscar.emit(this.productText);
