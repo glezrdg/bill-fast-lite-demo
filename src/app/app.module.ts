@@ -1,8 +1,13 @@
+// Modulos
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms'
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
+
+
+// componentes
 import { AppComponent } from './app.component';
 import { SignUpComponent } from './pages/session-module/sign-up/sign-up.component';
 import { LogInComponent } from './pages/session-module/log-in/log-in.component';
@@ -57,9 +62,12 @@ import { BillPageComponent } from './pages/main-module/bill-page/bill-page.compo
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
     NgxPaginationModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [addclientService],
   bootstrap: [AppComponent]
