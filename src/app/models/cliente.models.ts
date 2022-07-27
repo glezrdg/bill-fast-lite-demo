@@ -1,10 +1,15 @@
 export interface Cliente {
-  nombreORazonSocial: string;
-  tipoDeDocumento: string;
-  numeroDeDocumento: number;
-  correoClientes: string;
-  telefono: number;
-  celular: number;
-  direccion: string;
-  comentarios: string;
+  idCliente: number;
+  nombreORazonSocialCliente: string;
+  tipoDeDocumentoCliente: string;
+  tipoDeComprobanteFiscal: string;
+  numeroDeDocumentoCliente: number;
+  correoCliente: string;
+  telefonoCliente: number;
+  celularCliente: number;
+  direccionCliente: string;
+  comentarioCliente: string;
+}
+export interface DTOCliente extends Partial<Cliente>{
+  
 }

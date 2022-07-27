@@ -4,7 +4,7 @@ import {  Observable } from 'rxjs';
 import { billFastLiteApiUrl } from '../../../services/billfastlite-api.service'
 import { ToastrService } from 'ngx-toastr';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-
+import { Cliente, DTOCliente } from '../../../models/cliente.models'
 
 @Component({
   selector: 'app-client-page',
@@ -28,7 +28,10 @@ export class ClientPageComponent implements OnInit {
   variable: boolean;
 
   tipoDeComprobanteFiscalList:  Observable<any[]>;
-  clientList:  any[] = [];
+  clientList:  Cliente[] = [];
+  clientsFiltered: Cliente[] = [];
+  info = '';
+  working: boolean = false;
 
   constructor(
     private _clientService: billFastLiteApiUrl,
@@ -50,6 +53,7 @@ export class ClientPageComponent implements OnInit {
         comentarioCliente: [''],
       })
       }
+
   obtenerValue(): void{
     const AsTipoComprobante = this.tipoComprobante.nativeElement;
     const AsTipoDocumento = this.tipoDocumento.nativeElement;
@@ -63,26 +67,36 @@ export class ClientPageComponent implements OnInit {
       AsInputNumDoc.placeholder = "40247755893"
     }
   }
-  ngOnInit(): void {
+  ngOnInit(){
+    this.working = true;
     this.openModal = this.openModal.bind(this)
     this.tipoDeComprobanteFiscalList  = this._clientService.getTaxReceiptType();
     this.obtenerClients();
   }
-  // ngOnChanges(): void {
-  //   this.clientList = this.products.filter((p) =>
-  //     p.title.toLowerCase().includes(this.productFilter.toLowerCase())
-  //   );
-  // }
+
+  buscarCliente(info: string){
+    this.info = info;
+     console.log(info);
+    //  console.log(this.clientList.nombreORazonSocialCliente);
+    this.clientsFiltered = this.clientList.filter((p) =>
+      p.nombreORazonSocialCliente.toLowerCase().includes(this.info.toLowerCase())
+    );
+     
+  }
   obtenerClients() {
     this._clientService.getClient()
     .subscribe(data => {
+      
+      this.working = false;
+      this.clientsFiltered = data
       this.clientList = data
       console.log(data);     
     }, error => {
+      this.working = false;
       console.log(error);
     })
   }
-  seeOneClient(cliente: any){
+  seeOneClient(cliente: Cliente){
     this.accion = 'Ver';
     this.id = cliente.idCliente;
     this.openModal()
@@ -91,8 +105,7 @@ export class ClientPageComponent implements OnInit {
     this.form.disable();
   }
   saveClient(){
-    const client: any = {
-      
+    const client: DTOCliente = {
       nombreORazonSocialCliente: this.form.get('nombreORazonSocialCliente')?.value,
       tipoDeComprobanteFiscal: this.form.get('tipoDeComprobanteFiscal')?.value,
       tipoDeDocumentoCliente: this.form.get('tipoDeDocumentoCliente')?.value,

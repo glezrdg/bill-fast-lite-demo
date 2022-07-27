@@ -9,12 +9,15 @@
       </p>
       <app-user-icon></app-user-icon>
     </div>
-    <app-search-bar [funcionModal]="openModal"></app-search-bar>
+    <app-search-bar 
+    [funcionModal]="openModal" 
+    (enviarProductoABuscar)="buscarCliente($event)"
+    ></app-search-bar>
     <!--Tabla del cliente-->
     <div
       class="m-5 my-5 ml-0 p-2 px-4 bg-[#fff] shadow-md shadow-lime-500/30 rounded-lg relative 2xl:text-md overflow-y-scroll   max-h-[70vh]"
     >
-      Datos de los clientes
+      <h1>Datos de los clientes</h1>
       <table class="w-full my-3 table-auto " style="text-align: justify">
         <thead>
           <tr class="text-xs 2xl:text-sm">
@@ -30,7 +33,13 @@
           <td colspan="5">
             <div class="bg-lime-500 w-full h-0.5 rounded-full my-2"></div>
           </td>
-          <tr class="text-xs text-black" *ngFor="let cliente of clientList">
+          <tr *ngIf="working" class="text-center">
+              <td colspan="5" class="py-1 text-gray-500"><i class="fas fa-sync fa-spin fa-3x"></i></td>
+          </tr>
+          <tr *ngIf="clientsFiltered.length < 1 && !working" class="text-center">
+              <td colspan="5" class="py-1 text-gray-500">No se encontro ningun registro</td>
+          </tr>
+          <tr class="text-xs text-black" *ngFor="let cliente of clientsFiltered ">
             <td class="py-1">{{ cliente.nombreORazonSocialCliente }}</td>
             <td class="py-1">{{ cliente.numeroDeDocumentoCliente }}</td>
             <td class="py-1">{{ cliente.celularCliente }}</td>

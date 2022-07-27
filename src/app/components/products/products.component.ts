@@ -18,7 +18,6 @@ export class ProductsComponent implements OnInit {
   filterProducts: Product[] = [];
 
 
-
   constructor(
     private storeService: StoreService,
     private productsService: ProductsService
@@ -47,6 +46,5 @@ export class ProductsComponent implements OnInit {
   addProduct(product: Product){
     this.storeService.addProduct(product)
   }
-
-  
+ 
 }

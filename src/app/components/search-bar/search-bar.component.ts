@@ -12,6 +12,7 @@ export class SearchBarComponent implements OnInit{
   @Input() direccion?: string;
   @Input() funcionModal?: () => void;
   @Output() enviarProductoABuscar  =  new EventEmitter<string>();
+
   name: any
   constructor(private router: Router){}
 
@@ -20,7 +21,7 @@ export class SearchBarComponent implements OnInit{
   }
 
   isDirectionBill(): boolean{
-    if(this.router.url == '/bill-page'){
+    if(this.router.url == '/bill-page' || this.router.url == '/client-page'){
       return true;
     }
     return false;
