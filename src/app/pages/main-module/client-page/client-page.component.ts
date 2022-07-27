@@ -50,12 +50,10 @@ export class ClientPageComponent implements OnInit {
         comentarioCliente: [''],
       })
       }
-
   obtenerValue(): void{
     const AsTipoComprobante = this.tipoComprobante.nativeElement;
     const AsTipoDocumento = this.tipoDocumento.nativeElement;
     const AsInputNumDoc = this.inputNumDoc.nativeElement;
-    
     if(AsTipoComprobante.value === "Factura de Crédito Fiscal (Tipo 01)"){
       AsTipoDocumento.innerHTML = `<option class="text-sm" selected disabled value="RNC">RNC</option>`
       AsInputNumDoc.placeholder = "B0100000005"
@@ -64,52 +62,57 @@ export class ClientPageComponent implements OnInit {
       AsTipoDocumento.innerHTML = `<option class="text-sm" selected disabled value="Cedula">Cedula</option>`
       AsInputNumDoc.placeholder = "40247755893"
     }
-    
   }
   ngOnInit(): void {
     this.openModal = this.openModal.bind(this)
     this.tipoDeComprobanteFiscalList  = this._clientService.getTaxReceiptType();
     this.obtenerClients();
-    
   }
-
+  // ngOnChanges(): void {
+  //   this.clientList = this.products.filter((p) =>
+  //     p.title.toLowerCase().includes(this.productFilter.toLowerCase())
+  //   );
+  // }
   obtenerClients() {
     this._clientService.getClient()
     .subscribe(data => {
       this.clientList = data
-      console.log(data);
-      
+      console.log(data);     
     }, error => {
       console.log(error);
-      
     })
+  }
+  seeOneClient(cliente: any){
+    this.accion = 'Ver';
+    this.id = cliente.idCliente;
+    this.openModal()
+    console.log(cliente, this.id);
+    this.form.setValue(cliente)
+    this.form.disable();
   }
   saveClient(){
     const client: any = {
-      idCliente: this.x,
-      nombreORazonSocialCliente: this.form.get('nombreORazonSocial')?.value,
-      tipoDeComprobanteFiscal: this.form.get('tipoDeComprobante')?.value,
-      tipoDeDocumentoCliente: this.form.get('tipoDeDocumento')?.value,
-      numeroDeDocumentoCliente: this.form.get('numeroDeDocumento')?.value,
-      correoCliente: this.form.get('correoClientes')?.value,
-      telefonoCliente: this.form.get('telefono')?.value,
-      celularCliente: this.form.get('celular')?.value,
-      direccionCliente: this.form.get('direccion')?.value,
-      comentarioCliente: this.form.get('comentarios')?.value,
+      
+      nombreORazonSocialCliente: this.form.get('nombreORazonSocialCliente')?.value,
+      tipoDeComprobanteFiscal: this.form.get('tipoDeComprobanteFiscal')?.value,
+      tipoDeDocumentoCliente: this.form.get('tipoDeDocumentoCliente')?.value,
+      numeroDeDocumentoCliente: this.form.get('numeroDeDocumentoCliente')?.value,
+      correoCliente: this.form.get('correoCliente')?.value,
+      telefonoCliente: this.form.get('telefonoCliente')?.value,
+      celularCliente: this.form.get('celularCliente')?.value,
+      direccionCliente: this.form.get('direccionCliente')?.value,
+      comentarioCliente: this.form.get('comentariosCliente')?.value,
     } 
     if(this.id == undefined){
       // a;adimos cliente
-      this._clientService.addClient(client)
+    this._clientService.addClient(client)
     .subscribe(data =>{
-      this.obtenerClients();
-      this.closeModal();
-      this.toastr.success('se agrego el cliente', 'cliente agregado');
       this.form.reset();
+      this.closeModal();
+      this.obtenerClients();
+      this.toastr.success('se agrego el cliente', 'cliente agregado');
     },error =>{
-      console.log(error);
-      console.log(client);
-      this.id
-      
+      this.toastr.error('Oops', 'hay un problema agregando el cliente')
     })
     }else{
       client.idCliente = this.id;
@@ -117,42 +120,24 @@ export class ClientPageComponent implements OnInit {
       this._clientService.updateClient(this.id ,client)
       .subscribe(data => {
         this.form.reset();
+        this.closeModal();
         this.accion = 'Agregar';
         this.id = undefined;
         this.toastr.info('se actualizo el cliente', 'cliente actualizado');
         this.obtenerClients()
       }, error =>{
         console.log(error)
-        this.id
+        console.log(client);
       })
     }
-
-    
-    
   }
   editClient(cliente: any){
     this.accion = 'Editar';
     this.id = cliente.idCliente;
     this.openModal()
     console.log(cliente, this.id);
-    
-    this.form.setValue({
-      idCliente: cliente.idCliente,
-      nombreORazonSocialCliente: cliente.nombreORazonSocialCliente,
-      tipoDeComprobanteFiscal: cliente.tipoDeComprobanteFiscal,
-      tipoDeDocumentoCliente: cliente.tipoDeDocumentoCliente,
-      numeroDeDocumentoCliente: cliente.numeroDeDocumentoCliente,
-      correoCliente: cliente.correoCliente,
-      telefonoCliente: cliente.telefonoCliente,
-      celularCliente: cliente.celularCliente,
-      direccionCliente: cliente.direccionCliente,
-      comentarioCliente: cliente.comentarioCliente
-    })
-    
-    console.log(this.form);
-    
+    this.form.setValue(cliente)
   }
-
   deleteClient(idCliente: number){
     this._clientService.deleteClient(idCliente)
     .subscribe(data => {
@@ -162,14 +147,10 @@ export class ClientPageComponent implements OnInit {
       console.log(error);
       
     })
+  }
+  seeDetail(){
 
   }
-  ave(cliente: any){
-    console.log(cliente);
-    
-  }
- 
-  
   openModal(){
     this.modal.nativeElement.showModal()
     console.log(this.modal);
@@ -177,9 +158,8 @@ export class ClientPageComponent implements OnInit {
   closeModal(){
     this.modal.nativeElement.close()
     // console.log(this.modale);
+    this.form.enable();
   }
-
-
   // Acciones del item
   onClickMenu(){
     const AsDropdown = this.dropdown.nativeElement;

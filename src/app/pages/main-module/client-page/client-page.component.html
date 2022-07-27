@@ -12,10 +12,10 @@
     <app-search-bar [funcionModal]="openModal"></app-search-bar>
     <!--Tabla del cliente-->
     <div
-      class="m-5 my-5 ml-0 p-2 px-4 bg-[#fff] shadow-md shadow-lime-500/30 rounded-lg relative 2xl:text-md"
+      class="m-5 my-5 ml-0 p-2 px-4 bg-[#fff] shadow-md shadow-lime-500/30 rounded-lg relative 2xl:text-md overflow-y-scroll   max-h-[70vh]"
     >
       Datos de los clientes
-      <table class="w-full my-3 table-auto" style="text-align: justify">
+      <table class="w-full my-3 table-auto " style="text-align: justify">
         <thead>
           <tr class="text-xs 2xl:text-sm">
             <th>Nombre / Razón social</th>
@@ -37,16 +37,23 @@
             <td class="py-1">{{ cliente.celularCliente }}</td>
             <td class="py-3">
               <button
-                  (click)="editClient(cliente)"
-                  class="flex justify-start items-center content-center py-2 hover:bg-lime-500 rounded"
-                  ><i class="fa-solid fa-pen-to-square px-2"></i>Editar
-                  </button>
-                  <button 
+                (click)="editClient(cliente)"
+                class="flex justify-start items-center content-center py-1 px-2 hover:bg-lime-500 rounded"
+              >
+                <i class="fa-solid fa-pen-to-square px-2"></i>Editar
+              </button>
+              <button
                 (click)="deleteClient(cliente.idCliente)"
-                class="flex justify-start items-center content-center py-2 hover:bg-lime-500 rounded"
-                >
+                class="flex justify-start items-center content-center py-1 px-2 hover:bg-lime-500 rounded"
+              >
                 <i class="fa-solid fa-trash-can px-2"></i>Eliminar
-                </button>
+              </button>
+              <button
+                (click)="seeOneClient(cliente)"
+                class="flex justify-start items-center content-center py-1 px-2 hover:bg-lime-500 rounded"
+              >
+                <i class="fa-solid fa-eye px-2"></i>Ver Detalle
+              </button>
               <!-- <button
                 (click)="onClickMenu()"
                 class="w-5 h-10 bg-white p-2 justify-end hover:scale-105 ease-in-out duration-300 z-10"
@@ -63,7 +70,7 @@
                 <a
                   
                   class="flex justify-start items-center content-center py-2 hover:bg-lime-500 rounded"
-                  ><i class="fa-solid fa-eye px-2"></i>Ver detalles</a
+                  >Ver detalles</a
                 >
                 <button
                   (click)="editClient(cliente)"
@@ -86,10 +93,18 @@
       id="modal"
       class="modal 2xl:w-3/5 xl:w-4/5 bg-gray-100 open:flex relative flex-col items-center justify-between rounded-xl pt-0"
     >
-      <p class="xl:text-xl 2xl:text-2xl font-semibold text-center 2xl:m-9 xl:m-6">
-        {{accion}} cliente
+      <p
+        class="xl:text-xl 2xl:text-2xl font-semibold text-center 2xl:m-9 xl:m-6"
+      >
+        {{ accion }} cliente
       </p>
-      <form action="" method="dialog" class="w-5/6" [formGroup]="form" (ngSubmit)="saveClient()">
+      <form
+        action=""
+        method="dialog"
+        class="w-5/6"
+        [formGroup]="form"
+        (ngSubmit)="saveClient()"
+      >
         <div class="flex flex-col w-full 2xl:gap-6 xl:gap-2 h-5/6">
           <div class="flex items-end">
             <div class="w-1/3 2xl:mb-0 px-3 xl:mb-0">
@@ -100,12 +115,11 @@
                 ID:
               </label>
               <input
+                formControlName="idCliente"
                 class="xl:text-sm xl:h-10 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500"
                 id="grid-first-name"
                 type="text"
                 placeholder="CLI-8761"
-                formControlName="idCliente"
-                
               />
             </div>
 
@@ -134,12 +148,12 @@
                 >Tipo de comprobante:
               </label>
               <select
+                formControlName="tipoDeComprobanteFiscal"
                 #AsTipoComprobante
                 name="tipoComprobante"
                 id="tipoComprobante"
                 class="xl:text-sm pt-1.5 xl:h-10 cursor-pointer w-full bg-gray-200 text-black border rounded py-3 px-4 mb-3 focus:outline-none focus:bg-white"
                 (change)="obtenerValue()"
-                formControlName="tipoDeComprobanteFiscal"
               >
                 <option class="text-sm" selected disabled value="">
                   Seleccione un tipo de comprobante
@@ -242,7 +256,7 @@
                 Celular:
               </label>
               <input
-                 formControlName="celularCliente"
+                formControlName="celularCliente"
                 class="xl:text-sm xl:h-10 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500"
                 id="grid-first-name"
                 type="tel"
@@ -285,16 +299,16 @@
         </div>
         <div class="flex justify-center gap-16 font-semibold">
           <button
-            [class.invalid]="this.form.invalid"
-            [disabled]="this.form.invalid"
+            [class.invalid]="this.form.invalid || accion == 'Ver'"
+            [disabled]="this.form.invalid || accion == 'Ver'"
             type="submit"
             class="mt-10 bg-lime-600 flex items-center justify-center 2xl:h-12 xl:h-10 w-1/6 p-4 rounded-xl shadow-lg hover:bg-lime-700 text-white py-2 px-4 hover:scale-105 ease-in-out duration-300"
-
           >
             Submit
           </button>
           <button
             (click)="closeModal()"
+            type="button"
             class="mt-10 bg-red-500 flex items-center justify-center 2xl:h-12 xl:h-10 w-1/6 p-4 rounded-xl shadow-lg hover:bg-red-600 text-white py-2 px-4 hover:scale-105 ease-in-out duration-300"
           >
             Close
