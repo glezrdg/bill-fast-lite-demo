@@ -2,7 +2,7 @@
     <!--Efecto blur y centralizacion  del modal-->
     <div class="flex justify-center items-center w-full h-full _filter">
         <!--Modal-->
-        <div class="flex w-4/6 h-4/5 2xl:text-md xl:text-sm rounded-2xl">
+        <div class="flex w-4/6 h-4/5 2xl:text-md xl:text-xs rounded-2xl">
         <!--Lado izquierdo del modal (titulo de billFast Lite)-->
         <div class="justify-center h-full w-1/2 rounded-l-2xl bg-lime-500 opacity-80">
             <div class="h-full w-full bg-black/10 grid place-content-center rounded-l-2xl">
@@ -14,14 +14,18 @@
             <div class="flex flex-col w-full mb-6 px-3 items-center content-center">
                 <h1 class="text-gray-700 xl:text-2xl font-bold my-5">Inicia sesión</h1>
                 <p>¿No tienes una cuenta? <span class="font-bold text-gray-700"><a routerLink="/sign-up">Regístrate</a></span></p>
+                <app-spinner class="my-2" *ngIf="loading"></app-spinner>
             </div>
-            <form [formGroup]="form" (ngSubmit)="IniciarSesion()" class="space-y-6">        
+            <form [formGroup]="login" (ngSubmit)="log()" class="space-y-6 xl:space-y-3">        
                 <div class="w-full 2xl:mb-2 xl:mb-0 px-3 mb-6">
                 <label class="block tracking-wide text-gray-700 text-md font-bold mb-2" for="grid-first-name">
                       Email
                 </label>
                 <input formControlName="inputUser" #AsInputUsuario id="InputUsuario" class="xl:text-sm xl:h-9 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus :bg-white focus:border-lime-500" id="grid-first-name" type="email" placeholder="Ingrese su correo"/>
-                
+                <span class="text-red-500 ml-5"
+                *ngIf="login.get('inputUser')?.hasError('required') && login.get('inputUser')?.touched">
+                    El email <strong>es requerido</strong>
+                </span>
                 </div>
     
                 <div class="w-full 2xl:mb-2 xl:mb-0 px-3 mb-6">
@@ -29,9 +33,12 @@
                     Contraseña: 
                 </label>
                 <input formControlName="inputPassword" #AsInputContrasena id="InputContrasena" class="xl:text-sm xl:h-9 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="password" placeholder="Ingrese su contraseña"/>
-               
+               <span class="text-red-500 ml-5" 
+               *ngIf="login.get('inputPassword')?.hasError('required') && login.get('inputPassword')?.touched">
+                La contraseña <strong> es requerida</strong>
+               </span>
                 </div>
-
+                
             <div class=" flex justify-around w-full 2xl:mb-2 xl:mb-0 px-3 mb-6">
                 <label class="items-center flex tracking-wide text-gray-500 text-xs font-bold mb-3 mt-2">
                     <input type="checkbox" placeholder="recuerdame" class="mx-2 cursor-pointer"> <p>Recuérdame</p>

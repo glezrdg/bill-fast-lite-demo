@@ -27,6 +27,7 @@ import { NotificationsPageComponent } from './pages/setting-module/notifications
 import { HelpPageComponent } from './pages/setting-module/help-page/help-page.component';
 import { MoreOptComponent } from './components/more-opt/more-opt.component';
 import { BillPageComponent } from './pages/main-module/bill-page/bill-page.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { BillPageComponent } from './pages/main-module/bill-page/bill-page.compo
     NotificationsPageComponent,
     HelpPageComponent,
     MoreOptComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,

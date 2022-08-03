@@ -37,7 +37,7 @@ export class SignUpComponent implements OnInit {
     this.loading = true;
     this.userService.saveUser(user).subscribe(data =>{
       console.log(data);   
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/log-in']);
       this.loading = false;
     }, error => {
       console.log(error);

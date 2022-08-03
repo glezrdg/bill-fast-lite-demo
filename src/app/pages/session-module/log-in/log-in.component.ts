@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from '../../../models/usuario.models';
-import { UsersService } from '../../../services/users.service';
+import { Router } from '@angular/router';
+import { LoginService } from '../../../services/login.service';
 
 @Component({
   selector: 'app-log-in',
@@ -13,22 +14,37 @@ export class LogInComponent implements OnInit {
   @ViewChild("AsInputUsuario") InputUsuario: ElementRef;
   @ViewChild("AsInputContrasena") InputContrasena: ElementRef;
 
-
-  form: FormGroup
+  login: FormGroup
+  loading: boolean = false;
   constructor(
     private fb: FormBuilder,
-    private UsersService: UsersService
+    private router: Router,
+    private loginService: LoginService
     ) {
-    this.form = this.fb.group({
-      inputUser: [''],
-      inputPassword: ['']
+    this.login = this.fb.group({
+      inputUser: ['', Validators.required],
+      inputPassword: ['', Validators.required]
     })
    }
 
   ngOnInit(): void {
   }
   
-  IniciarSesion(){
-    
+  log(): void{
+    const user: User = {
+      emailUser: this.login.value.inputUser,
+      passwordUser: this.login.value.inputPassword
+    }
+    this.loading = true;
+    this.loginService.login(user).subscribe(data =>{
+      console.log(data);
+      this.loading = false;
+      this.loginService.setLocalStorage(data.inputUser)
+      this.router.navigate(['/dashboard']);
+    }, error =>{
+      this.login.reset();
+      this.loading = false;
+      console.log('Error: ', error)
+    })
   }
 }
