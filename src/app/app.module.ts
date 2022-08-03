@@ -28,7 +28,9 @@ import { HelpPageComponent } from './pages/setting-module/help-page/help-page.co
 import { MoreOptComponent } from './components/more-opt/more-opt.component';
 import { BillPageComponent } from './pages/main-module/bill-page/bill-page.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +63,8 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     NgxPaginationModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
   ],
   providers: [addclientService],
   bootstrap: [AppComponent]

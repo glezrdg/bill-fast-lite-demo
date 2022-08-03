@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/models/user.models';
 import { Router } from '@angular/router';
 import { UsersService } from '../../../services/users.service';
-
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-sign-up',
@@ -17,6 +17,7 @@ export class SignUpComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
+    private toastr: ToastrService,
     private userService: UsersService
     ){
       this.register = this.fb.group({
@@ -37,13 +38,14 @@ export class SignUpComponent implements OnInit {
     this.loading = true;
     this.userService.saveUser(user).subscribe(data =>{
       console.log(data);   
+      this.toastr.success('El usuario ' + user.emailUser + ' fue registrado con exito', 'Usuario Registrado!');
       this.router.navigate(['/log-in']);
       this.loading = false;
     }, error => {
       console.log(error);
+      this.toastr.error('El usuario ' + user.emailUser + ' ya existe', 'Ese usuario ya existe!')
       this.loading = false;
       this.register.reset();
-   
     });
     console.log(this.register);
   }

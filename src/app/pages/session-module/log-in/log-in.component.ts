@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from '../../../models/usuario.models';
 import { Router } from '@angular/router';
 import { LoginService } from '../../../services/login.service';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-log-in',
   templateUrl: './log-in.component.html',
@@ -19,7 +19,8 @@ export class LogInComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private toastr: ToastrService
     ) {
     this.login = this.fb.group({
       inputUser: ['', Validators.required],
@@ -29,7 +30,7 @@ export class LogInComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+
   log(): void{
     const user: User = {
       emailUser: this.login.value.inputUser,
@@ -42,6 +43,7 @@ export class LogInComponent implements OnInit {
       this.loginService.setLocalStorage(data.inputUser)
       this.router.navigate(['/dashboard']);
     }, error =>{
+      this.toastr.error('Usuario o contraseña invalidos' , 'Error');
       this.login.reset();
       this.loading = false;
       console.log('Error: ', error)
