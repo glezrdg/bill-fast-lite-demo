@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { User } from '../models/user.models';
   
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
   
-  private url = 'https://reqres.in/api/users';
+  private myApiUrl = `${environment.endpoint}/api/users`;
      
-  constructor(private httpClient: HttpClient) { }
+  constructor(private http: HttpClient) { }
     
-  getUsers(page: number){
-    return this.httpClient.get(this.url + '?page=' + page);
+  saveUser(user: User){
+    return this.http.post(this.myApiUrl, user);
   }
 }

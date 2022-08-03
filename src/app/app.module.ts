@@ -28,7 +28,6 @@ import { HelpPageComponent } from './pages/setting-module/help-page/help-page.co
 import { MoreOptComponent } from './components/more-opt/more-opt.component';
 import { BillPageComponent } from './pages/main-module/bill-page/bill-page.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +58,7 @@ import { BillPageComponent } from './pages/main-module/bill-page/bill-page.compo
     HttpClientModule,
     NgxPaginationModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [addclientService],
   bootstrap: [AppComponent]
