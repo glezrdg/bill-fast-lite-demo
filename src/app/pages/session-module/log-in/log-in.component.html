@@ -11,17 +11,17 @@
         </div>
         <!--Lado derecho del modal (Formulario de registro-->
         <div class="flex flex-col justify-center h-full w-1/2 rounded-r-2xl bg-stone-100 opacity-90">
-            <div class="flex flex-col w-full 2xl:mb-2 xl:mb-0 px-3 mb-6 items-center content-center">
+            <div class="flex flex-col w-full mb-6 px-3 items-center content-center">
                 <h1 class="text-gray-700 xl:text-2xl font-bold my-5">Inicia sesión</h1>
                 <p>¿No tienes una cuenta? <span class="font-bold text-gray-700"><a routerLink="/sign-up">Regístrate</a></span></p>
             </div>
-            <form [formGroup]="form" (ngSubmit)="IniciarSesion()">
-
+            <form [formGroup]="form" (ngSubmit)="IniciarSesion()" class="space-y-6">        
                 <div class="w-full 2xl:mb-2 xl:mb-0 px-3 mb-6">
                 <label class="block tracking-wide text-gray-700 text-md font-bold mb-2" for="grid-first-name">
                       Email
                 </label>
                 <input formControlName="inputUser" #AsInputUsuario id="InputUsuario" class="xl:text-sm xl:h-9 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus :bg-white focus:border-lime-500" id="grid-first-name" type="email" placeholder="Ingrese su correo"/>
+                
                 </div>
     
                 <div class="w-full 2xl:mb-2 xl:mb-0 px-3 mb-6">
@@ -29,6 +29,7 @@
                     Contraseña: 
                 </label>
                 <input formControlName="inputPassword" #AsInputContrasena id="InputContrasena" class="xl:text-sm xl:h-9 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="password" placeholder="Ingrese su contraseña"/>
+               
                 </div>
 
             <div class=" flex justify-around w-full 2xl:mb-2 xl:mb-0 px-3 mb-6">

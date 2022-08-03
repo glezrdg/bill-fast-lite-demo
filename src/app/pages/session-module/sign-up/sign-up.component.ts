@@ -21,7 +21,7 @@ export class SignUpComponent implements OnInit {
     ){
       this.register = this.fb.group({
         inputUser: ['', Validators.required],
-        inputPassword: ['', Validators.required, Validators.minLength(8)],
+        inputPassword: ['', [Validators.required, Validators.minLength(6)]],
         inputRepeatPassword: ['', Validators.required],
       }, {validator: this.checkPassword})
 
@@ -48,8 +48,8 @@ export class SignUpComponent implements OnInit {
     console.log(this.register);
   }
   checkPassword(group: FormGroup): any{
-    const pass = group.controls['inputPassword'].value;
-    const confirmPass = group.controls['inputRepeatPassword'].value;
+    const pass = group.controls.inputPassword.value;
+    const confirmPass = group.controls.inputRepeatPassword.value;
     return pass === confirmPass ? null : {notSame: true}
   }
 }
