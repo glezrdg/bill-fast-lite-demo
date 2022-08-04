@@ -33,7 +33,7 @@
                         <label class="block tracking-wide text-gray-700 text-md font-bold mb-2" for="grid-first-name">
                               Nombre
                         </label>
-                        <input formControlName="inputUserName" class="xl:text-sm xl:h-9 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="text" placeholder="Ingrese su correo" [class.red-input]="this.register.get('inputUseName')?.invalid && this.register.get('inputUserName')?.touched"/>
+                        <input formControlName="inputUserName" class="xl:text-sm xl:h-9 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="text" placeholder="Ingrese su nombre" [class.red-input]="this.register.get('inputUserName')?.invalid && this.register.get('inputUserName')?.touched"/>
                         <span class="text-red-500 pl-5"
                         *ngIf="register.get('inputUserName')?.hasError('required') && register.get('inputUserName')?.touched">
                         El nombre de usuario <strong>es requido</strong></span>
@@ -55,7 +55,7 @@
                 <label class="block tracking-wide text-gray-700 text-md font-bold mb-2" for="grid-first-name">
                       Repita su contraseña:
                 </label>
-                <input formControlName="inputRepeatPassword" class="xl:text-sm xl:h-9 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="password" placeholder="Repita su contraseña"[class.red-input]="register.get('inputPassword')?.invalid && register.get('inputPassword')?.touched"/>
+                <input formControlName="inputRepeatPassword" class="xl:text-sm xl:h-9 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="password" placeholder="Repita su contraseña" [class.red-input]="register.get('inputRepeatPassword')?.invalid && register.get('inputRepeatPassword')?.touched"/>
                 <span class="text-red-500 pl-5"
                 *ngIf="register.hasError('notSame')">
                 Las contraseñas <strong>no coinciden</strong>

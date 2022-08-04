@@ -1,4 +1,6 @@
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { LoginService } from '../../services/login.service';
 @Component({
   selector: 'app-user-icon',
   templateUrl: './user-icon.component.html',
@@ -9,7 +11,10 @@ import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular
 })
 export class UserIconComponent implements OnInit {
 
-  constructor(private _eref: ElementRef) { }
+  constructor(private _eref: ElementRef,
+     private loginService: LoginService,
+     private router: Router
+     ) { }
   @ViewChild("AsDropdown") dropdown: ElementRef;
 
   ngOnInit(): void {
@@ -25,6 +30,11 @@ export class UserIconComponent implements OnInit {
       // ...
       AsDropdown.classList.add('hidden');
   }
+  logOut(){
+    this.loginService.removeLocalSotrage();
+    this.router.navigate(['/log-in'])
+  }
+
 }
 
  

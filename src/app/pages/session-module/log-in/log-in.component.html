@@ -21,7 +21,7 @@
                 <label class="block tracking-wide text-gray-700 text-md font-bold mb-2" for="grid-first-name">
                       Email
                 </label>
-                <input formControlName="inputUser" #AsInputUsuario id="InputUsuario" class="xl:text-sm xl:h-9 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus :bg-white focus:border-lime-500" id="grid-first-name" type="email" placeholder="Ingrese su correo"/>
+                <input formControlName="inputUser" #AsInputUsuario id="InputUsuario" class="xl:text-sm xl:h-9 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus :bg-white focus:border-lime-500" id="grid-first-name" type="email" placeholder="Ingrese su correo" [class.red-input]="this.login.get('inputUser')?.invalid && this.login.get('inputUser')?.touched" />
                 <span class="text-red-500 ml-5"
                 *ngIf="login.get('inputUser')?.hasError('required') && login.get('inputUser')?.touched">
                     El email <strong>es requerido</strong>
@@ -32,7 +32,7 @@
                 <label class="block tracking-wide text-gray-700 text-md font-bold mb-2" for="grid-first-name">
                     Contraseña: 
                 </label>
-                <input formControlName="inputPassword" #AsInputContrasena id="InputContrasena" class="xl:text-sm xl:h-9 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="password" placeholder="Ingrese su contraseña"/>
+                <input formControlName="inputPassword" #AsInputContrasena id="InputContrasena" class="xl:text-sm xl:h-9 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="password" placeholder="Ingrese su contraseña" [class.red-input]="login.get('inputPassword')?.invalid && login.get('inputPassword')?.touched" />
                <span class="text-red-500 ml-5" 
                *ngIf="login.get('inputPassword')?.hasError('required') && login.get('inputPassword')?.touched">
                 La contraseña <strong> es requerida</strong>

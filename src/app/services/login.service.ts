@@ -14,10 +14,13 @@ export class LoginService {
    login(usuario: login): Observable<any>{
     return this.http.post(this.myApiUrl, usuario);
    }
-   setLocalStorage(data: any): void{
+   setLocalStorage(data: string): void{
     localStorage.setItem('UserEmail', data);
    }
    getNombreUsuario(): any{
-    return localStorage.getItem('emailUser');
+    return localStorage.getItem('UserEmail');
+   }
+   removeLocalSotrage(): void{
+    localStorage.removeItem('UserEmail');
    }
 }
