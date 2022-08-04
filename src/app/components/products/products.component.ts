@@ -16,9 +16,7 @@ export class ProductsComponent implements OnInit {
   total = 0;
   products: Product[] = [];
   filterProducts: Product[] = [];
-
-
-
+  
   constructor(
     private storeService: StoreService,
     private productsService: ProductsService

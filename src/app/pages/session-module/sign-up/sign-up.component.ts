@@ -22,32 +22,34 @@ export class SignUpComponent implements OnInit {
     ){
       this.register = this.fb.group({
         inputUser: ['', Validators.required],
+        inputUserName: ['', Validators.required],
         inputPassword: ['', [Validators.required, Validators.minLength(6)]],
         inputRepeatPassword: ['', Validators.required],
       }, {validator: this.checkPassword})
-
    }
   ngOnInit(): void {
 
   }
   registerUser(){
     const user: User = {
-      emailUser: this.register.value.inputUser,
-      passwordUser: this.register.value.inputPassword
+      UserEmail: this.register.value.inputUser,
+      UserName: this.register.value.inputUserName,
+      UserPassword: this.register.value.inputPassword
     }
+    console.log(user)
     this.loading = true;
     this.userService.saveUser(user).subscribe(data =>{
-      console.log(data);   
-      this.toastr.success('El usuario ' + user.emailUser + ' fue registrado con exito', 'Usuario Registrado!');
+      console.log(data);
+      this.toastr.success('El usuario ' + user.UserEmail + ' fue registrado con exito', 'Usuario Registrado!');
       this.router.navigate(['/log-in']);
       this.loading = false;
     }, error => {
-      console.log(error);
-      this.toastr.error('El usuario ' + user.emailUser + ' ya existe', 'Ese usuario ya existe!')
+      console.log(error.error);
+      this.toastr.error('El usuario ' + user.UserEmail + ' ya existe', 'Ese usuario ya existe!')
       this.loading = false;
       this.register.reset();
+      console.log(this.register);
     });
-    console.log(this.register);
   }
   checkPassword(group: FormGroup): any{
     const pass = group.controls.inputPassword.value;

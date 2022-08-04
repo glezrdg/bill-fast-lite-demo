@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { User } from '../../../models/usuario.models';
+import { User } from '../../../models/user.models';
 import { Router } from '@angular/router';
 import { LoginService } from '../../../services/login.service';
 import { ToastrService } from 'ngx-toastr';
+import { login } from 'src/app/models/login.models';
 @Component({
   selector: 'app-log-in',
   templateUrl: './log-in.component.html',
@@ -32,7 +33,7 @@ export class LogInComponent implements OnInit {
   }
 
   log(): void{
-    const user: User = {
+    const user: login = {
       emailUser: this.login.value.inputUser,
       passwordUser: this.login.value.inputPassword
     }
