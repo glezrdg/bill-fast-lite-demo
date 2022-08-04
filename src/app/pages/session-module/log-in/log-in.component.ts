@@ -34,8 +34,8 @@ export class LogInComponent implements OnInit {
 
   log(): void{
     const user: login = {
-      emailUser: this.login.value.inputUser,
-      passwordUser: this.login.value.inputPassword
+      UserEmail: this.login.value.inputUser,
+      UserPassword: this.login.value.inputPassword
     }
     this.loading = true;
     this.loginService.login(user).subscribe(data =>{

@@ -15,7 +15,7 @@ export class LoginService {
     return this.http.post(this.myApiUrl, usuario);
    }
    setLocalStorage(data: any): void{
-    localStorage.setItem('emailUser', data);
+    localStorage.setItem('UserEmail', data);
    }
    getNombreUsuario(): any{
     return localStorage.getItem('emailUser');
