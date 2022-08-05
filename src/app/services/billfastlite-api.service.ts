@@ -2,11 +2,12 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 
+
 @Injectable({
     providedIn: 'root'
 })
 export class billFastLiteApiUrl {
-    readonly billFastLiteApiUrl = "https://localhost:44392/api";
+    private billFastLiteApiUrl = "https://localhost:44392/api";
     constructor(private http: HttpClient){}
 
     // login 
@@ -23,17 +24,17 @@ export class billFastLiteApiUrl {
         return this.http.delete(this.billFastLiteApiUrl + `/logins/${id}`);
     }
     // Clientes
-    getClient():Observable<any[]>{
-        return this.http.get<any>(this.billFastLiteApiUrl + '/clientes');
+    getClient():Observable<any>{
+        return this.http.get(this.billFastLiteApiUrl + '/client');
     }
-    addClient(data: any){
-        return this.http.post(this.billFastLiteApiUrl + '/clientes', data);
+    addClient(client: any): Observable<any> {
+        return this.http.post(this.billFastLiteApiUrl + '/client', client);
     }
-    updateClient(id: number|string, data:any){
-        return this.http.put(this.billFastLiteApiUrl + `/clientes/${id}`, data);
+    updateClient(id: number,cliente: any): Observable<any>{
+        return this.http.put(this.billFastLiteApiUrl + `/client/${id}`, cliente);
     }
-    deleteClient(id:number|string){
-        return this.http.delete(this.billFastLiteApiUrl + `/clientes/${id}`);
+    deleteClient(idCliente : number): Observable<any> {
+        return this.http.delete(this.billFastLiteApiUrl + `/client/${idCliente}`);
     }
     // Productos 
 

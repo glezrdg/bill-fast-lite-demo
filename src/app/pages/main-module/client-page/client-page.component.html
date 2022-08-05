@@ -1,145 +1,329 @@
+<div class="flex containeres">
+  <app-side-nav></app-side-nav>
+  <div class="flex flex-col w-full ml-10">
+    <div class="titles flex spacing relative justify-center items-center pr-6">
+      <p
+        class="justify-start m-2 ml-0 text-3xl my-6 font-medium drop-shadow-lg"
+      >
+        Clientes
+      </p>
+      <app-user-icon></app-user-icon>
+    </div>
+    <app-search-bar 
+    [funcionModal]="openModal" 
+    (enviarProductoABuscar)="buscarCliente($event)"
+    ></app-search-bar>
+    <!--Tabla del cliente-->
+    <div
+      class="m-5 my-5 ml-0 p-2 px-4 bg-[#fff] shadow-md shadow-lime-500/30 rounded-lg relative 2xl:text-md overflow-y-scroll   max-h-[70vh]"
+    >
+      <h1>Datos de los clientes</h1>
+      <table class="w-full my-3 table-auto " style="text-align: justify">
+        <thead>
+          <tr class="text-xs 2xl:text-sm">
+            <th>Nombre / Razón social</th>
+            <th>Número de Documento</th>
+            <th>Balance actual</th>
+            <th>Suscripciones</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
 
-    <div class="flex containeres">
-      <app-side-nav></app-side-nav>
-      <div class="flex flex-col w-full ml-10">
-        <div class="titles flex spacing relative justify-center items-center pr-6">
-          <p class="justify-start  m-2 ml-0 text-3xl my-6 font-medium drop-shadow-lg">Clientes
-          </p>
-          <app-user-icon></app-user-icon>   
-          </div>
-          <app-search-bar
-          [funcionModal]="openModal"
-          ></app-search-bar>
-          <!--Tabla del cliente-->
-          <div class="m-5 my-5 ml-0 p-2 px-4 bg-[#fff] shadow-md shadow-lime-500/30 rounded-lg relative 2xl:text-md">
-            Datos de los clientes
-            <table class="w-full my-3 table-auto" style="text-align:justify;">
-                <thead>
-                    <tr class="text-xs 2xl:text-sm">
-                        <th>Nombre / Razón social</th>
-                        <th>Número de Documento</th>
-                        <th>Balance actual</th>
-                        <th>Suscripciones</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-        
-                <tbody>
-                    <td colspan="5"><div class="bg-lime-500 w-full h-0.5 rounded-full my-2"></div></td>
-                    <tr class="text-xs text-black" *ngFor="let cliente of clientList|async">
-                       
-                        <td class="py-1">{{ cliente.nombreORazonSocialCliente }}</td>
-                        <td class="py-1">{{ cliente.numeroDeDocumentoCliente }}</td>
-                        <td class="py-1">{{ cliente.celularCliente }}</td>
-                        <td class="py-1">{{ cliente.celularCliente }}</td>
-                        <td class="py-3"><app-more-opt></app-more-opt></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-          
-            <!--Modal agregar productos-->
-        <dialog #modal id="modal" class="modal 2xl:w-3/5 xl:w-4/5 bg-gray-100 open:flex relative flex-col items-center justify-between rounded-xl pt-0">
-          <p class="xl:text-xl 2xl:text-2xl font-bold text-center 2xl:m-9 xl:m-6">Agregar cliente</p>
-          <form action="" method="dialog" class="w-5/6">
-              <div  class=" flex flex-col w-full 2xl:gap-6 xl:gap-2 h-5/6">
-  
-                <div class="flex items-end"> 
-                  <div class="w-1/3 2xl:mb-0 px-3 xl:mb-0">
-                      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 w-full" for="grid-first-name">
-                        ID:
-                      </label> 
-                      <input class="xl:text-sm xl:h-10 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="text" placeholder="CLI-8761" disabled>
-                      
-                    </div>
-                    
-                    <div class="w-full 2xl:mb-0 xl:mb-0 px-3 mb-2 rounded">
-                      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name xl:text-sm">
-                        Nombre o razon social:
-                      </label>
-                      <input class="xl:text-sm xl:h-10 xl:mb-2 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="text" placeholder="Jane">
-                      <!-- <p class="text-red-500 text-xs italic">Por favor complete este campo.</p> -->
-                    </div>
-  
-                  </div>
-                  <div class="flex items-end">
-                    <div class="w-full px-3 xl:mb-0 2xl:mb-2 rounded">
-                      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="tipoComprobante">Tipo de comprobante: </label>
-                      <select #AsTipoComprobante name="tipoComprobante" id="tipoComprobante" class="xl:text-sm pt-1.5 xl:h-10 cursor-pointer w-full bg-gray-200 text-black border rounded py-3 px-4 mb-3 focus:outline-none focus:bg-white" (change)="obtenerValue()">
-                        <option class="text-sm" selected disabled value="">Seleccione un tipo de comprobante</option>
-                        <option class="text-sm" *ngFor="let comprobante of tipoDeComprobanteFiscalList|async" [value]="comprobante.nombreTipoDeComprobanteFiscal">{{comprobante.nombreTipoDeComprobanteFiscal}}</option>
-                      </select>
-                      </div>
-  
-                    <div class="w-full  px-3 xl:mb-0 2xl:mb-2  rounded">
-                      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="tipoDocumento">Tipo de documento: </label>
-                      <select name="tipoDocumento" id="tipoDocumento" class="xl:text-sm pt-1.5 xl:h-10 cursor-pointer w-full bg-gray-200 text-black border rounded py-3 px-4 mb-3 focus:outline-none focus:bg-white">
-                        <option #AsTipoDocumento class="text-sm" selected disabled value="Seleccione tipo de documento">Seleccione tipo de documento</option>
-                        <option class="text-sm" value="Cedula">Cedula</option>
-                        <option class="text-sm" value="RNC" >RNC</option>
-                        <option class="text-sm" value="Pasaporte" >Pasaporte</option>
-                      </select>
-                    </div>
-                    <div class="w-full 2xl:mb-2 xl:mb-0 px-3 rounded">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
-                          Numero de documento:
-                        </label>
-                        <input #AsInputNumDoc id="inputNumDoc" class="xl:text-sm xl:h-10 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="number" placeholder="402-4778895-6">
-                       
-                    </div>
-                 
-                    </div>
-  
-                  <div class="flex">
-                    <div class="w-full 2xl:mb-2 xl:mb-0 px-3 mb-6 rounded">
-                      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
-                        Correo:
-                      </label>
-                      <input class="xl:text-sm xl:h-10 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="text" placeholder="correo@email.com">
-                      
-                    </div>
-                    
-                    <div class="w-full 2xl:mb-2 xl:mb-0 px-3 rounded">
-                      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
-                        Telefono:
-                      </label>
-                      <input class="xl:text-sm xl:h-10 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="tel" placeholder="809-457-8978">
+        <tbody>
+          <td colspan="5">
+            <div class="bg-lime-500 w-full h-0.5 rounded-full my-2"></div>
+          </td>
+          <tr *ngIf="working" class="text-center">
+              <td colspan="5" class="py-1 text-gray-500"><i class="fas fa-sync fa-spin fa-3x"></i></td>
+          </tr>
+          <tr *ngIf="clientsFiltered.length < 1 && !working" class="text-center">
+              <td colspan="5" class="py-1 text-gray-500">No se encontro ningun registro</td>
+          </tr>
+          <tr class="text-xs text-black" *ngFor="let cliente of clientsFiltered ">
+            <td class="py-1">{{ cliente.nombreORazonSocialCliente }}</td>
+            <td class="py-1">{{ cliente.numeroDeDocumentoCliente }}</td>
+            <td class="py-1">{{ cliente.celularCliente }}</td>
+            <td class="py-1">{{ cliente.celularCliente }}</td>
+            <td class="py-3">
+              <button
+                (click)="editClient(cliente)"
+                class="flex justify-start items-center content-center py-1 px-2 hover:bg-lime-500 rounded"
+              >
+                <i class="fa-solid fa-pen-to-square px-2"></i>Editar
+              </button>
+              <button
+                (click)="deleteClient(cliente.idCliente)"
+                class="flex justify-start items-center content-center py-1 px-2 hover:bg-lime-500 rounded"
+              >
+                <i class="fa-solid fa-trash-can px-2"></i>Eliminar
+              </button>
+              <button
+                (click)="seeOneClient(cliente)"
+                class="flex justify-start items-center content-center py-1 px-2 hover:bg-lime-500 rounded"
+              >
+                <i class="fa-solid fa-eye px-2"></i>Ver Detalle
+              </button>
+              <!-- <button
+                (click)="onClickMenu()"
+                class="w-5 h-10 bg-white p-2 justify-end hover:scale-105 ease-in-out duration-300 z-10"
+              >
+                <i
+                  class="fa-solid fa-ellipsis-vertical hover:scale-105 ease-in-out duration-300 cursor-pointer"
+                ></i>
+              </button>
+              <div
+                #AsDropdown
+                id="dropdown"
+                class="bg-white hidden flex-col rounded text-xs absolute 2xl:right-48 xl:right-32 shadow-lg 2xl:w-32 xl:w-28 z-30 p-2"
+              >
+                <a
                   
-                    </div>
-    
-                    <div class="w-full 2xl:mb-2 xl:mb-0 px-3 rounded">
-                      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
-                        Celular:
-                      </label>
-                      <input class="xl:text-sm xl:h-10 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="tel" placeholder="829-805-8311">
-                   
-                    </div>
-                  </div>
-                  <div class="flex h-full gap-6">
-  
-                    <div class="w-full 2xl:mb-0 xl:mb-0 px-3 rounded">
-                      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
-                        Direccion:
-                      </label>
-                      <textarea class="mb-0 h-full appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="tel" placeholder=""></textarea>
-              
-                    </div>
-                    <div class="w-full  px-3 2xl:mb-0 xl:mb-0 mrounded">
-                      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
-                        Comentario:
-                      </label>
-                      <textarea class="mb-0 h-full appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="text" placeholder=""></textarea>
-              
-                    </div>
-                  </div>
+                  class="flex justify-start items-center content-center py-2 hover:bg-lime-500 rounded"
+                  >Ver detalles</a
+                >
+                <button
+                  (click)="editClient(cliente)"
+                  class="flex justify-start items-center content-center py-2 hover:bg-lime-500 rounded"
+                  ><i class="fa-solid fa-pen-to-square px-2"></i>Editar</button
+                >
                 
-              </div>
-              <div class="flex justify-center gap-16">
-                  <button type="submit" class="mt-10 bg-lime-600 flex items-center justify-center 2xl:h-12 xl:h-10 w-1/6 p-4 rounded-xl shadow-lg hover:bg-lime-700  text-white font-bold py-2 px-4 hover:scale-105 ease-in-out duration-300">Submit</button>
-                  <button (click)="closeModal()" class="mt-10 bg-red-500 flex items-center justify-center 2xl:h-12 xl:h-10 w-1/6  p-4 rounded-xl shadow-lg hover:bg-red-600  text-white font-bold py-2 px-4 hover:scale-105 ease-in-out duration-300 ">Close</button>
-              </div>
-          </form>
-         
-        </dialog>
+                
+                
+              </div> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    </div>
+
+    <!--Modal agregar productos-->
+    <dialog
+      #modal
+      id="modal"
+      class="modal 2xl:w-3/5 xl:w-4/5 bg-gray-100 open:flex relative flex-col items-center justify-between rounded-xl pt-0"
+    >
+      <p
+        class="xl:text-xl 2xl:text-2xl font-semibold text-center 2xl:m-9 xl:m-6"
+      >
+        {{ accion }} cliente
+      </p>
+      <form
+        action=""
+        method="dialog"
+        class="w-5/6"
+        [formGroup]="form"
+        (ngSubmit)="saveClient()"
+      >
+        <div class="flex flex-col w-full 2xl:gap-6 xl:gap-2 h-5/6">
+          <div class="flex items-end">
+            <div class="w-1/3 2xl:mb-0 px-3 xl:mb-0">
+              <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 w-full"
+                for="grid-first-name"
+              >
+                ID:
+              </label>
+              <input
+                formControlName="idCliente"
+                class="xl:text-sm xl:h-10 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500"
+                id="grid-first-name"
+                type="text"
+                placeholder="CLI-8761"
+              />
+            </div>
+
+            <div class="w-full 2xl:mb-0 xl:mb-0 px-3 mb-2 rounded">
+              <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                for="grid-first-name xl:text-sm"
+              >
+                Nombre o razon social:
+              </label>
+              <input
+                formControlName="nombreORazonSocialCliente"
+                class="xl:text-sm xl:h-10 xl:mb-2 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500"
+                id="grid-first-name"
+                type="text"
+                placeholder="Jane"
+              />
+              <!-- <p class="text-red-500 text-xs italic">Por favor complete este campo.</p> -->
+            </div>
+          </div>
+          <div class="flex items-end">
+            <div class="w-full px-3 xl:mb-0 2xl:mb-2 rounded">
+              <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                for="tipoComprobante"
+                >Tipo de comprobante:
+              </label>
+              <select
+                formControlName="tipoDeComprobanteFiscal"
+                #AsTipoComprobante
+                name="tipoComprobante"
+                id="tipoComprobante"
+                class="xl:text-sm pt-1.5 xl:h-10 cursor-pointer w-full bg-gray-200 text-black border rounded py-3 px-4 mb-3 focus:outline-none focus:bg-white"
+                (change)="obtenerValue()"
+              >
+                <option class="text-sm" selected disabled value="">
+                  Seleccione un tipo de comprobante
+                </option>
+                <option
+                  class="text-sm"
+                  *ngFor="
+                    let comprobante of tipoDeComprobanteFiscalList | async
+                  "
+                  [value]="comprobante.nombreTipoDeComprobanteFiscal"
+                >
+                  {{ comprobante.nombreTipoDeComprobanteFiscal }}
+                </option>
+              </select>
+            </div>
+
+            <div class="w-full px-3 xl:mb-0 2xl:mb-2 rounded">
+              <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                for="tipoDocumento"
+                >Tipo de documento:
+              </label>
+              <select
+                formControlName="tipoDeDocumentoCliente"
+                name="tipoDocumento"
+                id="tipoDocumento"
+                class="xl:text-sm pt-1.5 xl:h-10 cursor-pointer w-full bg-gray-200 text-black border rounded py-3 px-4 mb-3 focus:outline-none focus:bg-white"
+              >
+                <option
+                  #AsTipoDocumento
+                  class="text-sm"
+                  selected
+                  disabled
+                  value="Seleccione tipo de documento"
+                >
+                  Seleccione tipo de documento
+                </option>
+                <option class="text-sm" value="Cedula">Cedula</option>
+                <option class="text-sm" value="RNC">RNC</option>
+                <option class="text-sm" value="Pasaporte">Pasaporte</option>
+              </select>
+            </div>
+            <div class="w-full 2xl:mb-2 xl:mb-0 px-3 rounded">
+              <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                for="grid-first-name"
+              >
+                Numero de documento:
+              </label>
+              <input
+                formControlName="numeroDeDocumentoCliente"
+                #AsInputNumDoc
+                id="inputNumDoc"
+                class="xl:text-sm xl:h-10 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight outline-none focus:bg-white focus:border-lime-500"
+                id="grid-first-name"
+                type="string"
+                placeholder="402-4778895-6"
+              />
+            </div>
+          </div>
+
+          <div class="flex">
+            <div class="w-full 2xl:mb-2 xl:mb-0 px-3 mb-6 rounded">
+              <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                for="grid-first-name"
+              >
+                Correo:
+              </label>
+              <input
+                formControlName="correoCliente"
+                class="xl:text-sm xl:h-10 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500"
+                id="grid-first-name"
+                type="text"
+                placeholder="correo@email.com"
+              />
+            </div>
+
+            <div class="w-full 2xl:mb-2 xl:mb-0 px-3 rounded">
+              <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                for="grid-first-name"
+              >
+                Telefono:
+              </label>
+              <input
+                formControlName="telefonoCliente"
+                class="xl:text-sm xl:h-10 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500"
+                id="grid-first-name"
+                type="tel"
+                placeholder="809-457-8978"
+              />
+            </div>
+
+            <div class="w-full 2xl:mb-2 xl:mb-0 px-3 rounded">
+              <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                for="grid-first-name"
+              >
+                Celular:
+              </label>
+              <input
+                formControlName="celularCliente"
+                class="xl:text-sm xl:h-10 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500"
+                id="grid-first-name"
+                type="tel"
+                placeholder="829-805-8311"
+              />
+            </div>
+          </div>
+          <div class="flex h-full gap-6">
+            <div class="w-full 2xl:mb-0 xl:mb-0 px-3 rounded">
+              <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                for="grid-first-name"
+              >
+                Direccion:
+              </label>
+              <textarea
+                formControlName="direccionCliente"
+                class="mb-0 h-full appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-lime-500"
+                id="grid-first-name"
+                type="tel"
+                placeholder=""
+              ></textarea>
+            </div>
+            <div class="w-full px-3 2xl:mb-0 xl:mb-0 mrounded">
+              <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                for="grid-first-name"
+              >
+                Comentario:
+              </label>
+              <textarea
+                formControlName="comentarioCliente"
+                class="mb-0 h-full appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-lime-500"
+                id="grid-first-name"
+                type="text"
+                placeholder=""
+              ></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-center gap-16 font-semibold">
+          <button
+            [class.invalid]="this.form.invalid || accion == 'Ver'"
+            [disabled]="this.form.invalid || accion == 'Ver'"
+            type="submit"
+            class="mt-10 bg-lime-600 flex items-center justify-center 2xl:h-12 xl:h-10 w-1/6 p-4 rounded-xl shadow-lg hover:bg-lime-700 text-white py-2 px-4 hover:scale-105 ease-in-out duration-300"
+          >
+            Submit
+          </button>
+          <button
+            (click)="closeModal()"
+            type="button"
+            class="mt-10 bg-red-500 flex items-center justify-center 2xl:h-12 xl:h-10 w-1/6 p-4 rounded-xl shadow-lg hover:bg-red-600 text-white py-2 px-4 hover:scale-105 ease-in-out duration-300"
+          >
+            Close
+          </button>
+        </div>
+      </form>
+    </dialog>
+  </div>
+</div>

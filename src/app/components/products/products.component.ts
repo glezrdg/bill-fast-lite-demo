@@ -45,6 +45,5 @@ export class ProductsComponent implements OnInit {
   addProduct(product: Product){
     this.storeService.addProduct(product)
   }
-
-  
+ 
 }
