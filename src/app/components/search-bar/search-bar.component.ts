@@ -21,7 +21,7 @@ export class SearchBarComponent implements OnInit{
   }
 
   isDirectionBill(): boolean{
-    if(this.router.url == '/bill-page' || this.router.url == '/client-page'){
+    if(this.router.url == '/bill-page' ){
       return true;
     }
     return false;
