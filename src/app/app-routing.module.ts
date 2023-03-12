@@ -15,7 +15,8 @@ import { HelpPageComponent } from './pages/setting-module/help-page/help-page.co
 
 
 const routes: Routes = [
-  {path: '', component: DashBoardComponent},
+  {path: '', redirectTo: 'log-in', pathMatch: 'full'},
+  {path: 'dashboard', component: DashBoardComponent},
   {path: 'log-in', component: LogInComponent},
   {path: 'sign-up', component: SignUpComponent},
   {path: 'client-page', component: ClientPageComponent},
@@ -26,7 +27,8 @@ const routes: Routes = [
   {path: 'forgotpassword', component: ForgotpasswordComponent},
   {path: 'password-page', component: PasswordPageComponent},
   {path: 'notifications-page', component: NotificationsPageComponent},
-  {path: 'help-page', component: HelpPageComponent}
+  {path: 'help-page', component: HelpPageComponent},
+  {path: '**', redirectTo: 'dashboard',  pathMatch: 'full'}
 ]
 
 @NgModule({

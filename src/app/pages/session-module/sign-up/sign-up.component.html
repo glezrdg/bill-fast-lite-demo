@@ -3,7 +3,7 @@
     <!--Efecto blur y centralizacion  del modal-->
     <div class="flex justify-center items-center w-full h-full _filter">
         <!--Modal-->
-        <div class="flex 2xl:w-3/5 xl:w-4/6 h-2/3 rounded-2xl">
+        <div class="flex w-4/6 h-4/5 2xl:text-lg xl:text-xs rounded-2xl">
 
         <!--Lado izquierdo del modal (titulo de billFast Lite)-->
         <div class="justify-center h-full w-1/2 rounded-l-2xl bg-lime-500 opacity-80">
@@ -13,36 +13,58 @@
         </div>
         <!--Lado derecho del modal (Formulario de registro-->
         <div class="flex flex-col justify-center h-full w-1/2 rounded-r-2xl bg-stone-100 opacity-90">
-            <div class="flex flex-col w-full 2xl:mb-2 xl:mb-0 px-3 mb-6 items-center content-center">
+            <div class="flex flex-col w-full px-3 mb-3 items-center content-center">
                 <h1 class="text-gray-700 xl:text-2xl font-bold my-5">Regístrate</h1>
                 <p>¿Ya tienes una cuenta? <span class="font-bold text-gray-700"><a routerLink="/log-in">Inicia sesión</a></span></p>
+                <app-spinner class="my-2" *ngIf="loading"></app-spinner>
             </div>
-            <form [formGroup]="form" (ngSubmit)="RegistrarUsuario()">
-
-                <div class="w-full 2xl:mb-2 xl:mb-0 px-3 mb-6">
-                <label class="block tracking-wide text-gray-700 text-md font-bold mb-2" for="grid-first-name">
-                      Email
-                </label>
-                <input formControlName="inputUser" class="xl:text-sm xl:h-9 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-first-name" type="email" placeholder="Ingrese su correo" [class.red-input]="this.form.get('inputUser')?.invalid && this.form.get('inputUser')?.touched"/>
-                
+            <form [formGroup]="register" #signupForm="ngForm" (ngSubmit)="registerUser()" class="space-y-6 xl:space-y-4">
+                <div class="flex">
+                    <div class="w-full 2xl:mb-2 xl:mb-0 px-3 mb-6">
+                    <label class="block tracking-wide text-gray-700 text-md font-bold mb-2" for="grid-first-name">
+                          Email
+                    </label>
+                    <input formControlName="inputUser" class="xl:text-sm xl:h-9 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="email" placeholder="Ingrese su correo" [class.red-input]="this.register.get('inputUser')?.invalid && this.register.get('inputUser')?.touched"/>
+                    <span class="text-red-500 pl-5"
+                    *ngIf="register.get('inputUser')?.hasError('required') && register.get('inputUser')?.touched">
+                    El email <strong>es requerido</strong></span>
+                    </div>
+                    <div class="w-full 2xl:mb-2 xl:mb-0 px-3 mb-6">
+                        <label class="block tracking-wide text-gray-700 text-md font-bold mb-2" for="grid-first-name">
+                              Nombre
+                        </label>
+                        <input formControlName="inputUserName" class="xl:text-sm xl:h-9 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="text" placeholder="Ingrese su nombre" [class.red-input]="this.register.get('inputUserName')?.invalid && this.register.get('inputUserName')?.touched"/>
+                        <span class="text-red-500 pl-5"
+                        *ngIf="register.get('inputUserName')?.hasError('required') && register.get('inputUserName')?.touched">
+                        El nombre de usuario <strong>es requido</strong></span>
+                        </div>
                 </div>
-    
+
                 <div class="w-full 2xl:mb-2 xl:mb-0 px-3 mb-6">
                 <label class="block tracking-wide text-gray-700 text-md font-bold mb-2" for="grid-first-name">
                     Contraseña: 
                 </label>
-                <input formControlName="inputPassword" class="xl:text-sm xl:h-9 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-first-name" type="password" placeholder="Ingrese su contraseña" [class.red-input]="this.form.get('inputPassword')?.invalid && this.form.get('inputPassword')?.touched"/>
+                <input formControlName="inputPassword" class="xl:text-sm xl:h-9 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="password" placeholder="Ingrese su contraseña" [class.red-input]="register.get('inputPassword')?.invalid && register.get('inputPassword')?.touched"/>
+                <span class="text-red-500 pl-5"
+                *ngIf="register.get('inputPassword')?.hasError('required') && register.get('inputPassword')?.touched">La contraseña <strong>es requerida</strong></span>
+                <span class="text-red-500 pl-5"
+                *ngIf="register.get('inputPassword')?.hasError('minlength') && register.get('inputPassword')?.touched">La contraseña debe tener<strong> minimo 6 caracteres</strong></span>
                 </div>
-    
-                <div class="w-full 2xl:mb-2 xl:mb-0 px-3 mb-6">
+
+                <div class="w-full 2xl:mb-2 xl:mb-0 px-3 mb-3">
                 <label class="block tracking-wide text-gray-700 text-md font-bold mb-2" for="grid-first-name">
                       Repita su contraseña:
                 </label>
-                <input formControlName="inputRepeatPassword" class="xl:text-sm xl:h-9 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-first-name" type="password" placeholder="Repita su contraseña"[class.red-input]="this.form.get('inputPassword')?.invalid && this.form.get('inputPassword')?.touched"/>
+                <input formControlName="inputRepeatPassword" class="xl:text-sm xl:h-9 appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-lime-500" id="grid-first-name" type="password" placeholder="Repita su contraseña" [class.red-input]="register.get('inputRepeatPassword')?.invalid && register.get('inputRepeatPassword')?.touched"/>
+                <span class="text-red-500 pl-5"
+                *ngIf="register.hasError('notSame')">
+                Las contraseñas <strong>no coinciden</strong>
+                </span>
                 </div> 
                 <div class="flex justify-center items-center w-full">
                     <!-- <a routerLink="/sign-up">  -->
-                        <button type="submit" class="justify-center content-center items-center bg-lime-500 2xl:h-12 xl:h-10 p-4 rounded-xl shadow-lg hover:bg-gray-500  text-white font-bold py-2 hover:scale-105 ease-in-out duration-300 m-3">
+                        <button type="submit" class="justify-center content-center items-center bg-lime-500 2xl:h-12 xl:h-10 p-4 rounded-xl shadow-lg hover:bg-gray-500  text-white font-bold py-2 hover:scale-105 ease-in-out duration-300 m-3"
+                        [class.mt-0]="register.get('inputRepeatPassword')?.touched" [disabled]="register.invalid">
                         Regístrate</button>
                     <!-- </a> -->
                 </div>

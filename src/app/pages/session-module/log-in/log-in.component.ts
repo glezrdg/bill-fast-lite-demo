@@ -1,7 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { User } from '../../../models/usuario.models';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { User } from '../../../models/user.models';
+import { Router } from '@angular/router';
+import { LoginService } from '../../../services/login.service';
+import { ToastrService } from 'ngx-toastr';
+import { login } from 'src/app/models/login.models';
 @Component({
   selector: 'app-log-in',
   templateUrl: './log-in.component.html',
@@ -12,58 +15,39 @@ export class LogInComponent implements OnInit {
   @ViewChild("AsInputUsuario") InputUsuario: ElementRef;
   @ViewChild("AsInputContrasena") InputContrasena: ElementRef;
 
-  // simulacion de los datos de la base de datos
-  usuarios: User[] = [
-    {emailUser: "nasser@correo.com", passwordUser: "123"},
-    {emailUser: "fulano@correo.com", passwordUser: "456"},
-    {emailUser: "pepe@correo.com", passwordUser: "789"},
-    
-  ];
-
-  form: FormGroup
-  constructor(private fb: FormBuilder) {
-    this.form = this.fb.group({
-      inputUser: [''],
-      inputPassword: ['']
+  login: FormGroup
+  loading: boolean = false;
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private loginService: LoginService,
+    private toastr: ToastrService
+    ) {
+    this.login = this.fb.group({
+      inputUser: ['', Validators.required],
+      inputPassword: ['', Validators.required]
     })
    }
 
   ngOnInit(): void {
   }
-  
-  IniciarSesion(){
-    console.log(this.form)
-    this.usuarios.forEach(usuario => {
-      if(this.form.get("inputUser")?.value == usuario.emailUser && this.form.get("inputPassword")?.value == usuario.passwordUser){
-        const datos: User = {
-          emailUser: this.form.get("inputUser")?.value,
-          passwordUser: this.form.get("inputPassword")?.value
-        }
-        console.log(datos)
-      }else{
-        console.log('user and password are not correct')
-      }
-    });
+
+  log(): void{
+    const user: login = {
+      UserEmail: this.login.value.inputUser,
+      UserPassword: this.login.value.inputPassword
+    }
+    this.loading = true;
+    this.loginService.login(user).subscribe(data =>{
+      console.log(data);
+      this.loading = false;
+      this.loginService.setLocalStorage(data.inputUser)
+      this.router.navigate(['/dashboard']);
+    }, error =>{
+      this.toastr.error('Usuario o contraseña invalidos' , 'Error');
+      this.login.reset();
+      this.loading = false;
+      console.log('Error: ', error)
+    })
   }
-  // validarLogin(){ 
-  //   const AsInputUsuario = this.InputUsuario.nativeElement.value;
-  //   const AsInputContrasena = this.InputContrasena.nativeElement.value;
-  //   for(let usuario of this.usuarios){
-  //     if(AsInputUsuario == '' && AsInputContrasena == ''){
-  //       alert("Debe llenar los campos")
-  //       this.ruta = '/log-in';
-  //     }else if(AsInputUsuario == usuario.emailUser && AsInputContrasena != usuario.passwordUser){
-  //       alert("Contraseña incorrecta")
-  //       this.ruta = '/log-in';
-  //     }else if(AsInputUsuario == usuario.emailUser && AsInputContrasena == ''){
-  //       alert("Debe ingresar su contraseña")
-  //       this.ruta = '/log-in';
-  //     }else if(AsInputUsuario == '' && AsInputContrasena == usuario.passwordUser){
-  //       alert("Debe ingresar el usuario")
-  //       this.ruta = '/log-in';
-  //     }else{
-  //       this.ruta = '';
-  //     }
-  //   }
-  // }
 }
