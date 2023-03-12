@@ -8,46 +8,46 @@ import { login } from 'src/app/models/login.models';
 @Component({
   selector: 'app-log-in',
   templateUrl: './log-in.component.html',
-  styleUrls: ['./log-in.component.scss']
+  styleUrls: ['./log-in.component.scss'],
 })
 export class LogInComponent implements OnInit {
   ruta = '';
-  @ViewChild("AsInputUsuario") InputUsuario: ElementRef;
-  @ViewChild("AsInputContrasena") InputContrasena: ElementRef;
+  @ViewChild('AsInputUsuario') InputUsuario: ElementRef;
+  @ViewChild('AsInputContrasena') InputContrasena: ElementRef;
 
-  login: FormGroup
+  login: FormGroup;
   loading: boolean = false;
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private loginService: LoginService,
     private toastr: ToastrService
-    ) {
+  ) {
     this.login = this.fb.group({
       inputUser: ['', Validators.required],
-      inputPassword: ['', Validators.required]
-    })
-   }
-
-  ngOnInit(): void {
+      inputPassword: ['', Validators.required],
+    });
   }
 
-  log(): void{
+  ngOnInit(): void {}
+
+  log(): void {
     const user: login = {
       UserEmail: this.login.value.inputUser,
-      UserPassword: this.login.value.inputPassword
-    }
-    this.loading = true;
-    this.loginService.login(user).subscribe(data =>{
-      console.log(data);
-      this.loading = false;
-      this.loginService.setLocalStorage(data.inputUser)
-      this.router.navigate(['/dashboard']);
-    }, error =>{
-      this.toastr.error('Usuario o contraseña invalidos' , 'Error');
-      this.login.reset();
-      this.loading = false;
-      console.log('Error: ', error)
-    })
+      UserPassword: this.login.value.inputPassword,
+    };
+    // this.loading = true;
+    //   this.loginService.login(user).subscribe(data =>{
+    //     console.log(data);
+    //     this.loading = false;
+    //     this.loginService.setLocalStorage(data.inputUser)
+    //     this.router.navigate(['/dashboard']);
+    //   }, error =>{
+    //     this.toastr.error('Usuario o contraseña invalidos' , 'Error');
+    //     this.login.reset();
+    //     this.loading = false;
+    //     console.log('Error: ', error)
+    //   })
+    //
   }
 }
